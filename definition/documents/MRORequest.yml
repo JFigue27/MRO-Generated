@@ -1,6 +1,11 @@
 name: MRORequest
-fields: {}
+fields:
+  Is New Tool: checkbox
+  Is Replacement Tool: checkbox
+  Is Charge Tool: checkbox
+  Notes: textarea
 relationships:
   oneToParent: []
-  oneToMany: []
+  oneToMany:
+    - MRORequestLine
   manyToOne: []

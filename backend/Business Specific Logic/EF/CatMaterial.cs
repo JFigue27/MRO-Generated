@@ -22,6 +22,11 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return CatMaterialKey; } set { CatMaterialKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public string Value { get; set; }
+        public string MaterialDescription { get; set; }
+        public string MaterialRevision { get; set; }
+        public decimal? Min { get; set; }
+        public decimal? Max { get; set; }
         ///End:Generated:Properties<<<
     }
 }

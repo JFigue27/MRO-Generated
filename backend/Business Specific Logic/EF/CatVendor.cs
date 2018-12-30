@@ -22,6 +22,8 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return CatVendorKey; } set { CatVendorKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public string Value { get; set; }
+        public string VendorNumber { get; set; }
         ///End:Generated:Properties<<<
     }
 }

@@ -22,6 +22,7 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return CatGeoLocationKey; } set { CatGeoLocationKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public string Value { get; set; }
         ///End:Generated:Properties<<<
     }
 }

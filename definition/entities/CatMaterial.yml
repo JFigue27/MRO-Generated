@@ -1,5 +1,10 @@
 name: CatMaterial
-fields: {}
+fields:
+  Value: string
+  Material Description: textarea
+  Material Revision: string
+  Min: float?
+  Max: float?
 relationships:
   oneToParent: []
   oneToMany: []

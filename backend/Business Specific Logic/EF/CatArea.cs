@@ -22,6 +22,7 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return CatAreaKey; } set { CatAreaKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public string Value { get; set; }
         ///End:Generated:Properties<<<
     }
 }

@@ -22,6 +22,12 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return InventoryInputDocKey; } set { InventoryInputDocKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public string SheetNumber { get; set; }
+        public string DocumentType { get; set; }
+        public List<InventoryInput> InventoryInputs { get; set; }
+        public int? CatVendorKey { get; set; }
+        [ForeignKey("CatVendorKey")]
+        public CatVendor CatVendor { get; set; }
         ///End:Generated:Properties<<<
     }
 }

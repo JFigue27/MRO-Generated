@@ -86,15 +86,15 @@
     <Compile Include="Logic\ApprovalLogic.cs" />
     <Compile Include="Logic\TaskLogic.cs" />
     <!-- Start:Generated:EF -->
-    <Compile Include="EF\MRORequest.cs" />
     <Compile Include="EF\InventoryInputDoc.cs" />
-    <Compile Include="EF\MRORequestLine.cs" />
-    <Compile Include="EF\InventoryOutput.cs" />
-    <Compile Include="EF\InventoryInput.cs" />
-    <Compile Include="EF\CatVendor.cs" />
-    <Compile Include="EF\CatMaterial.cs" />
-    <Compile Include="EF\CatGeoLocation.cs" />
+    <Compile Include="EF\MRORequest.cs" />
     <Compile Include="EF\CatArea.cs" />
+    <Compile Include="EF\CatGeoLocation.cs" />
+    <Compile Include="EF\CatMaterial.cs" />
+    <Compile Include="EF\CatVendor.cs" />
+    <Compile Include="EF\InventoryInput.cs" />
+    <Compile Include="EF\InventoryOutput.cs" />
+    <Compile Include="EF\MRORequestLine.cs" />
     <!-- End:Generated:EF -->
     <Compile Include="Logic\TokenLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
@@ -105,15 +105,15 @@
     <Compile Include="Logic\RoleLogic.cs" />
     <Compile Include="Logic\ApplicationLogic.cs" />
     <!-- Start:Generated:Logic -->
-    <Compile Include="Logic\MRORequestLogic.cs" />
     <Compile Include="Logic\InventoryInputDocLogic.cs" />
-    <Compile Include="Logic\MRORequestLineLogic.cs" />
-    <Compile Include="Logic\InventoryOutputLogic.cs" />
-    <Compile Include="Logic\InventoryInputLogic.cs" />
-    <Compile Include="Logic\CatVendorLogic.cs" />
-    <Compile Include="Logic\CatMaterialLogic.cs" />
-    <Compile Include="Logic\CatGeoLocationLogic.cs" />
+    <Compile Include="Logic\MRORequestLogic.cs" />
     <Compile Include="Logic\CatAreaLogic.cs" />
+    <Compile Include="Logic\CatGeoLocationLogic.cs" />
+    <Compile Include="Logic\CatMaterialLogic.cs" />
+    <Compile Include="Logic\CatVendorLogic.cs" />
+    <Compile Include="Logic\InventoryInputLogic.cs" />
+    <Compile Include="Logic\InventoryOutputLogic.cs" />
+    <Compile Include="Logic\MRORequestLineLogic.cs" />
     <!-- End:Generated:Logic -->
     <Compile Include="MainContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

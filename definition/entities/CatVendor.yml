@@ -1,5 +1,7 @@
 name: CatVendor
-fields: {}
+fields:
+  Value: string
+  Vendor Number: string
 relationships:
   oneToParent: []
   oneToMany: []

@@ -29,7 +29,27 @@ namespace BusinessSpecificLogic.Logic
         {
             if (mode == OPERATION_MODE.UPDATE)
             {
-                
+                if (entity.MRORequestLines != null)
+          {
+              foreach (var item in entity.MRORequestLines)
+              {
+                  item.MRORequestKey = entity.id;
+                  if (item.EF_State == BaseEntity.EF_EntityState.Added)
+                  {
+                      context.Entry(item).State = EntityState.Added;
+                  }
+                  else if (item.EF_State == BaseEntity.EF_EntityState.Modified)
+                  {
+                      context.Entry(item).State = EntityState.Modified;
+                  }
+                  else if (item.EF_State == BaseEntity.EF_EntityState.Deleted)
+                  {
+                      context.Entry(item).State = EntityState.Deleted;
+                  }
+              }
+          }
+
+context.SaveChanges();
             }
         }
     }

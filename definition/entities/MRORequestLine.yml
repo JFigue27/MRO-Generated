@@ -1,6 +1,12 @@
 name: MRORequestLine
-fields: {}
+fields:
+  Quantity: decimal
+  Balance: decimal
+  Status: string
+  Cost: decimal
 relationships:
-  oneToParent: []
+  oneToParent:
+    - MRORequest
   oneToMany: []
-  manyToOne: []
+  manyToOne:
+    - CatMaterial

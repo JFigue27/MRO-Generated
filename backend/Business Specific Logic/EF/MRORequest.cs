@@ -22,6 +22,11 @@ namespace BusinessSpecificLogic.EF
         public override int id { get { return MRORequestKey; } set { MRORequestKey = value; } }
 
         ///Start:Generated:Properties<<<
+        public bool IsNewTool { get; set; }
+        public bool IsReplacementTool { get; set; }
+        public bool IsChargeTool { get; set; }
+        public string Notes { get; set; }
+        public List<MRORequestLine> MRORequestLines { get; set; }
         ///End:Generated:Properties<<<
     }
 }
