@@ -1,5 +1,15 @@
 name: materials
-type: list
+type: table
 entity: CatMaterial
+paginate: true
 layout:
-  - title: 'This is the [materials] component.'
+  - container:
+      - display: Materials
+      - pagination
+      - table:
+          columns:
+            - Material Number
+            - Material Description:
+                width: 30%
+            - Min as Minimum
+            - Max as Maximum

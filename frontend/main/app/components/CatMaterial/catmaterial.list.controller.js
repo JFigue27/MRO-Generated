@@ -12,9 +12,18 @@ angular.module('main').controller('CatMaterialListController', function($scope, 
         scope: $scope,
         entityName: 'CatMaterial',
         baseService: CatMaterialService,
-        afterCreate: function(oInstance, oEvent) {},
-        afterLoad: function() {},
-        afterSave: function(oEntity) {},
+        afterCreate: function(oInstance, oEvent) {
+            $scope.baseEntity = oInstance;
+            $('input, md-checkbox')
+                .first()
+                .focus();
+        },
+        afterLoad: function() {
+            listCtrl.setRotationFocus();
+        },
+        afterSave: function(oEntity) {
+            refresh();
+        },
         onOpenItem: function(oEntity, oEvent) {},
         filters: []
     });
@@ -25,6 +34,8 @@ angular.module('main').controller('CatMaterialListController', function($scope, 
 
     function refresh() {
         listCtrl.load();
+
+        $scope.create();
     }
 
     $scope.$on('on_login', function() {

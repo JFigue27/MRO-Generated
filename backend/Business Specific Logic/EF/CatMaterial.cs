@@ -27,6 +27,7 @@ namespace BusinessSpecificLogic.EF
         public string MaterialRevision { get; set; }
         public decimal? Min { get; set; }
         public decimal? Max { get; set; }
+        public string MaterialNumber { get; set; }
         ///End:Generated:Properties<<<
     }
 }

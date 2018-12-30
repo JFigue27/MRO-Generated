@@ -5,6 +5,7 @@ fields:
   Material Revision: string
   Min: float?
   Max: float?
+  Material Number: string
 relationships:
   oneToParent: []
   oneToMany: []
