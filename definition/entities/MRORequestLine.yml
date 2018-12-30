@@ -1,0 +1,6 @@
+name: MRORequestLine
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

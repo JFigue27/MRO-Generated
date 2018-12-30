@@ -113,6 +113,15 @@ namespace ReusableWebAPI.App_Start
 
 
             ///Start:Generated:DI<<<
+            kernel.Bind<IMRORequestLogic>().To<MRORequestLogic>();
+            kernel.Bind<IInventoryInputDocLogic>().To<InventoryInputDocLogic>();
+            kernel.Bind<IMRORequestLineLogic>().To<MRORequestLineLogic>();
+            kernel.Bind<IInventoryOutputLogic>().To<InventoryOutputLogic>();
+            kernel.Bind<IInventoryInputLogic>().To<InventoryInputLogic>();
+            kernel.Bind<ICatVendorLogic>().To<CatVendorLogic>();
+            kernel.Bind<ICatMaterialLogic>().To<CatMaterialLogic>();
+            kernel.Bind<ICatGeoLocationLogic>().To<CatGeoLocationLogic>();
+            kernel.Bind<ICatAreaLogic>().To<CatAreaLogic>();
             ///End:Generated:DI<<<
             #endregion
 

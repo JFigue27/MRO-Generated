@@ -1,0 +1,6 @@
+name: CatMaterial
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

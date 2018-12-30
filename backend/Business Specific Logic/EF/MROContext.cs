@@ -19,6 +19,15 @@ namespace BusinessSpecificLogic.EF
         }
 
         ///Start:Generated:DbSet<<<
+        public virtual DbSet<MRORequest> MRORequests { get; set; }
+        public virtual DbSet<InventoryInputDoc> InventoryInputDocs { get; set; }
+        public virtual DbSet<MRORequestLine> MRORequestLines { get; set; }
+        public virtual DbSet<InventoryOutput> InventoryOutputs { get; set; }
+        public virtual DbSet<InventoryInput> InventoryInputs { get; set; }
+        public virtual DbSet<CatVendor> CatVendors { get; set; }
+        public virtual DbSet<CatMaterial> CatMaterials { get; set; }
+        public virtual DbSet<CatGeoLocation> CatGeoLocations { get; set; }
+        public virtual DbSet<CatArea> CatAreas { get; set; }
         ///End:Generated:DbSet<<<
 
         #region From Reusable Modules

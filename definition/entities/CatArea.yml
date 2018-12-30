@@ -1,0 +1,6 @@
+name: CatArea
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

@@ -1,0 +1,6 @@
+name: InventoryInput
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

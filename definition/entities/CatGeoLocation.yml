@@ -1,0 +1,6 @@
+name: CatGeoLocation
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

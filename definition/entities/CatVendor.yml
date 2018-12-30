@@ -1,0 +1,6 @@
+name: CatVendor
+fields: {}
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

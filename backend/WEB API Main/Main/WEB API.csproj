@@ -218,6 +218,15 @@
     <Compile Include="Controllers\RoleController.cs" />
     <Compile Include="Controllers\ApplicationController.cs" />
     <!-- Start:Generated:Controller -->
+    <Compile Include="Controllers\MRORequestController.cs" />
+    <Compile Include="Controllers\InventoryInputDocController.cs" />
+    <Compile Include="Controllers\MRORequestLineController.cs" />
+    <Compile Include="Controllers\InventoryOutputController.cs" />
+    <Compile Include="Controllers\InventoryInputController.cs" />
+    <Compile Include="Controllers\CatVendorController.cs" />
+    <Compile Include="Controllers\CatMaterialController.cs" />
+    <Compile Include="Controllers\CatGeoLocationController.cs" />
+    <Compile Include="Controllers\CatAreaController.cs" />
     <!-- End:Generated:Controller -->
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
