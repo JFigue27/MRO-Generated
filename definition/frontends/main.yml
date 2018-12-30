@@ -1,3 +1,9 @@
 appName: main
-routes: {}
+routes:
+  materials: materials
+  inventory-input-docs: inputDocs
+  inventory: inventory
+  mro-request: mroRequest
+  vendors: vendors
+  locations: locations
 components: []

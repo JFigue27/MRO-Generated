@@ -83,6 +83,36 @@ angular
                 controller: 'UsersController',
                 controllerAs: 'route_Users'
             })
+            .when('/materials', {
+                templateUrl: 'routes/Materials/materials-route.html',
+                controller: 'MaterialsController',
+                controllerAs: 'route_Materials'
+            })
+            .when('/inventory-input-docs', {
+                templateUrl: 'routes/InventoryInputDocs/inventory-input-docs-route.html',
+                controller: 'InventoryInputDocsController',
+                controllerAs: 'route_InventoryInputDocs'
+            })
+            .when('/inventory', {
+                templateUrl: 'routes/Inventory/inventory-route.html',
+                controller: 'InventoryController',
+                controllerAs: 'route_Inventory'
+            })
+            .when('/mro-request', {
+                templateUrl: 'routes/MroRequest/mro-request-route.html',
+                controller: 'MroRequestController',
+                controllerAs: 'route_MroRequest'
+            })
+            .when('/vendors', {
+                templateUrl: 'routes/Vendors/vendors-route.html',
+                controller: 'VendorsController',
+                controllerAs: 'route_Vendors'
+            })
+            .when('/locations', {
+                templateUrl: 'routes/Locations/locations-route.html',
+                controller: 'LocationsController',
+                controllerAs: 'route_Locations'
+            })
             .otherwise({ redirectTo: '/' });
         ///end:generated:routes<<<
 

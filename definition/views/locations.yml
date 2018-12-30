@@ -1,0 +1,5 @@
+name: locations
+type: list
+entity: CatGeoLocation
+layout:
+  - title: 'This is the [locations] component.'

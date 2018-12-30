@@ -1,0 +1,5 @@
+name: inputDocs
+type: list
+entity: InventoryInputDoc
+layout:
+  - title: 'This is the [inputDocs] component.'

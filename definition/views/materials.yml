@@ -1,0 +1,5 @@
+name: materials
+type: list
+entity: CatMaterial
+layout:
+  - title: 'This is the [materials] component.'

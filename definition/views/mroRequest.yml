@@ -1,0 +1,5 @@
+name: mroRequest
+type: list
+entity: MRORequest
+layout:
+  - title: 'This is the [mroRequest] component.'
