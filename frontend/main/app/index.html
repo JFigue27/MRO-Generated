@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html ng-app="main" ng-controller="MainController">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="description" content="" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Main</title>
+    <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+    <link rel="stylesheet" type="text/css" href="fonts/iconfont/material-icons.css" />
+    <!-- Place favicon.ico in the root directory -->
+    <!-- build:css styles/vendor.css -->
+    <!-- bower:css -->
+    <link rel="stylesheet" href="/bower_components/ngActivityIndicator/css/ngActivityIndicator.css" />
+    <link rel="stylesheet" href="/bower_components/selectize/dist/css/selectize.css" />
+    <link rel="stylesheet" href="/bower_components/angular-material/angular-material.css" />
+    <link rel="stylesheet" href="/bower_components/pikaday/css/pikaday.css" />
+    <link rel="stylesheet" href="/bower_components/handsontable/dist/handsontable.css" />
+    <link rel="stylesheet" href="/bower_components/alertify-js/build/css/alertify.min.css" />
+    <link rel="stylesheet" href="/bower_components/alertify-js/build/css/themes/default.min.css" />
+    <link rel="stylesheet" href="/bower_components/ngWig/dist/css/ng-wig.css" />
+    <link rel="stylesheet" href="/bower_components/angularjs-dragula/dist/dragula.css" />
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:css styles/main.css -->
+    <link rel="stylesheet" href="styles/main.css" />
+    <!-- endbuild -->
+  </head>
+
+  <body>
+    <!--[if IE]>
+      <p class="browserupgrade">
+        You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> to improve
+        your experience.
+      </p>
+    <![endif]-->
+    <!-- <ul class="nav navbar-nav navbar-right" ng-if="true">
+                        <li class="dropdown">
+                            <a href="" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">{{theme.name}} <span class="caret"></span></a>
+                            <ul class="dropdown-menu">
+                                <li ng-repeat="aTheme in bootstraps"><a href="" ng-click="setTheme($index)">{{aTheme.name}}</a></li>
+                            </ul>
+                        </li>
+                    </ul> -->
+    <md-toolbar class="MainToolbar">
+      <div class="md-toolbar-tools">
+        <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleMainSideNav()"> <md-icon>menu</md-icon> </md-button>
+        <h2 flex md-truncate>Main</h2>
+        <md-nav-bar md-selected-nav-item="home" nav-bar-aria-label="navigation links" hide-xs>
+          <md-nav-item md-nav-href="#!/" name="home" aria-label="Home">
+            <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i> Home
+          </md-nav-item>
+        </md-nav-bar>
+        <md-menu md-position-mode="target-right target" md-offset="80 40" hide-xs>
+          <md-button aria-label="Open User Menu" ng-click="$mdMenu.open($event)">
+            <md-icon md-menu-origin
+              ><i class="fa fa-book" aria-hidden="true" style="font-size: 20px;top: -6px;position: relative;"></i
+            ></md-icon>
+            <span>Catalogs</span>
+          </md-button>
+          <md-menu-content width="3">
+            <!-- <md-menu-item>
+                        <md-button ng-href="#!/customers">
+                            <div layout="row" flex>
+                                <span flex></span>
+                                <p>Customers</p>
+                            </div>
+                        </md-button>
+                    </md-menu-item> -->
+          </md-menu-content>
+        </md-menu>
+        <md-button ng-if="!getCurrentUser()" ng-click="logIn()">Sign In</md-button>
+        <md-menu md-position-mode="target-right target" md-offset="300 40" ng-if="getCurrentUser()">
+          <md-button aria-label="Open User Menu" ng-click="$mdMenu.open($event)">
+            <md-icon md-menu-origin>person</md-icon>
+            <span>{{getCurrentUser().Value}}</span>
+          </md-button>
+          <md-menu-content width="3">
+            <md-menu-item>
+              <md-button ng-href="#!/profile">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Profile</p>
+                </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-click="logOut()">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Sign Out</p>
+                </div>
+              </md-button>
+            </md-menu-item>
+          </md-menu-content>
+        </md-menu>
+      </div>
+    </md-toolbar>
+    <section layout="row" id="mainSection" style="height: 100%;">
+      <md-sidenav md-component-id="main-sidenav" md-whiteframe="4" class="MainSideNav">
+        <md-toolbar class="MainToolbar">
+          <div class="md-toolbar-tools">
+            <h1 flex>Main</h1>
+            <md-button class="md-icon-button" aria-label="Settings" ng-click="toggleMainSideNav()"> <md-icon>menu</md-icon> </md-button>
+          </div>
+        </md-toolbar>
+        <md-content layout-margin>
+          <md-list>
+            <md-list-item ng-href="#!/home" ng-click="toggleMainSideNav()">
+              <md-icon><i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i></md-icon>
+              <p>Home</p>
+            </md-list-item>
+            <md-list-item>
+              <md-icon md-menu-origin
+                ><i class="fa fa-book" aria-hidden="true" style="font-size: 20px;top: -6px;position: relative;"></i
+              ></md-icon>
+              <p>Catalogs</p>
+              <!-- <md-menu class="md-secondary" md-offset="0 40">
+                            <md-button class="md-icon-button">
+                            </md-button>
+                            <md-menu-content width="3">
+                                <md-menu-item>
+                                    <md-button ng-href="#!/customers" ng-click="toggleMainSideNav()"> Customers
+                                    </md-button>
+                                </md-menu-item>
+                            </md-menu-content>
+                        </md-menu> -->
+            </md-list-item>
+            <md-list-item ng-click="toggleMainSideNav();logIn();" ng-if="!getCurrentUser()">
+              <md-icon>account_circle </md-icon>
+              <p>Sign In</p>
+            </md-list-item>
+            <md-list-item ng-if="getCurrentUser()">
+              <md-icon md-menu-origin
+                ><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 20px;top: -6px;position: relative;"></i
+              ></md-icon>
+              <p>{{getCurrentUser().Value}}</p>
+              <md-menu class="md-secondary" md-offset="0 40">
+                <md-button class="md-icon-button"> </md-button>
+                <md-menu-content width="3">
+                  <md-menu-item> <md-button ng-href="#!/profile" ng-click="toggleMainSideNav()"> Profile </md-button> </md-menu-item>
+                  <md-menu-item> <md-button ng-click="logOut()"> Sign Out </md-button> </md-menu-item>
+                </md-menu-content>
+              </md-menu>
+            </md-list-item>
+          </md-list>
+        </md-content>
+      </md-sidenav>
+      <!-- <md-sidenav md-component-id="tasks-sidenav" md-whiteframe="4" class="MiniSideNav" md-is-open="IsMiniSideNavLockedUpen" style="overflow-y: scroll;">
+            <md-toolbar class="md-accent md-hue-1">
+                <div class="md-toolbar-tools" style="padding-right: 8px;">
+                    <h1 flex class="md-title">Tasks</h1>
+                    <md-button class="md-icon-button" ng-click="toggleIsMiniSideNavLockedUpen()">
+                        <md-icon>assignment</md-icon>
+                    </md-button>
+                </div>
+            </md-toolbar>
+            <md-content style="padding-bottom: 70px;overflow: hidden;">
+                <task-list flex layout="column" layout-align="start start" ng-if="IsMiniSideNavLockedUpen"></task-list>
+            </md-content>
+        </md-sidenav> -->
+      <md-content flex class="MainContent"> <div ng-view=""></div> </md-content>
+      <!-- <md-sidenav class="md-sidenav-right" md-component-id="processDiagram" md-is-locked-open="processDiagramIsOpen" md-whiteframe="4" style="width: 375px;z-index: 0;overflow: hidden;">
+            <md-toolbar class="md-hue-1">
+                <div class="md-toolbar-tools">
+                    <md-button class="md-icon-button" ng-click="toggleProcessDiagram()">
+                        <md-icon>menu</md-icon>
+                    </md-button>
+                    <h1 class="md-toolbar-tools">Process Steps</h1>
+                </div>
+            </md-toolbar>
+            <cqa-diagram></cqa-diagram>
+        </md-sidenav> -->
+    </section>
+    <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->
+    <!-- <script>
+    (function(b, o, i, l, e, r) {
+        b.GoogleAnalyticsObject = l;
+        b[l] || (b[l] =
+            function() {
+                (b[l].q = b[l].q || []).push(arguments)
+            });
+        b[l].l = +new Date;
+        e = o.createElement(i);
+        r = o.getElementsByTagName(i)[0];
+        e.src = 'https://www.google-analytics.com/analytics.js';
+        r.parentNode.insertBefore(e, r)
+    }(window, document, 'script', 'ga'));
+    ga('create', 'UA-XXXXX-X');
+    ga('send', 'pageview');
+    </script> -->
+    <!-- build:js scripts/oidc-client.js -->
+    <script src="/bower_components/oidc-client/dist/oidc-client.min.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/vendor.js -->
+    <!-- bower:js -->
+    <script src="/bower_components/jquery/dist/jquery.js"></script>
+    <script src="/bower_components/angular/angular.js"></script>
+    <script src="/bower_components/angular-animate/angular-animate.js"></script>
+    <script src="/bower_components/angular-route/angular-route.js"></script>
+    <script src="/bower_components/angular-sanitize/angular-sanitize.js"></script>
+    <script src="/bower_components/angular-touch/angular-touch.js"></script>
+    <script src="/bower_components/moment/moment.js"></script>
+    <script src="/bower_components/angular-local-storage/dist/angular-local-storage.js"></script>
+    <script src="/bower_components/ngActivityIndicator/ngActivityIndicator.js"></script>
+    <script src="/bower_components/angularUtils-pagination/dirPagination.js"></script>
+    <script src="/bower_components/microplugin/src/microplugin.js"></script>
+    <script src="/bower_components/sifter/sifter.js"></script>
+    <script src="/bower_components/selectize/dist/js/selectize.js"></script>
+    <script src="/bower_components/angular-file-upload/dist/angular-file-upload.min.js"></script>
+    <script src="/bower_components/angular-aria/angular-aria.js"></script>
+    <script src="/bower_components/angular-messages/angular-messages.js"></script>
+    <script src="/bower_components/angular-material/angular-material.js"></script>
+    <script src="/bower_components/pikaday/pikaday.js"></script>
+    <script src="/bower_components/handsontable/dist/handsontable.js"></script>
+    <script src="/bower_components/alertify-js/build/alertify.min.js"></script>
+    <script src="/bower_components/ngWig/dist/ng-wig.js"></script>
+    <script src="/bower_components/lodash/lodash.js"></script>
+    <script src="/bower_components/angularjs-dragula/dist/angularjs-dragula.js"></script>
+    <!-- endbower -->
+    <!-- endbuild -->
+    <!-- build:js scripts/plugins.js -->
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/dropdown.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/modal.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/transition.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/button.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/carousel.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/scrollspy.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/collapse.js"></script>
+    <script src="/bower_components/bootstrap-sass/assets/javascripts/bootstrap/tab.js"></script>
+    <!-- endbuild -->
+    <!-- build:js scripts/main.js -->
+    <script src="scripts/vendor/alertify-defaults.js"></script>
+    <script src="scripts/app.js"></script>
+    <script src="scripts/services/crud-factory.js"></script>
+    <script src="scripts/services/crud-services.js"></script>
+    <script src="scripts/services/form-controller.js"></script>
+    <script src="scripts/services/list-controller.js"></script>
+    <script src="scripts/services/relationator.js"></script>
+    <script src="scripts/services/app-config.js"></script>
+    <script src="scripts/services/oidc-service.js"></script>
+    <script src="scripts/services/qserial-decorator.js"></script>
+    <script src="scripts/directives/ng-selectize.js"></script>
+    <script src="scripts/directives/attachments-box.js"></script>
+    <script src="scripts/directives/modal.js"></script>
+    <script src="scripts/directives/hide-when-loading.js"></script>
+    <script src="scripts/directives/ng-enter.js"></script>
+    <script src="scripts/directives/destinataries.js"></script>
+    <script src="scripts/directives/g-chips.js"></script>
+    <script src="scripts/directives/autocomplete.js"></script>
+    <script src="components/User/user.form.controller.js "></script>
+    <script src="components/User/user.list.controller.js "></script>
+    <script src="components/User/user.form.component.js "></script>
+    <script src="components/User/user.list.component.js "></script>
+    <script src="components/Responsible/responsible.service.js"></script>
+    <script src="components/Responsible/responsible.component.js"></script>
+    <script src="components/Responsible/responsible.list.component.js"></script>
+    <script src="components/Approval/approval.service.js"></script>
+    <script src="components/Approval/approval.form.controller.js"></script>
+    <script src="components/Approval/approval.list.controller.js"></script>
+    <script src="components/Approval/approval.form.component.js"></script>
+    <script src="components/Approval/approval.list.component.js"></script>
+    <script src="components/Task/task.service.js"></script>
+    <script src="components/Task/task.form.controller.js"></script>
+    <script src="components/Task/task.list.controller.js"></script>
+    <script src="components/Task/task.form.component.js"></script>
+    <script src="components/Task/task.list.component.js"></script>
+    <script src="components/Task/task.list.filters.js"></script>
+    <script src="components/AdvancedSort/advanced.sort.service.js"></script>
+    <!-- start:generated:components -->
+    <!-- end:generated:components -->
+    <!-- start:generated:routes -->
+    <script src="routes/Main/main-route.js"></script>
+    <script src="routes/Login/login-route.js"></script>
+    <script src="routes/About/about-route.js"></script>
+    <script src="routes/Profile/profile-route.js"></script>
+    <script src="routes/Users/users-route.js"></script>
+    <!-- end:generated:routes -->
+    <!-- endbuild -->
+  </body>
+</html>

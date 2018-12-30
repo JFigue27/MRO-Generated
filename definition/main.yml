@@ -1,0 +1,10 @@
+projectName: MRO
+description: ''
+backend:
+  appName: MRO
+frontends: []
+roles: []
+documents: []
+entities: []
+sublogics: {}
+views: []

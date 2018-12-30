@@ -1,0 +1,17 @@
+<md-autocomplete
+  md-floating-label="{{caption}}"
+  md-selected-item="ownerEntity[property]"
+  md-search-text="theSearch"
+  md-items="item in querySource(theSearch)"
+  md-item-text="item[valueProperty]"
+  md-min-length="0"
+  placeholder="{{caption}}"
+  md-selected-item-change="ownerEntity[propertyKey] = ownerEntity[property].id"
+  md-require-match="true"
+  md-no-cache="true"
+  md-autoselect="true"
+  md-clear-button="true"
+>
+  <md-item-template> <span md-highlight-text="theSearch" md-highlight-flags="^i">{{item[valueProperty]}}</span> </md-item-template>
+  <md-not-found> Not Found <a ng-click="newEntry(theSearch)">New {{caption}}</a> </md-not-found>
+</md-autocomplete>

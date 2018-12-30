@@ -1,0 +1,47 @@
+<div class="container-fluid Relationator">
+  <h4 class="md-title" style="margin-bottom: 40px;">{{entityName}}: {{baseEntity.Title}}</h4>
+  <div style="width: 250px;margin-bottom: 20px;">
+    <div layout="row" flex="none" class="SearchBox md-whiteframe-z1" style="margin: auto;margin-top: 20px;margin-bottom: 10px;width:140%;">
+      <input type="search" placeholder="Search" ng-model="search" style="width: 100%;" ng-change="on_search(search)" />
+      <md-button class="md-raised md-accent md-hue-2" ng-click="search = '';on_search('')"> <md-icon>clear</md-icon> </md-button>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col-sm-6">
+      <h4>{{relatedEntityName}}s in {{entityName}}</h4>
+      <input
+        type="button"
+        class="btn btn-link pull-right"
+        style="position:absolute;top:5px;right:0;"
+        value="Sort"
+        ng-click="sortOccuppiedBy('Title');"
+      />
+      <ul class="list-group well" dragula="&quot;entities-bag&quot;" dragula-model="occuppiedEntities">
+        <li
+          id="{{entity.id}}"
+          class="list-group-item ListElementDraggable"
+          ng-repeat="entity in occuppiedEntities | orderBy:propertyNameOccuppied:reverseOccuppied"
+          ng-transclude
+        ></li>
+      </ul>
+    </div>
+    <div class="col-sm-6">
+      <h4>{{relatedEntityName}}s Available</h4>
+      <input
+        type="button"
+        class="btn btn-link pull-right"
+        style="position:absolute;top:5px;right:0;"
+        value="Sort"
+        ng-click="sortAvailableBy('Title');"
+      />
+      <ul class="list-group well" dragula="&quot;entities-bag&quot;" dragula-model="availableEntities">
+        <li
+          id="{{entity.id}}"
+          class="list-group-item ListElementDraggable"
+          ng-repeat="entity in availableEntities | orderBy:propertyNameAvailable:reverseAvailable"
+          ng-transclude
+        ></li>
+      </ul>
+    </div>
+  </div>
+</div>

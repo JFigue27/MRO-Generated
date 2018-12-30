@@ -1,0 +1,128 @@
+<h4 class="md-headline">Tasks - Filtering / Sorting Options</h4>
+<!-- <pre>{{filterData | json}}</pre> -->
+<div layout="column" layout-gt-xs="row" layout-padding>
+  <div layout="column" flex>
+    <h4 class="md-title">Filters</h4>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Status</label>
+      <div layout="row">
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;margin-right:8px;" ng-click="selectAllStatus()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearStatus()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="Status"
+      placeholder="Add Status"
+      display-property="Value"
+      items-source="theStatus"
+      require-match="true"
+    ></g-chips>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Category</label>
+      <div layout="row">
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;margin-right:8px;" ng-click="selectAllCategory()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearCategory()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="Category"
+      placeholder="Add Category"
+      display-property="Value"
+      items-source="theCategories"
+      require-match="true"
+    ></g-chips>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Priority</label>
+      <div layout="row">
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;margin-right:8px;" ng-click="selectAllPriority()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearPriority()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="Priority"
+      placeholder="Add Priority"
+      display-property="Value"
+      items-source="thePrioritys"
+      require-match="true"
+    ></g-chips>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Created By</label>
+      <div layout="row">
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;margin-right:8px;" ng-click="selectAllCreatedBy()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearCreatedBy()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="CreatedBy"
+      placeholder="Add User"
+      display-property="Value"
+      items-source="theUsers"
+      require-match="true"
+    ></g-chips>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Assigned To</label>
+      <div layout="row">
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;margin-right:8px;" ng-click="selectAllAssignedTo()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearAssignedTo()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="AssignedTo"
+      placeholder="Add User"
+      display-property="Value"
+      items-source="theUsers"
+      require-match="true"
+    ></g-chips>
+    <br />
+    <div layout="row" layout-align="space-between center">
+      <label>Completed By</label>
+      <div layout="row">
+        <md-button
+          class="md-raised btn-small md-accent md-hue-3"
+          style="max-width: 50px;margin-right:8px;"
+          ng-click="selectAllCompletedBy()"
+          >Select All</md-button
+        >
+        <md-button class="md-raised btn-small md-accent md-hue-3" style="max-width: 50px;" ng-click="clearCompletedBy()">Clear</md-button>
+      </div>
+    </div>
+    <g-chips
+      owner-entity="filterData"
+      property="CompletedBy"
+      placeholder="Add User"
+      display-property="Value"
+      items-source="theUsers"
+      require-match="true"
+    ></g-chips>
+  </div>
+  <div layout="column" flex style="max-width: 375px;">
+    <h4 class="md-title">Sort</h4>
+    <br />
+    <md-list dragula="'sort-tasks-bag'" dragula-model="sortData" class="md-whiteframe-1dp" style="padding: 0;">
+      <md-list-item ng-repeat="item in sortData" ng-click="item.AscDesc = item.AscDesc == 'ASC' ? 'DESC' : 'ASC'">
+        {{item.Sequence}} - {{item.Value}} <span class="md-secondary">{{item.AscDesc}}</span>
+        <md-divider></md-divider>
+      </md-list-item>
+    </md-list>
+  </div>
+</div>

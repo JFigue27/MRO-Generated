@@ -1,0 +1,7 @@
+<div layout="column" style="border-bottom: solid 1px rgba(0,0,0,0.12);height: 50px;">
+  <label style="font-size: .8em;color: rgba(0,0,0,0.54)">{{title}}</label>
+  <a href="" ng-click="changeResponsible()" style="margin-top: 7px;">{{baseEntity.Value}} <span ng-if="!baseEntity.Value">No one</span> </a>
+  <modal title="Select new Responsible" modal-id="modal-responsible" ok-label="Select" max-width="400">
+    <modal-body> <responsible-list></responsible-list> </modal-body>
+  </modal>
+</div>

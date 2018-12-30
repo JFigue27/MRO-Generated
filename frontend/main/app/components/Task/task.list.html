@@ -1,0 +1,56 @@
+<!-- <pre>{{baseList[0] | json}}</pre> -->
+<p ng-if="!baseList || baseList.length == 0" class="text-center" ng-show="!isLoading">...Empty...</p>
+<div layout="row" flex="none" class="SearchBox md-whiteframe-z1" style="margin: auto;margin-top: 20px;margin-bottom: 10px;">
+  <input
+    type="search"
+    ng-model-options="{debounce: 700}"
+    placeholder="Search"
+    ng-model="filterOptions.filterGeneral"
+    ng-change="refresh()"
+    style="width: 260px;"
+  />
+  <md-button class="md-raised md-accent md-hue-2" ng-click="filterOptions.filterGeneral = '';refresh();">
+    <md-icon>clear</md-icon>
+  </md-button>
+  <md-button class="md-raised" ng-click="openFilters($event)"> <md-icon>filter_list</md-icon> </md-button>
+</div>
+<div class="text-right" style="min-height: 30px;">
+  <dir-pagination-controls
+    pagination-id="tasks"
+    class="SmallPagination"
+    on-page-change="pageChanged(newPageNumber)"
+  ></dir-pagination-controls>
+</div>
+<md-list ng-show="!isLoading">
+  <md-list-item
+    pagination-id="tasks"
+    dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by item.id"
+    total-items="filterOptions.itemsCount"
+    current-page="filterOptions.page"
+    class="md-3-line"
+    ng-click="openTask(item);"
+  >
+    <div class="md-list-item-text" layout="column" style="max-width: 300px;width: 300px;">
+      <h4 class="md-caption">
+        <span>{{item.itemIndex}}</span> <b ng-style="{color: item.sPriorityColor}">{{item.sPriority}} {{item.Category}}</b
+        ><br />{{item.Title}}
+      </h4>
+      <p md-truncate><b>Due Date:</b> {{item.DateDue | date:'mediumDate'}} <b>By:</b> {{item.UserCreatedBy.Value}}</p>
+      <p ng-bind-html="item.Description" style="max-height: 25px;" md-truncate></p>
+    </div>
+    <!-- <md-icon class="md-secondary">indeterminate_check_box</md-icon> -->
+    <md-icon class="md-secondary" ng-if="item.Status != 2">check_box_outline_blank</md-icon>
+    <md-icon class="md-secondary" ng-if="item.Status == 2">check_box</md-icon>
+  </md-list-item>
+</md-list>
+<modal modal-id="modal-TaskFilters" ok-label="Apply">
+  <modal-body> <task-list-filters></task-list-filters> </modal-body>
+</modal>
+<!-- 
+Task Status
+0 PENDING,
+1 IN_PROGRESS,
+2 COMPLETED,
+3 CANCELLED,
+4 ON_HOLD
+-->

@@ -1,0 +1,28 @@
+<md-chips
+  style="width: 100%;"
+  md-on-add="on_input_change(ownerEntity);"
+  md-on-remove="on_input_change(ownerEntity);"
+  ng-model="ownerEntity[property]"
+  md-autocomplete-snap
+  md-require-match="requireMatch"
+  md-transform-chip="newItem($chip)"
+  md-add-on-blur="true"
+>
+  <md-autocomplete
+    md-selected-item="selectedItem"
+    md-search-text="searchItemText"
+    md-items="oItem in queryItems(searchItemText)"
+    md-item-text="oItem[displayProperty]"
+    placeholder="{{placeholder}}"
+    md-min-length="0"
+    md-no-cache="true"
+  >
+    <span md-highlight-text="searchItemText" style="font-size: .9em;">{{oItem[displayProperty]}}</span>
+  </md-autocomplete>
+  <md-chip-template> <span style="font-size: .8em;">{{$chip[displayProperty]}}</span> </md-chip-template>
+</md-chips>
+<style type="text/css">
+  destinataries .md-chip-input-container {
+    width: 350px;
+  }
+</style>
