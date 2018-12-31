@@ -1,0 +1,10 @@
+name: InventoryInputDoc
+fields:
+  Sheet Number: string
+  Document Type: string
+relationships:
+  oneToParent: []
+  oneToMany:
+    - InventoryInput
+  manyToOne:
+    - CatVendor

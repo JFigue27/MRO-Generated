@@ -1,0 +1,10 @@
+name: material.form
+type: form
+entity: CatMaterial
+layout:
+  - column-container:
+      - field: Value
+      - field: Material Description
+      - field: Material Revision
+      - field: Min
+      - field: Max

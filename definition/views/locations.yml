@@ -1,0 +1,21 @@
+name: locations
+type: list
+entity: CatGeoLocation
+layout:
+  - container:
+      - display: Locations
+      - pagination
+      - table:
+          columns:
+            - Value as Location
+          actions:
+            - button: openItem
+            - button: removeItem
+  - modal:
+      id: modal-Locations
+      title: Locations
+      ok: Save
+      width: 500
+      body:
+        - component: locations.form
+  - component: locations.toolbar

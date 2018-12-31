@@ -1,0 +1,25 @@
+name: materials
+type: table
+entity: CatMaterial
+layout:
+  - container:
+      - display: Materials
+      - pagination
+      - table:
+          columns:
+            - Value as Material Number
+            - Material Description:
+                width: 30%
+            - Min as Minimum
+            - Max as Maximum
+          actions:
+            - button: openItem
+            - button: removeItem
+  - modal:
+      id: modal-Material
+      title: Material
+      ok: Save
+      width: 500
+      body:
+        - component: material.form
+  - component: materials.toolbar

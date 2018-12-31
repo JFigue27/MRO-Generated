@@ -1,0 +1,379 @@
+.NeedsAttention {
+  background-color: #d9534f !important;
+  -webkit-animation: needsAttentionAnimation 0.8s infinite;
+  animation: needsAttentionAnimation 0.8s infinite;
+}
+
+@-webkit-keyframes needsAttentionAnimation {
+  from {
+    background: #d9534f;
+  }
+  to {
+    background: #f2dede;
+  }
+}
+
+@keyframes needsAttentionAnimation {
+  from {
+    background: #d9534f;
+  }
+  to {
+    background: #f2dede;
+  }
+}
+
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  vertical-align: middle;
+  text-align: center;
+}
+
+select {
+  height: 40px;
+  border: none;
+}
+
+.SearchBox {
+  position: relative;
+  margin-right: 5px;
+  input[type='search'] {
+    width: 200px;
+    border: none;
+    text-align: center;
+    padding: 0 15px;
+    height: 40px;
+    color: #303030;
+  }
+  button {
+    margin: 0;
+    width: 40px;
+    min-width: 40px;
+  }
+  .clear-button {
+    background: transparent;
+    position: absolute;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    right: 40px;
+    bottom: 0;
+    z-index: 2;
+    md-icon path {
+      fill: rgb(117, 117, 117);
+    }
+  }
+}
+
+.FilterSelect {
+  background: white;
+  height: 40px;
+  margin: 0 5px;
+  min-width: 200px;
+  padding: 5px;
+  .md-select-value {
+    border: none !important;
+    span {
+      color: #777777;
+      div {
+        color: #303030 !important;
+      }
+    }
+  }
+}
+
+// Material
+.TableEditable {
+  margin-bottom: 0 !important;
+  max-width: 800px;
+  margin: auto;
+  td,
+  th {
+    border: none !important;
+    padding: 3px 5px !important;
+  }
+
+  md-input-container {
+    margin: 0;
+    md-checkbox {
+      margin: 0px;
+      left: 5px;
+    }
+  }
+
+  input:not(button) {
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    background: rgb(245, 245, 245);
+    // border: none;
+  }
+
+  textarea {
+    padding: 0px;
+    margin: 0;
+    width: 100%;
+    background: rgb(245, 245, 245);
+    // border: none;
+    resize: none;
+  }
+
+  md-input-container {
+    width: 100%;
+    padding: 0;
+  }
+
+  md-input-container .md-errors-spacer {
+    display: none;
+  }
+
+  md-select {
+    background: rgb(245, 245, 245);
+  }
+
+  .md-chip-input-container {
+    width: 100%;
+  }
+
+  md-chips-wrap {
+    background: rgb(245, 245, 245);
+  }
+}
+
+.TableEditable .table-bordered {
+  td,
+  th {
+    border: 1px solid #d7d7d7 !important;
+    padding: 3px 5px !important;
+  }
+}
+
+.MainSideNav {
+  z-index: 100;
+}
+
+.MiniSideNav {
+  top: 56px;
+  width: 375px;
+}
+
+.MiniSideNav.md-closed {
+  transform: translate3d(-85%, 0, 0);
+  display: flex;
+}
+
+@media screen and (min-width: 960px) {
+  .MiniSideNav {
+    top: 64px;
+  }
+}
+
+.SmallPagination {
+  display: block;
+  height: 50px;
+  .pagination {
+    ul {
+      margin: 20px 0;
+    }
+    a {
+      font-size: 9px;
+      padding: 4px 8px;
+    }
+  }
+}
+
+.SearchBox {
+  position: relative;
+  margin-right: 5px;
+  input[type='search'] {
+    width: 200px;
+    border: none;
+    text-align: center;
+    padding: 0 15px;
+    height: 40px;
+    color: #303030;
+  }
+  button {
+    margin: 0;
+    width: 40px;
+    min-width: 40px;
+    border-radius: 0;
+  }
+  .clear-button {
+    background: transparent;
+    position: absolute;
+    min-width: 40px;
+    width: 40px;
+    height: 40px;
+    margin: 0;
+    right: 40px;
+    bottom: 0;
+    z-index: 2;
+    md-icon path {
+      fill: rgb(117, 117, 117);
+    }
+  }
+}
+
+.FilterSelect {
+  background: white;
+  height: 40px;
+  margin: 0 5px;
+  min-width: 200px;
+  padding: 5px;
+  .md-select-value {
+    border: none !important;
+    span {
+      color: #777777;
+      div {
+        color: #303030 !important;
+      }
+    }
+  }
+}
+
+.btn-title {
+  min-height: 10px;
+  height: 20px;
+  font-size: 9px;
+  line-height: 0;
+  padding: 0 2px;
+  margin: 1px;
+}
+
+.btn-small {
+  min-height: 10px;
+  height: 20px;
+  font-size: 12px;
+  line-height: 0;
+  padding: 0 2px;
+  margin: 1px;
+}
+
+.HideError {
+  .md-errors-spacer {
+    display: none;
+  }
+  // md-select {
+  //     margin: 10px 0;
+  // }
+  // md-input-container {
+  //     margin: 10px 0;
+  // }
+}
+
+.WigInList[disabled] {
+  .nw-editor {
+    // background: #f5f5f5; // border-top: 1px solid #e0e0e0;
+    padding: 10px;
+    background: transparent;
+    div {
+      vertical-align: middle;
+    }
+  }
+  .nw-toolbar {
+    display: none;
+  }
+  .nw-editor-container {
+    border: 1px solid #e0e0e0;
+    border: none;
+  }
+}
+
+.NoWIGToolbar {
+  .nw-editor {
+    border-top: 1px solid #e0e0e0;
+    #ng-wig-editable {
+      padding: 10px;
+    }
+  }
+  .nw-toolbar {
+    display: none;
+  }
+}
+
+.nw-editor-container {
+  border: none;
+}
+
+.WigInList {
+  .nw-editor {
+    height: 45px;
+    .nw-editor__res {
+      /*// padding-top: 0;
+            // padding-bot*/
+    }
+  }
+  .nw-editor-container {
+    border: 1px solid #e0e0e0;
+  }
+  #ng-wig-editable {
+    word-break: normal;
+    max-width: 200px;
+    width: 100%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+}
+
+.WigInForm {
+  .nw-editor {
+    height: 60px;
+    .nw-editor__res {
+      /*// padding-top: 0;
+            // padding-bot*/
+    }
+  }
+  .nw-editor-container {
+    border: 2px solid #e0e0e0;
+  }
+}
+
+#ng-wig-editable {
+  word-break: normal;
+  padding-top: 5px;
+}
+
+.Sheet {
+  max-width: 960px;
+  margin: auto;
+  padding: 30px;
+
+  .md-errors-spacer {
+    display: none;
+  }
+  md-input-container {
+    margin-top: 10px;
+  }
+
+  md-autocomplete[md-floating-label] .md-show-clear-button button {
+    top: 13px;
+  }
+
+  md-autocomplete md-autocomplete-wrap md-progress-linear.md-inline {
+    bottom: 15px;
+  }
+
+  .md-chip-input-container {
+    margin-top: 8px;
+  }
+
+  md-chips-wrap {
+    padding-bottom: 1px;
+  }
+
+  md-autocomplete-wrap {
+    .md-input {
+      font-size: 14px;
+    }
+  }
+
+  .well {
+    margin-bottom: 0;
+  }
+}

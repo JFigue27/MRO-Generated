@@ -1,0 +1,12 @@
+name: InventoryInput
+fields:
+  Quantity: decimal
+  Notes: textarea
+  Balance: decimal
+relationships:
+  oneToParent:
+    - InventoryInputDoc
+  oneToMany: []
+  manyToOne:
+    - CatMaterial
+    - CatGeoLocation

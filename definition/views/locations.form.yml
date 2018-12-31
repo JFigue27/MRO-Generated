@@ -1,0 +1,6 @@
+name: locations.form
+type: form
+entity: CatGeoLocation
+layout:
+  - column-container:
+      - field: Value

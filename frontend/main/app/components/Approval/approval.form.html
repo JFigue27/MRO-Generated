@@ -1,0 +1,58 @@
+<!-- <pre>{{baseEntity | json}}</pre> -->
+<div layout="column">
+  <div layout="row" layout-align="space-between center">
+    <div layout="column" flex layout-align="start start">
+      <!-- <label class="md-subhead">Requested Date</label> -->
+      <p>{{baseEntity.ConvertedDateRequested | date:'medium'}}</p>
+    </div>
+    <div layout="column" flex class="text-right">
+      <label class="md-subhead">Status</label>
+      <p ng-if="!baseEntity.id">(Not Created)</p>
+      <p ng-class="'Approval_Is_' + baseEntity.Status">
+        {{baseEntity.Status || 'Requested'}}<span ng-if="baseEntity.StatusUpdatedBy"> by {{baseEntity.StatusUpdatedBy.Value}}</span>
+      </p>
+    </div>
+  </div>
+  <br />
+  <div layout="column">
+    <label class="md-subhead">Requested By</label>
+    <p ng-if="!baseEntity.id">(Not Created)</p>
+    <p>{{baseEntity.InfoTrack.User_CreatedBy.Value}}</p>
+  </div>
+  <br />
+  <md-input-container>
+    <label>Request To</label>
+    <destinataries
+      placeholder="Add Approvers"
+      owner-entity="baseEntity"
+      property="Approvers"
+      display-property="Value"
+      email-property="Email"
+      items-source="theApprovers"
+      bypass-transform="true"
+    ></destinataries>
+  </md-input-container>
+  <br />
+  <md-input-container>
+    <label>Request Description / Message</label> <textarea ng-model="baseEntity.RequestDescription" md-autofocus></textarea>
+  </md-input-container>
+  <div layout="column" flex style="margin-top: 20px;" ng-if="baseEntity.InfoTrack.User_CreatedByKey > 0">
+    <label class="md-subhead">Response Description / Message</label>
+    <ng-wig ng-model="baseEntity.ResponseDescription" class="EditorOngoingActivitiesForm" ng-disabled="openedBy() != 'APPROVER'"></ng-wig>
+  </div>
+</div>
+<style type="text/css">
+  .Approval_Is_Approved {
+    color: #008080;
+    font-weight: bold;
+  }
+
+  .Approval_Is_Requested {
+    font-weight: bold;
+  }
+
+  .Approval_Is_Rejected {
+    color: #b22222;
+    font-weight: bold;
+  }
+</style>

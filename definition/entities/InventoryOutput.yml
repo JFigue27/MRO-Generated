@@ -1,0 +1,11 @@
+name: InventoryOutput
+fields:
+  Quantity Delivered: decimal
+  Date Delivered: datetime
+relationships:
+  oneToParent:
+    - MRORequestLine
+    - InventoryInput
+  oneToMany: []
+  manyToOne:
+    - CatGeoLocation
