@@ -2,4 +2,21 @@ name: vendors
 type: list
 entity: CatVendor
 layout:
-  - title: 'This is the [vendors] component.'
+  - container:
+      - display: Vendors
+      - pagination
+      - table:
+          columns:
+            - Value as Vendor
+            - Vendor Number
+          actions:
+            - button: openItem
+            - button: removeItem
+  - modal:
+      id: modal-Vendors
+      title: Vendors
+      ok: Save
+      width: 500
+      body:
+        - component: vendors.form
+  - component: vendors.toolbar

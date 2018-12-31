@@ -1,0 +1,8 @@
+name: vendors.toolbar
+type: custom
+entity: CatVendor
+layout:
+  - toolbar:
+      - space: null
+      - fab: create
+      - space: 80

@@ -1,1 +1,60 @@
-<h4 class="md-title ">This is the [vendors] component.</h4>
+<div class="container" layout="column" style="margin-bottom:100px;">
+  <h2 class="md-display-1 ">Vendors</h2>
+  <dir-pagination-controls class="SmallPagination" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+  <form novalidate ng-submit="onSubmit();">
+    <button type="submit" ng-hide="true"></button>
+    <div class="table-responsive TableEditable" style="max-width: 100%;">
+      <table class="table table-condensed ">
+        <thead>
+          <tr>
+            <th></th>
+            <th>Vendor</th>
+            <th>Vendor Number</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td></td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.Value" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.VendorNumber" />
+              </md-input-container>
+            </td>
+          </tr>
+          <tr>
+            <td colspan="4" style="height: 15px;"></td>
+          </tr>
+          <tr
+            dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
+            total-items="filterOptions.itemsCount"
+            current-page="filterOptions.page"
+            ng-show="!isLoading"
+          >
+            <td>
+              <md-button class="" ng-click="openItem(item, $event);">Open</md-button
+              ><md-button class="" ng-click="removeItem(item, $event);">Remove</md-button>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Value" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.VendorNumber" />
+              </md-input-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>
+<modal modal-id="modal-Vendors" title="Vendors" ok-label="Save" max-width="500">
+  <modal-body> <vendors-form class=""></vendors-form> </modal-body> </modal
+><vendors-toolbar class=""></vendors-toolbar>

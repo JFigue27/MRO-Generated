@@ -1,0 +1,7 @@
+name: vendors.form
+type: form
+entity: CatVendor
+layout:
+  - column-container:
+      - field: Value
+      - field: Vendor Number
