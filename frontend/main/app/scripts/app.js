@@ -113,6 +113,11 @@ angular
                 controller: 'LocationsController',
                 controllerAs: 'route_Locations'
             })
+            .when('/areas', {
+                templateUrl: 'routes/Areas/areas-route.html',
+                controller: 'AreasController',
+                controllerAs: 'route_Areas'
+            })
             .otherwise({ redirectTo: '/' });
         ///end:generated:routes<<<
 

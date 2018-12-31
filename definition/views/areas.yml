@@ -1,0 +1,21 @@
+name: areas
+type: table
+entity: CatArea
+layout:
+  - container:
+      - display: Areas
+      - pagination
+      - table:
+          columns:
+            - Value
+          actions:
+            - button: openItem
+            - button: removeItem
+  - modal:
+      id: modal-Area
+      title: Area
+      ok: Save
+      width: 500
+      body:
+        - component: areas.form
+  - component: areas.toolbar

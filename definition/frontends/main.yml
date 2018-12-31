@@ -6,4 +6,5 @@ routes:
   mro-request: mroRequest
   vendors: vendors
   locations: locations
+  areas: areas
 components: []
