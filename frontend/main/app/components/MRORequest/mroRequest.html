@@ -1,1 +1,35 @@
-<h4 class="md-title ">This is the [mroRequest] component.</h4>
+<div style="height:50px"></div>
+<div class="Sheet md-whiteframe-5dp sheet" layout="column" style="margin-bottom:100px;">
+  <h2 class="md-display-1 ">MRO Request</h2>
+  <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+    <span flex></span>
+    <div class="col-xs-12 col-sm-2" layout="column">
+      <md-input-container flex style="min-width: 150px;">
+        <label>CreatedAt</label>
+        <md-datepicker ng-model="baseEntity.CreatedAt" md-hide-icons="calendar"></md-datepicker>
+      </md-input-container>
+    </div>
+  </div>
+  <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+    <md-input-container>
+      <md-checkbox ng-model="baseEntity.IsNewTool" ng-true-value="true" ng-false-value="false">
+        Is New Tool
+      </md-checkbox> </md-input-container
+    ><md-input-container>
+      <md-checkbox ng-model="baseEntity.IsReplacementTool" ng-true-value="true" ng-false-value="false">
+        Is Replacement Tool
+      </md-checkbox> </md-input-container
+    ><md-input-container>
+      <md-checkbox ng-model="baseEntity.IsChargeTool" ng-true-value="true" ng-false-value="false"> Is Charge Tool </md-checkbox>
+    </md-input-container>
+  </div>
+  <mro-detail class=""></mro-detail>
+  <div layout="column" flex style="margin-top: 20px;">
+    <label>Notes</label>
+    <ng-wig ng-model="baseEntity.Notes" class="WigInForm " ng-disabled="isDisabled"></ng-wig>
+  </div>
+  <p>
+    <br /><br />Me comprometo a hacer uso correcto de los artículos que me han facilitado y en caso de dañar o extraviar sin el debido
+    reporte o evidencia que deslinde mi responsabilidad, pagaré con mis propios bienes.
+  </p>
+</div>

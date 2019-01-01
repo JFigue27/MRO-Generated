@@ -1,0 +1,13 @@
+name: mro.detail
+type: table
+entity: MRORequestLine
+layout:
+  - pagination
+  - table:
+      columns:
+        - Quantity
+        - Balance
+        - Status
+        - Cost
+      actions:
+        - button: removeItem

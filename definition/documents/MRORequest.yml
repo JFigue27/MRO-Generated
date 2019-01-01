@@ -1,9 +1,10 @@
 name: MRORequest
 fields:
-  Is New Tool: checkbox
+  Is New Tool as Herramientas por Primera Vez: checkbox
   Is Replacement Tool: checkbox
   Is Charge Tool: checkbox
   Notes: textarea
+  CreatedAt: datetime?
 relationships:
   oneToParent: []
   oneToMany:

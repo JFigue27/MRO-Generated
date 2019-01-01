@@ -2,4 +2,21 @@ name: mroRequest
 type: list
 entity: MRORequest
 layout:
-  - title: 'This is the [mroRequest] component.'
+  - vspace: 50
+  - sheet:
+      - display: MRO Request
+      - row:
+          - space
+          - 12 2:
+              - field: CreatedAt
+      - row:
+          - field: Is New Tool
+          - field: Is Replacement Tool
+          - field: Is Charge Tool
+      - component: mro.detail
+      - wig: Notes
+      - p: >-
+          <br><br>Me comprometo a hacer uso correcto de los artículos que me han
+          facilitado y en caso de dañar o extraviar sin el debido reporte o
+          evidencia que deslinde mi responsabilidad, pagaré con mis propios
+          bienes.
