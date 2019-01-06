@@ -1,5 +1,5 @@
 name: mroRequest
-type: list
+type: form
 entity: MRORequest
 layout:
   - vspace: 50

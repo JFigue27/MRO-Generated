@@ -19,6 +19,6 @@ layout:
       id: modal-MRO
       title: MRO Request
       ok: Save
-      width: 500
+      width: 1200
       body:
         - component: mroRequest

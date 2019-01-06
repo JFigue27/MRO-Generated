@@ -7,46 +7,72 @@
  * # MRORequestListController
  * Controller of the main
  */
-angular.module('main').controller('MRORequestListController', function($scope, listController, $timeout, MRORequestService, $mdDialog) {
-    var listCtrl = new listController({
-        scope: $scope,
-        entityName: 'MRORequest',
-        baseService: MRORequestService,
-        afterCreate: function(oInstance, oEvent) {},
-        afterLoad: function() {},
-        afterSave: function(oEntity) {},
-        onOpenItem: function(oEntity, oEvent) {},
-        filters: []
-    });
+angular
+    .module('main')
+    .controller('MRORequestListController', function($scope, listController, $timeout, MRORequestService, $mdDialog, $rootScope) {
+        var listCtrl = new listController({
+            scope: $scope,
+            entityName: 'MRORequest',
+            baseService: MRORequestService,
+            afterCreate: function(oInstance, oEvent) {
+                $mdDialog
+                    .show({
+                        contentElement: '#modal-MRO',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose: true,
+                        multiple: true,
+                        fullscreen: true,
+                        targetEvent: oEvent
+                    })
+                    .then(() => {
+                        refresh();
+                    });
 
-    $scope.$on('load_MRORequest', function(scope) {
-        refresh();
-    });
+                $rootScope.$broadcast('load-modal-MRO', oInstance);
+            },
+            afterLoad: function() {
+                listCtrl.setRotationFocus();
+            },
+            afterSave: function(oEntity) {
+                refresh();
+            },
+            onOpenItem: function(oEntity, oEvent) {
+                $mdDialog
+                    .show({
+                        contentElement: '#modal-MRO',
+                        parent: angular.element(document.body),
+                        clickOutsideToClose: true,
+                        multiple: true,
+                        fullscreen: true,
+                        targetEvent: oEvent
+                    })
+                    .then(answer => {
+                        if (answer == 'OK') {
+                            refresh();
+                        }
+                    });
 
-    $scope.$on('load-modal-MRO', function(scope, oEntity) {
-        refresh(oEntity);
-    });
-
-    $scope.$on('ok-modal-MRO', function() {
-        $scope.baseEntity.editMode = true;
-        return ctrl.save().then(function() {
-            $mdDialog.hide('OK');
-            alertify.success('Saved Successfully.');
+                $rootScope.$broadcast('load-modal-MRO', oEntity);
+            },
+            filters: []
         });
+
+        $scope.$on('load_MRORequest', function(scope) {
+            refresh();
+        });
+
+        function refresh() {
+            listCtrl.load();
+        }
+
+        $scope.$on('on_login', function() {
+            refresh();
+        });
+
+        $timeout(function() {
+            refresh();
+            $('input, md-checkbox')
+                .first()
+                .focus();
+        }, 200);
     });
-
-    function refresh() {
-        listCtrl.load();
-    }
-
-    $scope.$on('on_login', function() {
-        refresh();
-    });
-
-    $timeout(function() {
-        refresh();
-        $('input, md-checkbox')
-            .first()
-            .focus();
-    }, 200);
-});

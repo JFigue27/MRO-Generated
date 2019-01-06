@@ -11,6 +11,6 @@ angular.module('main').directive('mroRequest', function() {
         templateUrl: 'components/MRORequest/mroRequest.html',
         restrict: 'E',
         scope: {},
-        controller: 'MRORequestListController'
+        controller: 'MRORequestFormController'
     };
 });
