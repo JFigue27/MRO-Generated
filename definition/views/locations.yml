@@ -7,10 +7,10 @@ layout:
       - pagination
       - table:
           columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
             - Value as Location
-          actions:
-            - button: openItem
-            - button: removeItem
   - modal:
       id: modal-Locations
       title: Locations

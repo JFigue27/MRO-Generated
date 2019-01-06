@@ -7,14 +7,14 @@ layout:
       - pagination
       - table:
           columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
             - Value as Material Number
             - Material Description:
                 width: 30%
             - Min as Minimum
             - Max as Maximum
-          actions:
-            - button: openItem
-            - button: removeItem
   - modal:
       id: modal-Material
       title: Material

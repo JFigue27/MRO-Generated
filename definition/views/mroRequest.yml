@@ -14,7 +14,7 @@ layout:
           - field: Is Replacement Tool
           - field: Is Charge Tool
       - component: mro.detail
-      - wig: Notes
+      - field WigInForm: Notes
       - p: >-
           <br><br>Me comprometo a hacer uso correcto de los artículos que me han
           facilitado y en caso de dañar o extraviar sin el debido reporte o

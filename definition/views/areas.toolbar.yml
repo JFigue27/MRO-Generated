@@ -1,8 +1,0 @@
-name: areas.toolbar
-type: custom
-entity: CatArea
-layout:
-  - toolbar:
-      - space: null
-      - fab: create
-      - space: 80

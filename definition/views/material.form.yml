@@ -2,7 +2,7 @@ name: material.form
 type: form
 entity: CatMaterial
 layout:
-  - column-container:
+  - content:
       - field: Value
       - field: Material Description
       - field: Material Revision

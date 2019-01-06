@@ -5,7 +5,6 @@
     <table class="table table-condensed ">
       <thead>
         <tr>
-          <th></th>
           <th>Quantity</th>
           <th>Balance</th>
           <th>Status</th>
@@ -14,30 +13,7 @@
       </thead>
       <tbody>
         <tr>
-          <td></td>
-          <td>
-            <md-input-container flex>
-              <label></label> <input type="number" style="text-align: right" ng-model="baseEntity.Quantity" />
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container flex>
-              <label></label> <input type="number" style="text-align: right" ng-model="baseEntity.Balance" />
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container flex>
-              <label></label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.Status" />
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container flex>
-              <label></label> <input type="number" style="text-align: right" ng-model="baseEntity.Cost" />
-            </md-input-container>
-          </td>
-        </tr>
-        <tr>
-          <td colspan="6" style="height: 15px;"></td>
+          <td colspan="5" style="height: 15px;"></td>
         </tr>
         <tr
           dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
@@ -45,7 +21,6 @@
           current-page="filterOptions.page"
           ng-show="!isLoading"
         >
-          <td><md-button class="" ng-click="removeItem(item, $event);">Remove</md-button></td>
           <td>
             <md-input-container flex>
               <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Quantity" />

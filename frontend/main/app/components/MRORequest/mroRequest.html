@@ -1,9 +1,9 @@
-<div style="height:50px"></div>
-<div class="Sheet md-whiteframe-5dp sheet" layout="column" style="margin-bottom:100px;">
-  <h2 class="md-display-1 ">MRO Request</h2>
+<div flex style="height:50px;"></div>
+<div class="md-whiteframe-5dp sheet" layout="column" style="margin-bottom:100px;">
+  <h2 class="md-display-1 display">MRO Request</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
-    <span flex></span>
-    <div class="col-xs-12 col-sm-2" layout="column">
+    <span flex style="max-width:nullpx;"></span>
+    <div class="col-xs-12 col-sm-2">
       <md-input-container flex style="min-width: 150px;">
         <label>CreatedAt</label>
         <md-datepicker ng-model="baseEntity.CreatedAt" md-hide-icons="calendar"></md-datepicker>
@@ -26,7 +26,7 @@
   <mro-detail class=""></mro-detail>
   <div layout="column" flex style="margin-top: 20px;">
     <label>Notes</label>
-    <ng-wig ng-model="baseEntity.Notes" class="WigInForm " ng-disabled="isDisabled"></ng-wig>
+    <ng-wig ng-model="baseEntity.Notes" class="WigInForm" ng-disabled="isDisabled"></ng-wig>
   </div>
   <p>
     <br /><br />Me comprometo a hacer uso correcto de los artículos que me han facilitado y en caso de dañar o extraviar sin el debido

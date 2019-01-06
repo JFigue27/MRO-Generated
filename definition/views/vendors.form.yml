@@ -2,6 +2,6 @@ name: vendors.form
 type: form
 entity: CatVendor
 layout:
-  - column-container:
+  - content:
       - field: Value
       - field: Vendor Number

@@ -1,5 +1,5 @@
 <div class="container" layout="column" style="margin-bottom:100px;">
-  <h2 class="md-display-1 ">Vendors</h2>
+  <h2 class="md-display-1 display">Vendors</h2>
   <dir-pagination-controls class="SmallPagination" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
   <form novalidate ng-submit="onSubmit();">
     <button type="submit" ng-hide="true"></button>
@@ -7,27 +7,13 @@
       <table class="table table-condensed ">
         <thead>
           <tr>
-            <th></th>
             <th>Vendor</th>
             <th>Vendor Number</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td></td>
-            <td>
-              <md-input-container flex>
-                <label></label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.Value" />
-              </md-input-container>
-            </td>
-            <td>
-              <md-input-container flex>
-                <label></label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.VendorNumber" />
-              </md-input-container>
-            </td>
-          </tr>
-          <tr>
-            <td colspan="4" style="height: 15px;"></td>
+            <td colspan="3" style="height: 15px;"></td>
           </tr>
           <tr
             dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
@@ -35,10 +21,6 @@
             current-page="filterOptions.page"
             ng-show="!isLoading"
           >
-            <td>
-              <md-button class="" ng-click="openItem(item, $event);">Open</md-button
-              ><md-button class="" ng-click="removeItem(item, $event);">Remove</md-button>
-            </td>
             <td>
               <md-input-container flex>
                 <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Value" />

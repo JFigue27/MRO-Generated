@@ -3,7 +3,7 @@ fields:
   Is New Tool as Herramientas por Primera Vez: checkbox
   Is Replacement Tool: checkbox
   Is Charge Tool: checkbox
-  Notes: textarea
+  Notes: wig
   CreatedAt: datetime?
 relationships:
   oneToParent: []

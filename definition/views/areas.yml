@@ -7,10 +7,14 @@ layout:
       - pagination
       - table:
           columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
             - Value
-          actions:
-            - button: openItem
-            - button: removeItem
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80
   - modal:
       id: modal-Area
       title: Area
@@ -18,4 +22,3 @@ layout:
       width: 500
       body:
         - component: areas.form
-  - component: areas.toolbar

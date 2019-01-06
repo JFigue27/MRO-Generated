@@ -2,5 +2,5 @@ name: areas.form
 type: form
 entity: CatArea
 layout:
-  - column-container:
+  - content:
       - field: Value
