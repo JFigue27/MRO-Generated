@@ -7,4 +7,5 @@ routes:
   vendors: vendors
   locations: locations
   areas: areas
+  mros: mros
 components: []

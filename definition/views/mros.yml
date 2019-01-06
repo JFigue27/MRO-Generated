@@ -1,0 +1,24 @@
+name: mros
+type: table
+entity: MRORequest
+layout:
+  - container:
+      - display: MRO Request List
+      - pagination
+      - table:
+          columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
+            - Value
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80
+  - modal:
+      id: modal-MRO
+      title: MRO Request
+      ok: Save
+      width: 500
+      body:
+        - component: mroRequest

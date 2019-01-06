@@ -118,6 +118,11 @@ angular
                 controller: 'AreasController',
                 controllerAs: 'route_Areas'
             })
+            .when('/mros', {
+                templateUrl: 'routes/Mros/mros-route.html',
+                controller: 'MrosController',
+                controllerAs: 'route_Mros'
+            })
             .otherwise({ redirectTo: '/' });
         ///end:generated:routes<<<
 

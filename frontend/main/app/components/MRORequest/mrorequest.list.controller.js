@@ -7,7 +7,7 @@
  * # MRORequestListController
  * Controller of the main
  */
-angular.module('main').controller('MRORequestListController', function($scope, listController, $timeout, MRORequestService) {
+angular.module('main').controller('MRORequestListController', function($scope, listController, $timeout, MRORequestService, $mdDialog) {
     var listCtrl = new listController({
         scope: $scope,
         entityName: 'MRORequest',
@@ -21,6 +21,18 @@ angular.module('main').controller('MRORequestListController', function($scope, l
 
     $scope.$on('load_MRORequest', function(scope) {
         refresh();
+    });
+
+    $scope.$on('load-modal-MRO', function(scope, oEntity) {
+        refresh(oEntity);
+    });
+
+    $scope.$on('ok-modal-MRO', function() {
+        $scope.baseEntity.editMode = true;
+        return ctrl.save().then(function() {
+            $mdDialog.hide('OK');
+            alertify.success('Saved Successfully.');
+        });
     });
 
     function refresh() {
