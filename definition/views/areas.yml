@@ -11,10 +11,6 @@ layout:
                 - button: openItem
                 - button: removeItem
             - Value
-  - toolbar:
-      - space
-      - button fab: create
-      - space: 80
   - modal:
       id: modal-Area
       title: Area
@@ -22,3 +18,7 @@ layout:
       width: 500
       body:
         - component: areas.form
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80

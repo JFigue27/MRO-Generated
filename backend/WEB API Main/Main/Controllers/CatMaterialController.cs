@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public CatMaterialController(ICatMaterialLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

@@ -1,8 +1,8 @@
 <div flex style="height:50px;"></div>
 <div class="md-whiteframe-5dp sheet" layout="column" style="margin-bottom:100px;">
-  <h2 class="md-display-1 display">MRO Request</h2>
+  <h2 class="md-display-1">MRO Request</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
-    <span flex style="max-width:nullpx;"></span>
+    <span flex></span>
     <div class="col-xs-12 col-sm-2">
       <md-input-container flex style="min-width: 150px;">
         <label>CreatedAt</label>
@@ -12,15 +12,22 @@
   </div>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <md-input-container>
-      <md-checkbox ng-model="baseEntity.IsNewTool" ng-true-value="true" ng-false-value="false">
+      <md-checkbox ng-model="baseEntity.IsNewTool" ng-true-value="'Is New Tool'" ng-false-value="false" ng-disabled="isDisabled">
         Is New Tool
       </md-checkbox> </md-input-container
     ><md-input-container>
-      <md-checkbox ng-model="baseEntity.IsReplacementTool" ng-true-value="true" ng-false-value="false">
+      <md-checkbox
+        ng-model="baseEntity.IsReplacementTool"
+        ng-true-value="'Is Replacement Tool'"
+        ng-false-value="false"
+        ng-disabled="isDisabled"
+      >
         Is Replacement Tool
       </md-checkbox> </md-input-container
     ><md-input-container>
-      <md-checkbox ng-model="baseEntity.IsChargeTool" ng-true-value="true" ng-false-value="false"> Is Charge Tool </md-checkbox>
+      <md-checkbox ng-model="baseEntity.IsChargeTool" ng-true-value="'Is Charge Tool'" ng-false-value="false" ng-disabled="isDisabled">
+        Is Charge Tool
+      </md-checkbox>
     </md-input-container>
   </div>
   <mro-detail class=""></mro-detail>
@@ -28,7 +35,7 @@
     <label>Notes</label>
     <ng-wig ng-model="baseEntity.Notes" class="WigInForm" ng-disabled="isDisabled"></ng-wig>
   </div>
-  <p>
+  <p class="">
     <br /><br />Me comprometo a hacer uso correcto de los artículos que me han facilitado y en caso de dañar o extraviar sin el debido
     reporte o evidencia que deslinde mi responsabilidad, pagaré con mis propios bienes.
   </p>

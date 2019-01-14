@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public CatAreaController(ICatAreaLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

@@ -22,4 +22,7 @@ layout:
       width: 500
       body:
         - component: material.form
-  - component: materials.toolbar
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80

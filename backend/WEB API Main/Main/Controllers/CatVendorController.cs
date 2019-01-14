@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public CatVendorController(ICatVendorLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

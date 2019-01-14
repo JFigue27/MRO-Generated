@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public CatGeoLocationController(ICatGeoLocationLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

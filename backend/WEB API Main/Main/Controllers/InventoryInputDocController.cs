@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public InventoryInputDocController(IInventoryInputDocLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

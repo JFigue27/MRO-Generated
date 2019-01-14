@@ -14,15 +14,21 @@ angular.module('main').service('CatGeoLocationService', function(crudFactory) {
         catalogs: [],
 
         adapter: function(theEntity) {
+            ///Start:Slot:adapterIn<<<
+            ///End:Slot:adapterIn<<<
             return theEntity;
         },
 
-        adapterIn: function(theEntity) {},
-
-        adapterOut: function(theEntity, self) {},
+        adapterOut: function(theEntity, self) {
+            ///Start:Slot:adapterOut<<<
+            ///End:Slot:adapterOut<<<
+        },
 
         dependencies: []
     });
+
+    ///Start:Slot:service<<<
+    ///End:Slot:service<<<
 
     return crudInstance;
 });

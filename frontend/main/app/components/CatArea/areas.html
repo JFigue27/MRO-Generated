@@ -1,5 +1,5 @@
 <div class="container" layout="column" style="margin-bottom:100px;">
-  <h2 class="md-display-1 display">Areas</h2>
+  <h2 class="md-display-1">Areas</h2>
   <dir-pagination-controls class="SmallPagination" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
   <form novalidate ng-submit="onSubmit();">
     <button type="submit" ng-hide="true"></button>
@@ -22,8 +22,8 @@
             ng-show="!isLoading"
           >
             <td>
-              <md-button class="md-accent md-hue-2 " ng-click="openItem(item, $event);"><md-icon>edit</md-icon>Open</md-button
-              ><md-button class="md-accent md-hue-2 " ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
+              <md-button class="" ng-click="openItem(item, $event);"><md-icon>edit</md-icon>Open</md-button
+              ><md-button class=" md-warn md-hue-1" ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
             </td>
             <td>
               <md-input-container flex>
@@ -36,16 +36,18 @@
     </div>
   </form>
 </div>
+<modal modal-id="modal-Area" title="Area" ok-label="Save" max-width="500">
+  <modal-body> <areas-form class=""></areas-form> </modal-body>
+</modal>
 <nav class="toolbar-bottom">
   <md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
-      <span flex style="max-width:nullpx;"></span
+      <span flex></span
       ><md-button
-        class="md-fab md-primary fab"
+        class="md-fab "
         aria-label="New"
         ng-click="create($event)"
-        style="position: fixed;
-                bottom: 30px;right: 10px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
+        style="position: fixed;bottom: 30px;right: 10px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
         ng-disabled="formMode =='create'"
       >
         <md-tooltip md-direction="left">New</md-tooltip>
@@ -65,7 +67,5 @@
         padding-bottom: 128px;
       }
     }
-  }</style
-><modal modal-id="modal-Area" title="Area" ok-label="Save" max-width="500">
-  <modal-body> <areas-form class=""></areas-form> </modal-body>
-</modal>
+  }
+</style>

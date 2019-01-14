@@ -10,5 +10,7 @@ namespace ReusableWebAPI.Controllers
         public MRORequestLineController(IMRORequestLineLogic logic) : base(logic)
         {
         }
+
+        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
     }
 }

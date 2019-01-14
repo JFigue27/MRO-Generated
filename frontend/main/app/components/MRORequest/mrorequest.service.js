@@ -14,10 +14,10 @@ angular.module('main').service('MRORequestService', function(crudFactory) {
         catalogs: [],
 
         adapter: function(theEntity) {
+            ///Start:Slot:adapterIn<<<
+            ///End:Slot:adapterIn<<<
             return theEntity;
         },
-
-        adapterIn: function(theEntity) {},
 
         adapterOut: function(theEntity, self) {
             if (theEntity.MRORequestLines) {
@@ -34,10 +34,15 @@ angular.module('main').service('MRORequestService', function(crudFactory) {
                     }
                 }
             }
+            ///Start:Slot:adapterOut<<<
+            ///End:Slot:adapterOut<<<
         },
 
         dependencies: []
     });
+
+    ///Start:Slot:service<<<
+    ///End:Slot:service<<<
 
     return crudInstance;
 });

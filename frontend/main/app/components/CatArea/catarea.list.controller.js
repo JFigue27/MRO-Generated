@@ -15,6 +15,10 @@ angular
             entityName: 'CatArea',
             baseService: CatAreaService,
             afterCreate: function(oInstance, oEvent) {
+                $scope.baseEntity = oInstance;
+                $('input, md-checkbox')
+                    .first()
+                    .focus();
                 $mdDialog
                     .show({
                         contentElement: '#modal-Area',
@@ -24,17 +28,25 @@ angular
                         fullscreen: true,
                         targetEvent: oEvent
                     })
-                    .then(() => {
-                        refresh();
+                    .then(answer => {
+                        if (answer == 'OK') {
+                            refresh();
+                        }
                     });
 
                 $rootScope.$broadcast('load-modal-Area', oInstance);
+                ///Start:Slot:afterCreate<<<
+                ///End:Slot:afterCreate<<<
             },
             afterLoad: function() {
                 listCtrl.setRotationFocus();
+                ///Start:Slot:afterLoad<<<
+                ///End:Slot:afterLoad<<<
             },
             afterSave: function(oEntity) {
                 refresh();
+                ///Start:Slot:afterSave<<<
+                ///End:Slot:afterSave<<<
             },
             onOpenItem: function(oEntity, oEvent) {
                 $mdDialog
@@ -53,6 +65,8 @@ angular
                     });
 
                 $rootScope.$broadcast('load-modal-Area', oEntity);
+                ///Start:Slot:onOpenItem<<<
+                ///End:Slot:onOpenItem<<<
             },
             filters: []
         });
@@ -61,8 +75,14 @@ angular
             refresh();
         });
 
+        ///Start:Slot:js<<<
+        ///End:Slot:js<<<
+
         function refresh() {
             listCtrl.load();
+
+            ///Start:Slot:refresh<<<
+            ///End:Slot:refresh<<<
         }
 
         $scope.$on('on_login', function() {

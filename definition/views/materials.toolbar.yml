@@ -2,7 +2,4 @@ name: materials.toolbar
 type: custom
 entity: CatMaterial
 layout:
-  - toolbar:
-      - space: null
-      - fab: create
-      - space: 80
+  

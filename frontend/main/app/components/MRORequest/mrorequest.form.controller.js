@@ -7,30 +7,40 @@
  * # MRORequestController
  * Controller of the main
  */
-angular.module('main').controller('MRORequestFormController', function($scope, formController, MRORequestService, $mdDialog) {
+angular.module('main').controller('MRORequestFormController', function($scope, formController, MRORequestService, $timeout) {
     var ctrl = this;
 
     formController.call(this, {
         scope: $scope,
         entityName: 'MRORequest',
         baseService: MRORequestService,
-        afterCreate: function(oEntity) {},
-        afterLoad: function(oEntity) {}
+        afterCreate: function(oEntity) {
+            ///Start:Slot:afterCreate<<<
+            ///End:Slot:afterCreate<<<
+        },
+        afterLoad: function(oEntity) {
+            ///Start:Slot:afterLoad<<<
+            ///End:Slot:afterLoad<<<
+        }
     });
+
+    ///Start:Slot:js<<<
+    ///End:Slot:js<<<
 
     function refresh(oMRORequest) {
         ctrl.load(oMRORequest);
+        ///Start:Slot:refresh<<<
+        ///End:Slot:refresh<<<
     }
 
-    $scope.$on('load-modal-MRO', function(scope, oEntity) {
-        refresh(oEntity);
+    $scope.$on('on_login', function() {
+        refresh();
     });
 
-    $scope.$on('ok-modal-MRO', function() {
-        $scope.baseEntity.editMode = true;
-        return ctrl.save().then(function() {
-            $mdDialog.hide('OK');
-            alertify.success('Saved Successfully.');
-        });
-    });
+    $timeout(function() {
+        refresh();
+        $('input, md-checkbox')
+            .first()
+            .focus();
+    }, 200);
 });
