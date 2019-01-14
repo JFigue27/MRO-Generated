@@ -35,18 +35,18 @@ angular
                     });
 
                 $rootScope.$broadcast('load-modal-Vendors', oInstance);
-                ///Start:Slot:afterCreate<<<
-                ///End:Slot:afterCreate<<<
+                ///start:slot:afterCreate<<<
+                ///end:slot:afterCreate<<<
             },
             afterLoad: function() {
                 listCtrl.setRotationFocus();
-                ///Start:Slot:afterLoad<<<
-                ///End:Slot:afterLoad<<<
+                ///start:slot:afterLoad<<<
+                ///end:slot:afterLoad<<<
             },
             afterSave: function(oEntity) {
                 refresh();
-                ///Start:Slot:afterSave<<<
-                ///End:Slot:afterSave<<<
+                ///start:slot:afterSave<<<
+                ///end:slot:afterSave<<<
             },
             onOpenItem: function(oEntity, oEvent) {
                 $mdDialog
@@ -65,8 +65,8 @@ angular
                     });
 
                 $rootScope.$broadcast('load-modal-Vendors', oEntity);
-                ///Start:Slot:onOpenItem<<<
-                ///End:Slot:onOpenItem<<<
+                ///start:slot:onOpenItem<<<
+                ///end:slot:onOpenItem<<<
             },
             filters: []
         });
@@ -75,14 +75,14 @@ angular
             refresh();
         });
 
-        ///Start:Slot:js<<<
-        ///End:Slot:js<<<
+        ///start:slot:js<<<
+        ///end:slot:js<<<
 
         function refresh() {
             listCtrl.load();
 
-            ///Start:Slot:refresh<<<
-            ///End:Slot:refresh<<<
+            ///start:slot:refresh<<<
+            ///end:slot:refresh<<<
         }
 
         $scope.$on('on_login', function() {

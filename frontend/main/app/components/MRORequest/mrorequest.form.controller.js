@@ -15,22 +15,22 @@ angular.module('main').controller('MRORequestFormController', function($scope, f
         entityName: 'MRORequest',
         baseService: MRORequestService,
         afterCreate: function(oEntity) {
-            ///Start:Slot:afterCreate<<<
-            ///End:Slot:afterCreate<<<
+            ///start:slot:afterCreate<<<
+            ///end:slot:afterCreate<<<
         },
         afterLoad: function(oEntity) {
-            ///Start:Slot:afterLoad<<<
-            ///End:Slot:afterLoad<<<
+            ///start:slot:afterLoad<<<
+            ///end:slot:afterLoad<<<
         }
     });
 
-    ///Start:Slot:js<<<
-    ///End:Slot:js<<<
+    ///start:slot:js<<<
+    ///end:slot:js<<<
 
     function refresh(oMRORequest) {
         ctrl.load(oMRORequest);
-        ///Start:Slot:refresh<<<
-        ///End:Slot:refresh<<<
+        ///start:slot:refresh<<<
+        ///end:slot:refresh<<<
     }
 
     $scope.$on('on_login', function() {

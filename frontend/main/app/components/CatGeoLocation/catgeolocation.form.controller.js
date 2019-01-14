@@ -17,17 +17,17 @@ angular
             entityName: 'CatGeoLocation',
             baseService: CatGeoLocationService,
             afterCreate: function(oEntity) {
-                ///Start:Slot:afterCreate<<<
-                ///End:Slot:afterCreate<<<
+                ///start:slot:afterCreate<<<
+                ///end:slot:afterCreate<<<
             },
             afterLoad: function(oEntity) {
-                ///Start:Slot:afterLoad<<<
-                ///End:Slot:afterLoad<<<
+                ///start:slot:afterLoad<<<
+                ///end:slot:afterLoad<<<
             }
         });
 
-        ///Start:Slot:js<<<
-        ///End:Slot:js<<<
+        ///start:slot:js<<<
+        ///end:slot:js<<<
 
         $scope.$on('load-modal-Locations', function(scope, oEntity) {
             refresh(oEntity);
@@ -43,8 +43,8 @@ angular
 
         function refresh(oCatGeoLocation) {
             ctrl.load(oCatGeoLocation);
-            ///Start:Slot:refresh<<<
-            ///End:Slot:refresh<<<
+            ///start:slot:refresh<<<
+            ///end:slot:refresh<<<
         }
 
         $scope.$on('on_login', function() {

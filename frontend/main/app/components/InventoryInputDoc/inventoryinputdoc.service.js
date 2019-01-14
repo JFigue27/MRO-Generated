@@ -14,8 +14,8 @@ angular.module('main').service('InventoryInputDocService', function(crudFactory)
         catalogs: [],
 
         adapter: function(theEntity) {
-            ///Start:Slot:adapterIn<<<
-            ///End:Slot:adapterIn<<<
+            ///start:slot:adapterIn<<<
+            ///end:slot:adapterIn<<<
             return theEntity;
         },
 
@@ -34,15 +34,15 @@ angular.module('main').service('InventoryInputDocService', function(crudFactory)
                     }
                 }
             }
-            ///Start:Slot:adapterOut<<<
-            ///End:Slot:adapterOut<<<
+            ///start:slot:adapterOut<<<
+            ///end:slot:adapterOut<<<
         },
 
         dependencies: []
     });
 
-    ///Start:Slot:service<<<
-    ///End:Slot:service<<<
+    ///start:slot:service<<<
+    ///end:slot:service<<<
 
     return crudInstance;
 });

@@ -17,22 +17,22 @@ angular.module('main').controller('MRORequestLineListController', function($scop
             $('input, md-checkbox')
                 .first()
                 .focus();
-            ///Start:Slot:afterCreate<<<
-            ///End:Slot:afterCreate<<<
+            ///start:slot:afterCreate<<<
+            ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
             listCtrl.setRotationFocus();
-            ///Start:Slot:afterLoad<<<
-            ///End:Slot:afterLoad<<<
+            ///start:slot:afterLoad<<<
+            ///end:slot:afterLoad<<<
         },
         afterSave: function(oEntity) {
             refresh();
-            ///Start:Slot:afterSave<<<
-            ///End:Slot:afterSave<<<
+            ///start:slot:afterSave<<<
+            ///end:slot:afterSave<<<
         },
         onOpenItem: function(oEntity, oEvent) {
-            ///Start:Slot:onOpenItem<<<
-            ///End:Slot:onOpenItem<<<
+            ///start:slot:onOpenItem<<<
+            ///end:slot:onOpenItem<<<
         },
         filters: []
     });
@@ -41,14 +41,14 @@ angular.module('main').controller('MRORequestLineListController', function($scop
         refresh();
     });
 
-    ///Start:Slot:js<<<
-    ///End:Slot:js<<<
+    ///start:slot:js<<<
+    ///end:slot:js<<<
 
     function refresh() {
         listCtrl.load();
 
-        ///Start:Slot:refresh<<<
-        ///End:Slot:refresh<<<
+        ///start:slot:refresh<<<
+        ///end:slot:refresh<<<
     }
 
     $scope.$on('on_login', function() {

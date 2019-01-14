@@ -13,20 +13,20 @@ angular.module('main').controller('InventoryInputDocListController', function($s
         entityName: 'InventoryInputDoc',
         baseService: InventoryInputDocService,
         afterCreate: function(oInstance, oEvent) {
-            ///Start:Slot:afterCreate<<<
-            ///End:Slot:afterCreate<<<
+            ///start:slot:afterCreate<<<
+            ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
-            ///Start:Slot:afterLoad<<<
-            ///End:Slot:afterLoad<<<
+            ///start:slot:afterLoad<<<
+            ///end:slot:afterLoad<<<
         },
         afterSave: function(oEntity) {
-            ///Start:Slot:afterSave<<<
-            ///End:Slot:afterSave<<<
+            ///start:slot:afterSave<<<
+            ///end:slot:afterSave<<<
         },
         onOpenItem: function(oEntity, oEvent) {
-            ///Start:Slot:onOpenItem<<<
-            ///End:Slot:onOpenItem<<<
+            ///start:slot:onOpenItem<<<
+            ///end:slot:onOpenItem<<<
         },
         filters: []
     });
@@ -35,14 +35,14 @@ angular.module('main').controller('InventoryInputDocListController', function($s
         refresh();
     });
 
-    ///Start:Slot:js<<<
-    ///End:Slot:js<<<
+    ///start:slot:js<<<
+    ///end:slot:js<<<
 
     function refresh() {
         listCtrl.load();
 
-        ///Start:Slot:refresh<<<
-        ///End:Slot:refresh<<<
+        ///start:slot:refresh<<<
+        ///end:slot:refresh<<<
     }
 
     $scope.$on('on_login', function() {

@@ -15,17 +15,17 @@ angular.module('main').controller('CatVendorFormController', function($scope, fo
         entityName: 'CatVendor',
         baseService: CatVendorService,
         afterCreate: function(oEntity) {
-            ///Start:Slot:afterCreate<<<
-            ///End:Slot:afterCreate<<<
+            ///start:slot:afterCreate<<<
+            ///end:slot:afterCreate<<<
         },
         afterLoad: function(oEntity) {
-            ///Start:Slot:afterLoad<<<
-            ///End:Slot:afterLoad<<<
+            ///start:slot:afterLoad<<<
+            ///end:slot:afterLoad<<<
         }
     });
 
-    ///Start:Slot:js<<<
-    ///End:Slot:js<<<
+    ///start:slot:js<<<
+    ///end:slot:js<<<
 
     $scope.$on('load-modal-Vendors', function(scope, oEntity) {
         refresh(oEntity);
@@ -41,8 +41,8 @@ angular.module('main').controller('CatVendorFormController', function($scope, fo
 
     function refresh(oCatVendor) {
         ctrl.load(oCatVendor);
-        ///Start:Slot:refresh<<<
-        ///End:Slot:refresh<<<
+        ///start:slot:refresh<<<
+        ///end:slot:refresh<<<
     }
 
     $scope.$on('on_login', function() {
