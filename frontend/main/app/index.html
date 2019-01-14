@@ -50,6 +50,15 @@
           <md-nav-item md-nav-href="#!/" name="home" aria-label="Home">
             <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i> Home
           </md-nav-item>
+          <md-nav-item md-nav-href="#!/mros" name="mros" aria-label="MRO Request List">
+            <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i> MROs
+          </md-nav-item>
+          <md-nav-item md-nav-href="#!/inventory" name="inventory" aria-label="Inventory">
+            <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i> Inventory
+          </md-nav-item>
+          <md-nav-item md-nav-href="#!/inventory-input-docs" name="inventory-input-docs" aria-label="Inventory Input">
+            <i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i> Inventory Input
+          </md-nav-item>
         </md-nav-bar>
         <md-menu md-position-mode="target-right target" md-offset="80 40" hide-xs>
           <md-button aria-label="Open User Menu" ng-click="$mdMenu.open($event)">
@@ -59,21 +68,45 @@
             <span>Catalogs</span>
           </md-button>
           <md-menu-content width="3">
-            <!-- <md-menu-item>
-                        <md-button ng-href="#!/customers">
-                            <div layout="row" flex>
-                                <span flex></span>
-                                <p>Customers</p>
-                            </div>
-                        </md-button>
-                    </md-menu-item> -->
+            <md-menu-item>
+              <md-button ng-href="#!/materials">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Materials</p>
+                </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-href="#!/vendors">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Vendors</p>
+                </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-href="#!/locations">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Locations</p>
+                </div>
+              </md-button>
+            </md-menu-item>
+            <md-menu-item>
+              <md-button ng-href="#!/areas">
+                <div layout="row" flex>
+                  <span flex></span>
+                  <p>Areas</p>
+                </div>
+              </md-button>
+            </md-menu-item>
           </md-menu-content>
         </md-menu>
         <md-button ng-if="!getCurrentUser()" ng-click="logIn()">Sign In</md-button>
         <md-menu md-position-mode="target-right target" md-offset="300 40" ng-if="getCurrentUser()">
           <md-button aria-label="Open User Menu" ng-click="$mdMenu.open($event)">
             <md-icon md-menu-origin>person</md-icon>
-            <span>{{getCurrentUser().Value}}</span>
+            <span>{{ getCurrentUser().Value }}</span>
           </md-button>
           <md-menu-content width="3">
             <md-menu-item>
@@ -110,21 +143,32 @@
               <md-icon><i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i></md-icon>
               <p>Home</p>
             </md-list-item>
+            <md-list-item ng-href="#!/mros" ng-click="toggleMainSideNav()">
+              <md-icon><i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i></md-icon>
+              <p>MROs</p>
+            </md-list-item>
+            <md-list-item ng-href="#!/inventory" ng-click="toggleMainSideNav()">
+              <md-icon><i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i></md-icon>
+              <p>Inventory</p>
+            </md-list-item>
+            <md-list-item ng-href="#!/inventory-input-docs" ng-click="toggleMainSideNav()">
+              <md-icon><i class="fa fa-home" aria-hidden="true" style="font-size: 20px;"></i></md-icon>
+              <p>Inventory Input</p>
+            </md-list-item>
             <md-list-item>
               <md-icon md-menu-origin
                 ><i class="fa fa-book" aria-hidden="true" style="font-size: 20px;top: -6px;position: relative;"></i
               ></md-icon>
               <p>Catalogs</p>
-              <!-- <md-menu class="md-secondary" md-offset="0 40">
-                            <md-button class="md-icon-button">
-                            </md-button>
-                            <md-menu-content width="3">
-                                <md-menu-item>
-                                    <md-button ng-href="#!/customers" ng-click="toggleMainSideNav()"> Customers
-                                    </md-button>
-                                </md-menu-item>
-                            </md-menu-content>
-                        </md-menu> -->
+              <md-menu class="md-secondary" md-offset="0 40">
+                <md-button class="md-icon-button"> </md-button>
+                <md-menu-content width="3">
+                  <md-menu-item> <md-button ng-href="#!/materials" ng-click="toggleMainSideNav()"> Materials </md-button> </md-menu-item>
+                  <md-menu-item> <md-button ng-href="#!/vendors" ng-click="toggleMainSideNav()"> Vendors </md-button> </md-menu-item>
+                  <md-menu-item> <md-button ng-href="#!/locations" ng-click="toggleMainSideNav()"> Locations </md-button> </md-menu-item>
+                  <md-menu-item> <md-button ng-href="#!/areas" ng-click="toggleMainSideNav()"> Areas </md-button> </md-menu-item>
+                </md-menu-content>
+              </md-menu>
             </md-list-item>
             <md-list-item ng-click="toggleMainSideNav();logIn();" ng-if="!getCurrentUser()">
               <md-icon>account_circle </md-icon>
@@ -134,7 +178,7 @@
               <md-icon md-menu-origin
                 ><i class="fa fa-user-circle-o" aria-hidden="true" style="font-size: 20px;top: -6px;position: relative;"></i
               ></md-icon>
-              <p>{{getCurrentUser().Value}}</p>
+              <p>{{ getCurrentUser().Value }}</p>
               <md-menu class="md-secondary" md-offset="0 40">
                 <md-button class="md-icon-button"> </md-button>
                 <md-menu-content width="3">

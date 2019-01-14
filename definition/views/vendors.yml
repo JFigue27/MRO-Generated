@@ -7,11 +7,11 @@ layout:
       - pagination
       - table:
           columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
             - Value as Vendor
             - Vendor Number
-          actions:
-            - button: openItem
-            - button: removeItem
   - modal:
       id: modal-Vendors
       title: Vendors
