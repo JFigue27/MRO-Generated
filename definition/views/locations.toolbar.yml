@@ -1,8 +1,0 @@
-name: locations.toolbar
-type: custom
-entity: CatGeoLocation
-layout:
-  - toolbar:
-      - space: null
-      - fab: create
-      - space: 80

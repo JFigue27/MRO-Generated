@@ -19,4 +19,7 @@ layout:
       width: 500
       body:
         - component: vendors.form
-  - component: vendors.toolbar
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80

@@ -38,5 +38,35 @@
   </form>
 </div>
 <modal modal-id="modal-Vendors" title="Vendors" ok-label="Save" max-width="500">
-  <modal-body> <vendors-form class=""></vendors-form> </modal-body> </modal
-><vendors-toolbar class=""></vendors-toolbar>
+  <modal-body> <vendors-form class=""></vendors-form> </modal-body>
+</modal>
+<nav class="toolbar-bottom">
+  <md-toolbar class="md-hue-2">
+    <div class="md-toolbar-tools">
+      <span flex></span
+      ><md-button
+        class="md-fab md-primary"
+        aria-label="New"
+        ng-click="create($event)"
+        style="position: fixed;bottom: 30px;right: 10px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
+        ng-disabled="formMode =='create'"
+      >
+        <md-tooltip md-direction="left">New</md-tooltip>
+        <md-icon style="margin: 0;font-size: 50px;top: -12px;position: relative;left: 10px;">add</md-icon> </md-button
+      ><span flex style="max-width:80px;"></span>
+    </div>
+  </md-toolbar>
+</nav>
+<style>
+  body {
+    padding-bottom: 112px;
+  }
+
+  @media screen and (min-width: 960px) {
+    @media (min-width: 960px) {
+      body {
+        padding-bottom: 128px;
+      }
+    }
+  }
+</style>

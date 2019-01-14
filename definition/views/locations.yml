@@ -18,4 +18,7 @@ layout:
       width: 500
       body:
         - component: locations.form
-  - component: locations.toolbar
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80
