@@ -1,0 +1,26 @@
+<div class="" layout="column" style="margin-bottom:100px;">
+  <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+    <div class="col-xs-12 col-sm-9">
+      <label class="">Received By</label>
+      <p class="form-control-static">{{baseEntity.InfoTrack.User_CreatedBy.Value}}</p>
+    </div>
+    <div class="col-xs-12 col-sm-3">
+      <label class="">Received At</label>
+      <p class="form-control-static">{{baseEntity.CreatedAt | date: 'mediumDate'}}</p>
+    </div>
+  </div>
+  <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+    <md-input-container flex>
+      <label>Vendor</label>
+      <md-select ng-model="baseEntity.CatVendorKey" ng-disabled="isDisabled" ng-change="onChangeApplicationFor();">
+        <md-option ng-value="item.id" ng-repeat="item in theCatVendors">{{ item.Value }}</md-option>
+      </md-select> </md-input-container
+    ><md-input-container flex>
+      <label>Document Type</label>
+      <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.DocumentType" /> </md-input-container
+    ><md-input-container flex>
+      <label>Sheet Number</label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" />
+    </md-input-container>
+  </div>
+  <inventory-input-form-detail class=""></inventory-input-form-detail>
+</div>

@@ -64,7 +64,7 @@ angular
                         }
                     });
 
-                $rootScope.$broadcast('load-modal-Material', oEntity);
+                $rootScope.$broadcast('load-modal-Material', oEntity.id);
                 ///start:slot:onOpenItem<<<
                 ///end:slot:onOpenItem<<<
             },

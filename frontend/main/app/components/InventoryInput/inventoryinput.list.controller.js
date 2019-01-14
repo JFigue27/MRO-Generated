@@ -13,14 +13,20 @@ angular.module('main').controller('InventoryInputListController', function($scop
         entityName: 'InventoryInput',
         baseService: InventoryInputService,
         afterCreate: function(oInstance, oEvent) {
+            $scope.baseEntity = oInstance;
+            $('input, md-checkbox')
+                .first()
+                .focus();
             ///start:slot:afterCreate<<<
             ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
+            listCtrl.setRotationFocus();
             ///start:slot:afterLoad<<<
             ///end:slot:afterLoad<<<
         },
         afterSave: function(oEntity) {
+            refresh();
             ///start:slot:afterSave<<<
             ///end:slot:afterSave<<<
         },

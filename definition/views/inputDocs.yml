@@ -1,5 +1,25 @@
 name: inputDocs
-type: list
+type: table
 entity: InventoryInputDoc
 layout:
-  - title: 'This is the [inputDocs] component.'
+  - container:
+      - display: Inventory Docs
+      - pagination
+      - table:
+          columns:
+            - actions:
+                - button: openItem
+                - button: removeItem
+            - Sheet Number
+            - Document Type
+  - modal:
+      id: modal-InventoryInput
+      title: Inventory Input
+      ok: Save
+      width: 1000
+      body:
+        - component: inventory.input.form
+  - toolbar:
+      - space
+      - button fab: create
+      - space: 80

@@ -1,0 +1,39 @@
+<form novalidate ng-submit="onSubmit();">
+  <button type="submit" ng-hide="true"></button>
+  <div class="table-responsive TableEditable" style="max-width: 100%;">
+    <table class="table table-condensed ">
+      <thead>
+        <tr>
+          <th>Quantity</th>
+          <th>Material</th>
+          <th>CatMaterial.Material Description</th>
+          <th>Location</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td colspan="5" style="height: 15px;"></td>
+        </tr>
+        <tr
+          dir-paginate="item in baseEntity.InventoryInputs | itemsPerPage: filterOptions.perPage track by $index"
+          total-items="filterOptions.itemsCount"
+          current-page="filterOptions.page"
+          ng-show="!isLoading"
+        >
+          <td>
+            <md-input-container flex>
+              <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Quantity" />
+            </md-input-container>
+          </td>
+          <td>undefined</td>
+          <td>
+            <md-input-container flex>
+              <label></label> <textarea disabled ng-model="item.MaterialDescription"></textarea>
+            </md-input-container>
+          </td>
+          <td>undefined</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</form>

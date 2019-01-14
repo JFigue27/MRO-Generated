@@ -1,0 +1,12 @@
+name: inventory.input.form.detail
+type: table
+entity: InventoryInput
+layout:
+  - table:
+      pagination: false
+      autoAdd: true
+      columns:
+        - Quantity
+        - CatMaterial as Material
+        - CatMaterial.Material Description
+        - CatGeoLocation as Location

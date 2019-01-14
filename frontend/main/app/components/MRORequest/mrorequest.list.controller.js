@@ -64,7 +64,7 @@ angular
                         }
                     });
 
-                $rootScope.$broadcast('load-modal-MRO', oEntity);
+                $rootScope.$broadcast('load-modal-MRO', oEntity.id);
                 ///start:slot:onOpenItem<<<
                 ///end:slot:onOpenItem<<<
             },

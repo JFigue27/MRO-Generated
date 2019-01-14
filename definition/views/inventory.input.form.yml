@@ -1,0 +1,17 @@
+name: inventory.input.form
+type: form
+entity: InventoryInputDoc
+layout:
+  - content:
+      - row:
+          - 12 9:
+              - label: Received By
+              - p form-control-static: '{{baseEntity.InfoTrack.User_CreatedBy.Value}}'
+          - 12 3:
+              - label: Received At
+              - p form-control-static: '{{baseEntity.CreatedAt | date: ''mediumDate''}}'
+      - row:
+          - select: CatVendor as Vendor
+          - field: Document Type
+          - field: Sheet Number
+      - component: inventory.input.form.detail
