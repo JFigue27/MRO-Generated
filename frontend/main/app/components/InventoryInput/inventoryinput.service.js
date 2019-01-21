@@ -7,7 +7,11 @@
  * # InventoryInputService
  * Service of the main
  */
-angular.module('main').service('InventoryInputService', function(crudFactory) {
+angular.module('main').service('InventoryInputService', function(
+    crudFactory
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var crudInstance = new crudFactory({
         entityName: 'InventoryInput',
 

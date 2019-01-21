@@ -7,7 +7,14 @@
  * # InventoryInputListController
  * Controller of the main
  */
-angular.module('main').controller('InventoryInputListController', function($scope, listController, $timeout, InventoryInputService) {
+angular.module('main').controller('InventoryInputListController', function(
+    $scope,
+    listController,
+    $timeout,
+    InventoryInputService
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var listCtrl = new listController({
         scope: $scope,
         entityName: 'InventoryInput',
@@ -22,6 +29,9 @@ angular.module('main').controller('InventoryInputListController', function($scop
         },
         afterLoad: function() {
             listCtrl.setRotationFocus();
+            if ($scope.baseList) {
+                $scope.handleDynamicRows($scope.baseList);
+            }
             ///start:slot:afterLoad<<<
             ///end:slot:afterLoad<<<
         },
@@ -43,6 +53,34 @@ angular.module('main').controller('InventoryInputListController', function($scop
 
     ///start:slot:js<<<
     ///end:slot:js<<<
+
+    $scope.handleDynamicRows = function(arrRows) {
+        if (arrRows.length > 0) {
+            var atLeastOneCellFilled = false;
+            var lastRow = arrRows[arrRows.length - 1];
+            for (var prop in lastRow) {
+                if (lastRow.hasOwnProperty(prop)) {
+                    if (prop == '$$hashKey' || prop == 'id') {
+                        continue;
+                    }
+                    if (lastRow[prop] !== null && lastRow[prop] !== undefined && (lastRow[prop] > 0 || lastRow[prop].length > 0)) {
+                        atLeastOneCellFilled = true;
+                        break;
+                    }
+                }
+            }
+            if (!atLeastOneCellFilled) {
+                return;
+            }
+        }
+
+        arrRows.push({});
+    };
+
+    $scope.removeItem = function(items, index) {
+        items.splice(index, 1);
+        $scope.handleDynamicRows(items);
+    };
 
     function refresh() {
         listCtrl.load();

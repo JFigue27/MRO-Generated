@@ -8,28 +8,28 @@ namespace BusinessSpecificLogic.Logic
 {
     public interface IMRORequestLogic : IDocumentLogic<MRORequest>
     {
-        ///Start:Slot:interface<<<///End:Slot:interface<<<
+        ///start:slot:interface<<<///end:slot:interface<<<
     }
 
     public class MRORequestLogic : DocumentLogic<MRORequest>, IMRORequestLogic
     {
-        ///Start:Slot:init<<<///End:Slot:init<<<
+        ///start:slot:init<<<///end:slot:init<<<
 
         public MRORequestLogic(DbContext context, IDocumentRepository<MRORequest> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///Start:Slot:constructor<<<///End:Slot:constructor<<<
+            ///start:slot:constructor<<<///end:slot:constructor<<<
         }
 
         protected override IQueryable<MRORequest> StaticDbQueryForList(IQueryable<MRORequest> dbQuery)
         {
-            ///Start:Slot:listQuery<<<///End:Slot:listQuery<<<
+            ///start:slot:listQuery<<<///end:slot:listQuery<<<
 
             return dbQuery;
         }
 
         protected override void onBeforeSaving(MRORequest entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
         {
-            ///Start:Slot:beforeSave<<<///End:Slot:beforeSave<<<
+            ///start:slot:beforeSave<<<///end:slot:beforeSave<<<
         }
 
         protected override void onAfterSaving(DbContext context, MRORequest entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
@@ -59,9 +59,17 @@ namespace BusinessSpecificLogic.Logic
 context.SaveChanges();
             }
 
-            ///Start:Slot:afterSave<<<///End:Slot:afterSave<<<
+            ///start:slot:afterSave<<<///end:slot:afterSave<<<
         }
 
-        ///Start:Slot:logic<<<///End:Slot:logic<<<
+        ///start:slot:logic<<<
+        protected override void OnGetSingle(MRORequest entity)
+        {
+            var ctx = context as MROContext;
+            ctx.MRORequests
+                .Include(e => e.MRORequestLines)
+                .FirstOrDefault(e => e.MRORequestKey == entity.MRORequestKey);
+        }
+        ///end:slot:logic<<<
     }
 }

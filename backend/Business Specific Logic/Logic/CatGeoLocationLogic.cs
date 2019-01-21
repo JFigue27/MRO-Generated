@@ -8,28 +8,28 @@ namespace BusinessSpecificLogic.Logic
 {
     public interface ICatGeoLocationLogic : ILogic<CatGeoLocation>
     {
-        ///Start:Slot:interface<<<///End:Slot:interface<<<
+        ///start:slot:interface<<<///end:slot:interface<<<
     }
 
     public class CatGeoLocationLogic : Logic<CatGeoLocation>, ICatGeoLocationLogic
     {
-        ///Start:Slot:init<<<///End:Slot:init<<<
+        ///start:slot:init<<<///end:slot:init<<<
 
         public CatGeoLocationLogic(DbContext context, IRepository<CatGeoLocation> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///Start:Slot:constructor<<<///End:Slot:constructor<<<
+            ///start:slot:constructor<<<///end:slot:constructor<<<
         }
 
         protected override IQueryable<CatGeoLocation> StaticDbQueryForList(IQueryable<CatGeoLocation> dbQuery)
         {
-            ///Start:Slot:listQuery<<<///End:Slot:listQuery<<<
+            ///start:slot:listQuery<<<///end:slot:listQuery<<<
 
             return dbQuery;
         }
 
         protected override void onBeforeSaving(CatGeoLocation entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
         {
-            ///Start:Slot:beforeSave<<<///End:Slot:beforeSave<<<
+            ///start:slot:beforeSave<<<///end:slot:beforeSave<<<
         }
 
         protected override void onAfterSaving(DbContext context, CatGeoLocation entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
@@ -39,10 +39,10 @@ namespace BusinessSpecificLogic.Logic
                 
             }
 
-            ///Start:Slot:afterSave<<<///End:Slot:afterSave<<<
+            ///start:slot:afterSave<<<///end:slot:afterSave<<<
         }
 
-        ///Start:Slot:logic<<<///End:Slot:logic<<<
+        ///start:slot:logic<<<///end:slot:logic<<<
     }
 
 }

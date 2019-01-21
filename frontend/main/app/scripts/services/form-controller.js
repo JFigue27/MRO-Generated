@@ -18,7 +18,8 @@ angular
         $rootScope,
         $q,
         $activityIndicator,
-        $mdDialog
+        $mdDialog,
+        $location
     ) {
         var log = $log;
 
@@ -103,9 +104,11 @@ angular
 
             scope.create = function() {
                 $activityIndicator.startAnimating();
-                _baseService.createEntity().then(function(oInstance) {
+                return _baseService.createEntity().then(function(oInstance) {
                     scope.formMode = 'create';
                     scope.baseEntity = angular.copy(oInstance);
+                    scope.baseEntity.editMode = true;
+                    scope.isDisabled = false;
                     _afterCreateCallBack(scope.baseEntity);
                     $activityIndicator.stopAnimating();
                 });
@@ -113,7 +116,7 @@ angular
 
             scope.createAndCheckOut = function() {
                 $activityIndicator.startAnimating();
-                _baseService
+                return _baseService
                     .createEntity()
                     .then(function(oInstance) {
                         scope.formMode = 'checkedOut';
@@ -126,6 +129,26 @@ angular
                         $activityIndicator.stopAnimating();
                         return oEntity;
                     });
+            };
+
+            scope.loadRevision = function(selectedRevision) {
+                scope.baseEntity.Revisions.forEach(function(revision) {
+                    revision.isOpened = false;
+                });
+
+                let oRevision = angular.fromJson(selectedRevision.Value);
+                oRevision.Revisions = scope.baseEntity.Revisions;
+                _baseService.adapt(oRevision);
+                scope.baseEntity = oRevision;
+                selectedRevision.isOpened = true;
+            };
+
+            scope.duplicate = function() {
+                $activityIndicator.startAnimating();
+                return _baseService.duplicate(scope.baseEntity).then(data => {
+                    $activityIndicator.stopAnimating();
+                    return data;
+                });
             };
 
             var _saveChildren = function() {
@@ -141,7 +164,7 @@ angular
             };
 
             //Updating items:*******************************
-            formCtrl.save = function() {
+            scope.save = function() {
                 var deferred = $q.defer();
                 $activityIndicator.startAnimating();
 
@@ -209,6 +232,8 @@ angular
                         .then(function(result) {
                             return _baseService.checkin(scope.baseEntity).then(function(oResponse) {
                                 formCtrl.load(oResponse).then(function() {
+                                    scope.formMode = null;
+                                    scope.isDisabled = true;
                                     alertify.success('Saved Successfully, Revision Created.');
                                 });
                             });
@@ -248,10 +273,10 @@ angular
 
                 if (
                     scope.baseEntity &&
-                    scope.baseEntity.CheckedoutByKey > 0 &&
+                    scope.baseEntity.CheckedoutBy &&
                     user &&
-                    user.id &&
-                    scope.baseEntity.CheckedoutByKey == $rootScope.getCurrentUser().id
+                    user.Value &&
+                    scope.baseEntity.CheckedoutBy.UserName.toLowerCase() == user.Value.toLowerCase()
                 ) {
                     scope.isDisabled = false;
                 } else {
@@ -326,15 +351,8 @@ angular
                     });
                 }
                 //Create
-                else if (
-                    !oEntityOrID ||
-                    (oEntityOrID && (oEntityOrID instanceof Object || typeof oEntityOrID == 'object') && !oEntityOrID.hasOwnProperty('id'))
-                ) {
-                    return _baseService.createEntity(oEntityOrID).then(function(oNewEntity) {
-                        scope.baseEntity = angular.copy(oNewEntity);
-                        _afterCreateCallBack(oNewEntity);
-                        $activityIndicator.stopAnimating();
-                    });
+                else if ((oEntityOrID instanceof Object || typeof oEntityOrID == 'object') && !oEntityOrID.hasOwnProperty('id')) {
+                    return scope.create(oEntityOrID);
                 }
                 //Open by Object
                 else if (oEntityOrID instanceof Object || typeof oEntityOrID == 'object') {
@@ -354,6 +372,13 @@ angular
                 if (!oFound) {
                     childrenCtrl.id = id;
                     _baseService._childrenResources.push(childrenCtrl);
+                }
+            };
+
+            formCtrl.go = function(path) {
+                if (path != $location.url()) {
+                    $location.url(path);
+                    // $window.open('#!' + path, '_blank');
                 }
             };
 

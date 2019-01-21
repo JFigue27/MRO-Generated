@@ -7,7 +7,11 @@
  * # CatGeoLocationService
  * Service of the main
  */
-angular.module('main').service('CatGeoLocationService', function(crudFactory) {
+angular.module('main').service('CatGeoLocationService', function(
+    crudFactory
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var crudInstance = new crudFactory({
         entityName: 'CatGeoLocation',
 

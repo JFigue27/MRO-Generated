@@ -7,7 +7,15 @@
  * # CatAreaController
  * Controller of the main
  */
-angular.module('main').controller('CatAreaFormController', function($scope, formController, CatAreaService, $timeout, $mdDialog) {
+angular.module('main').controller('CatAreaFormController', function(
+    $scope,
+    formController,
+    CatAreaService,
+    $timeout,
+    $mdDialog
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var ctrl = this;
 
     formController.call(this, {
@@ -33,15 +41,15 @@ angular.module('main').controller('CatAreaFormController', function($scope, form
 
     $scope.$on('ok-modal-Area', function() {
         $scope.baseEntity.editMode = true;
-        return ctrl.save().then(function() {
+        return $scope.save().then(function() {
             $mdDialog.hide('OK');
             alertify.success('Saved Successfully.');
         });
     });
 
     function refresh(oCatArea) {
-        ctrl.load(oCatArea);
         ///start:slot:refresh<<<
+        ctrl.load(oCatArea);
         ///end:slot:refresh<<<
     }
 

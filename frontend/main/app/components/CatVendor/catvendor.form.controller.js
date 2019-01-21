@@ -7,7 +7,15 @@
  * # CatVendorController
  * Controller of the main
  */
-angular.module('main').controller('CatVendorFormController', function($scope, formController, CatVendorService, $timeout, $mdDialog) {
+angular.module('main').controller('CatVendorFormController', function(
+    $scope,
+    formController,
+    CatVendorService,
+    $timeout,
+    $mdDialog
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var ctrl = this;
 
     formController.call(this, {
@@ -33,15 +41,15 @@ angular.module('main').controller('CatVendorFormController', function($scope, fo
 
     $scope.$on('ok-modal-Vendors', function() {
         $scope.baseEntity.editMode = true;
-        return ctrl.save().then(function() {
+        return $scope.save().then(function() {
             $mdDialog.hide('OK');
             alertify.success('Saved Successfully.');
         });
     });
 
     function refresh(oCatVendor) {
-        ctrl.load(oCatVendor);
         ///start:slot:refresh<<<
+        ctrl.load(oCatVendor);
         ///end:slot:refresh<<<
     }
 

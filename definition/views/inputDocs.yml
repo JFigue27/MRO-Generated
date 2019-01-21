@@ -19,7 +19,7 @@ layout:
       width: 1000
       body:
         - component: inventory.input.form
-  - toolbar:
+  - nav:
       - space
       - button fab: create
       - space: 80

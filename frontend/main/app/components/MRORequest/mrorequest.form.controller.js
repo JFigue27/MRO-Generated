@@ -7,7 +7,15 @@
  * # MRORequestController
  * Controller of the main
  */
-angular.module('main').controller('MRORequestFormController', function($scope, formController, MRORequestService, $timeout) {
+angular.module('main').controller('MRORequestFormController', function(
+    $scope,
+    formController,
+    MRORequestService,
+    $timeout,
+    $mdDialog
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var ctrl = this;
 
     formController.call(this, {
@@ -20,6 +28,7 @@ angular.module('main').controller('MRORequestFormController', function($scope, f
         },
         afterLoad: function(oEntity) {
             ///start:slot:afterLoad<<<
+            $scope.isDisabled = false;
             ///end:slot:afterLoad<<<
         }
     });
@@ -27,9 +36,21 @@ angular.module('main').controller('MRORequestFormController', function($scope, f
     ///start:slot:js<<<
     ///end:slot:js<<<
 
+    $scope.$on('load-modal-MRO', function(scope, oEntity) {
+        refresh(oEntity);
+    });
+
+    $scope.$on('ok-modal-MRO', function() {
+        $scope.baseEntity.editMode = true;
+        return $scope.save().then(function() {
+            $mdDialog.hide('OK');
+            alertify.success('Saved Successfully.');
+        });
+    });
+
     function refresh(oMRORequest) {
-        ctrl.load(oMRORequest);
         ///start:slot:refresh<<<
+        ctrl.load(oMRORequest);
         ///end:slot:refresh<<<
     }
 

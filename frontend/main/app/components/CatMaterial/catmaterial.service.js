@@ -7,7 +7,11 @@
  * # CatMaterialService
  * Service of the main
  */
-angular.module('main').service('CatMaterialService', function(crudFactory) {
+angular.module('main').service('CatMaterialService', function(
+    crudFactory
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var crudInstance = new crudFactory({
         entityName: 'CatMaterial',
 

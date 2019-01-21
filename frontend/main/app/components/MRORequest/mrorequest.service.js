@@ -7,7 +7,12 @@
  * # MRORequestService
  * Service of the main
  */
-angular.module('main').service('MRORequestService', function(crudFactory) {
+angular.module('main').service('MRORequestService', function(
+    crudFactory,
+    ///start:slot:dependencies<<<
+    utilsService
+    ///end:slot:dependencies<<<
+) {
     var crudInstance = new crudFactory({
         entityName: 'MRORequest',
 
@@ -15,6 +20,7 @@ angular.module('main').service('MRORequestService', function(crudFactory) {
 
         adapter: function(theEntity) {
             ///start:slot:adapterIn<<<
+            theEntity.CreatedAtConverted = utilsService.toJavascriptDate(theEntity.CreatedAt);
             ///end:slot:adapterIn<<<
             return theEntity;
         },
@@ -29,6 +35,7 @@ angular.module('main').service('MRORequestService', function(crudFactory) {
                         Object.getOwnPropertyNames(current).find(prop => current[prop] || current[prop] == 0)
                     ) {
                         //Adapt child entity if needed here:
+                        current.Quantity = current.Quantity || 0;
                     } else {
                         theEntity.MRORequestLines.splice(i, 1);
                     }

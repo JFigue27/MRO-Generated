@@ -10,7 +10,10 @@ angular.module('main').directive('mros', function() {
     return {
         templateUrl: 'components/MRORequest/mros.html',
         restrict: 'E',
-        scope: {},
+        scope: {
+            ///start:slot:scope<<<
+            ///end:slot:scope<<<
+        },
         controller: 'MRORequestListController'
     };
 });

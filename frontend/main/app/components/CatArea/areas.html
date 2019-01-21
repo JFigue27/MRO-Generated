@@ -27,7 +27,7 @@
             </td>
             <td>
               <md-input-container flex>
-                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Value" />
+                <label></label> <input autocomplete="off" style="text-align: left;" ng-model="item.Value" ng-disabled="isDisabled" />
               </md-input-container>
             </td>
           </tr>
@@ -47,7 +47,7 @@
         class="md-fab md-primary"
         aria-label="New"
         ng-click="create($event)"
-        style="position: fixed;bottom: 30px;right: 10px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
+        style="position: fixed;bottom: 30px;right: 40px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
         ng-disabled="formMode =='create'"
       >
         <md-tooltip md-direction="left">New</md-tooltip>

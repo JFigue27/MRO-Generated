@@ -343,6 +343,11 @@ select {
   padding-top: 5px;
 }
 
+.nw-editor.nw-disabled {
+  background-color: #f5f5f5;
+  color: darkgrey;
+}
+
 .sheet {
   max-width: 960px;
   margin: auto;
@@ -380,4 +385,8 @@ select {
   .well {
     margin-bottom: 0;
   }
+}
+
+.md-datepicker-input-container {
+  width: 100%;
 }

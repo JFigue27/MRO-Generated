@@ -7,7 +7,14 @@
  * # MRORequestLineListController
  * Controller of the main
  */
-angular.module('main').controller('MRORequestLineListController', function($scope, listController, $timeout, MRORequestLineService) {
+angular.module('main').controller('MRORequestLineListController', function(
+    $scope,
+    listController,
+    $timeout,
+    MRORequestLineService
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var listCtrl = new listController({
         scope: $scope,
         entityName: 'MRORequestLine',
@@ -21,8 +28,11 @@ angular.module('main').controller('MRORequestLineListController', function($scop
             ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
-            listCtrl.setRotationFocus();
+            if ($scope.baseList) {
+                $scope.handleDynamicRows($scope.baseList);
+            }
             ///start:slot:afterLoad<<<
+            $scope.isDisabled = false;
             ///end:slot:afterLoad<<<
         },
         afterSave: function(oEntity) {
@@ -42,7 +52,63 @@ angular.module('main').controller('MRORequestLineListController', function($scop
     });
 
     ///start:slot:js<<<
+    $scope.$watch('parent.id', function() {
+        if ($scope.parent) {
+            listCtrl.localLoad($scope.parent.MRORequestLines);
+        }
+    });
+    $scope.onInputChange = function(oItem) {
+        let allFieldsAreEmtpy = true;
+        for (let prop in oItem) {
+            if (['Quantity'].indexOf(prop) > -1) {
+                if (oItem[prop] != '' && oItem[prop] != null && oItem[prop] != undefined) {
+                    allFieldsAreEmtpy = false;
+                    break;
+                }
+            }
+        }
+
+        if (allFieldsAreEmtpy) {
+            if (oItem.hasOwnProperty('id')) {
+                oItem.EF_State = 3; // Deleted
+            }
+        } else {
+            oItem.EF_State = 2; // Modified
+            if (!oItem.hasOwnProperty('id') || oItem.id == null || oItem.id == undefined || oItem.id == 0) {
+                oItem.id = 0;
+                oItem.EF_State = 1; // Added
+            }
+        }
+    };
     ///end:slot:js<<<
+
+    $scope.handleDynamicRows = function(arrRows) {
+        if (arrRows.length > 0) {
+            var atLeastOneCellFilled = false;
+            var lastRow = arrRows[arrRows.length - 1];
+            for (var prop in lastRow) {
+                if (lastRow.hasOwnProperty(prop)) {
+                    if (prop == '$$hashKey' || prop == 'id') {
+                        continue;
+                    }
+                    if (lastRow[prop] !== null && lastRow[prop] !== undefined && (lastRow[prop] > 0 || lastRow[prop].length > 0)) {
+                        atLeastOneCellFilled = true;
+                        break;
+                    }
+                }
+            }
+            if (!atLeastOneCellFilled) {
+                return;
+            }
+        }
+
+        arrRows.push({});
+    };
+
+    $scope.removeItem = function(items, index) {
+        items.splice(index, 1);
+        $scope.handleDynamicRows(items);
+    };
 
     function refresh() {
         listCtrl.load();

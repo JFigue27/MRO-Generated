@@ -1,10 +1,10 @@
 <div class="" layout="column" style="margin-bottom:100px;">
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
-    <div class="col-xs-12 col-sm-9">
+    <div class="col-xs-12 col-sm-9" layout="column">
       <label class="">Received By</label>
       <p class="form-control-static">{{baseEntity.InfoTrack.User_CreatedBy.Value}}</p>
     </div>
-    <div class="col-xs-12 col-sm-3">
+    <div class="col-xs-12 col-sm-3" layout="column">
       <label class="">Received At</label>
       <p class="form-control-static">{{baseEntity.CreatedAt | date: 'mediumDate'}}</p>
     </div>
@@ -17,9 +17,15 @@
       </md-select> </md-input-container
     ><md-input-container flex>
       <label>Document Type</label>
-      <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.DocumentType" /> </md-input-container
+      <input
+        autocomplete="off"
+        style="text-align: left;"
+        ng-model="baseEntity.DocumentType"
+        ng-disabled="isDisabled"
+      /> </md-input-container
     ><md-input-container flex>
-      <label>Sheet Number</label> <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" />
+      <label>Sheet Number</label>
+      <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" ng-disabled="isDisabled" />
     </md-input-container>
   </div>
   <inventory-input-form-detail class=""></inventory-input-form-detail>

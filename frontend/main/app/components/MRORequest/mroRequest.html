@@ -1,36 +1,28 @@
-<div flex style="height:50px;"></div>
-<div class="md-whiteframe-5dp sheet" layout="column" style="margin-bottom:100px;">
+<div class="container-fluid" layout="column" style="margin-bottom:100px;">
   <h2 class="md-display-1">MRO Request</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <span flex></span>
-    <div class="col-xs-12 col-sm-2">
-      <md-input-container flex style="min-width: 150px;">
-        <label>CreatedAt</label>
-        <md-datepicker ng-model="baseEntity.CreatedAt" md-hide-icons="calendar"></md-datepicker>
-      </md-input-container>
+    <div class="col-xs-12 col-sm-2 text-right" layout="column">
+      <label class="">Created At</label>
+      <p class="form-control-static">{{ baseEntity.CreatedAtConverted | date: 'mediumDate' }}</p>
     </div>
   </div>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <md-input-container>
-      <md-checkbox ng-model="baseEntity.IsNewTool" ng-true-value="'Is New Tool'" ng-false-value="false" ng-disabled="isDisabled">
+      <md-checkbox ng-model="baseEntity.IsNewTool" ng-true-value="true" ng-false-value="false" ng-disabled="isDisabled">
         Is New Tool
       </md-checkbox> </md-input-container
     ><md-input-container>
-      <md-checkbox
-        ng-model="baseEntity.IsReplacementTool"
-        ng-true-value="'Is Replacement Tool'"
-        ng-false-value="false"
-        ng-disabled="isDisabled"
-      >
+      <md-checkbox ng-model="baseEntity.IsReplacementTool" ng-true-value="true" ng-false-value="false" ng-disabled="isDisabled">
         Is Replacement Tool
       </md-checkbox> </md-input-container
     ><md-input-container>
-      <md-checkbox ng-model="baseEntity.IsChargeTool" ng-true-value="'Is Charge Tool'" ng-false-value="false" ng-disabled="isDisabled">
+      <md-checkbox ng-model="baseEntity.IsChargeTool" ng-true-value="true" ng-false-value="false" ng-disabled="isDisabled">
         Is Charge Tool
       </md-checkbox>
     </md-input-container>
   </div>
-  <mro-detail class=""></mro-detail>
+  <mro-detail parent="baseEntity" class=""></mro-detail>
   <div layout="column" flex style="margin-top: 20px;">
     <label>Notes</label>
     <ng-wig ng-model="baseEntity.Notes" class="WigInForm" ng-disabled="isDisabled"></ng-wig>

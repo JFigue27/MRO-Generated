@@ -27,7 +27,9 @@ angular.module('main').controller('ProfileController', function($scope, formCont
     };
 
     function refresh() {
-        ctrl.load($rootScope.getCurrentUser().id);
+        userService.getSingleWhere('UserName', $rootScope.getCurrentUser().Value).then(oUser => {
+            ctrl.load(oUser);
+        });
     }
 
     $scope.$on('on_login', function() {

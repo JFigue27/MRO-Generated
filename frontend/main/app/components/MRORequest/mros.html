@@ -30,6 +30,9 @@
     </div>
   </form>
 </div>
+<modal modal-id="modal-MRO" title="MRO Request" ok-label="Save" max-width="1200">
+  <modal-body> <mro-request class=""></mro-request> </modal-body>
+</modal>
 <nav class="toolbar-bottom">
   <md-toolbar class="md-hue-2">
     <div class="md-toolbar-tools">
@@ -38,7 +41,7 @@
         class="md-fab md-primary"
         aria-label="New"
         ng-click="create($event)"
-        style="position: fixed;bottom: 30px;right: 10px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
+        style="position: fixed;bottom: 30px;right: 40px;width: 70px;height: 70px;font-size: 50px;padding: 0;"
         ng-disabled="formMode =='create'"
       >
         <md-tooltip md-direction="left">New</md-tooltip>
@@ -58,7 +61,5 @@
         padding-bottom: 128px;
       }
     }
-  }</style
-><modal modal-id="modal-MRO" title="MRO Request" ok-label="Save" max-width="1200">
-  <modal-body> <mro-request class=""></mro-request> </modal-body>
-</modal>
+  }
+</style>

@@ -13,7 +13,7 @@ namespace BusinessSpecificLogic.EF
         {
             ///Start:Generated:Constructor<<<
             ///End:Generated:Constructor<<<
-
+            MRORequestLines = new List<MRORequestLine>();
         }
 
         [Key]

@@ -6,14 +6,16 @@
       <thead>
         <tr>
           <th>Quantity</th>
-          <th>Balance</th>
-          <th>Status</th>
+          <th>Part Number</th>
+          <th>CatMaterial.Material Description</th>
           <th>Cost</th>
+          <th>Status</th>
+          <th>Balance</th>
         </tr>
       </thead>
       <tbody>
         <tr>
-          <td colspan="5" style="height: 15px;"></td>
+          <td colspan="7" style="height: 15px;"></td>
         </tr>
         <tr
           dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
@@ -23,22 +25,72 @@
         >
           <td>
             <md-input-container flex>
-              <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Quantity" />
+              <label></label>
+              <input
+                type="number"
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                style="text-align: right"
+                ng-model="item.Quantity"
+                ng-disabled="isDisabled"
+              />
             </md-input-container>
           </td>
           <td>
             <md-input-container flex>
-              <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Balance" />
+              <label></label>
+              <input
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                autocomplete="off"
+                style="text-align: left;"
+                ng-model="item.Value"
+                ng-disabled="isDisabled"
+              />
             </md-input-container>
           </td>
           <td>
             <md-input-container flex>
-              <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Status" />
+              <label></label>
+              <textarea
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                ng-model="item.MaterialDescription"
+                ng-disabled="isDisabled"
+              ></textarea>
             </md-input-container>
           </td>
           <td>
             <md-input-container flex>
-              <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Cost" />
+              <label></label>
+              <input
+                type="number"
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                style="text-align: right"
+                ng-model="item.Cost"
+                ng-disabled="isDisabled"
+              />
+            </md-input-container>
+          </td>
+          <td>
+            <md-input-container flex>
+              <label></label>
+              <input
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                autocomplete="off"
+                style="text-align: left;"
+                ng-model="item.Status"
+                ng-disabled="isDisabled"
+              />
+            </md-input-container>
+          </td>
+          <td>
+            <md-input-container flex>
+              <label></label>
+              <input
+                type="number"
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                style="text-align: right"
+                ng-model="item.Balance"
+                ng-disabled="isDisabled"
+              />
             </md-input-container>
           </td>
         </tr>

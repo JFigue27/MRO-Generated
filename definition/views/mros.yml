@@ -11,14 +11,15 @@ layout:
                 - button: openItem
                 - button: removeItem
             - Value
-  - toolbar:
-      - space
-      - button fab: create
-      - space: 80
   - modal:
       id: modal-MRO
       title: MRO Request
       ok: Save
       width: 1200
+      createConfirm: true
       body:
         - component: mroRequest
+  - nav:
+      - space
+      - button fab: create
+      - space: 80

@@ -26,7 +26,7 @@ angular.module('main').directive('userForm', function() {
             });
 
             $scope.$on('ok-modal-user', function() {
-                return ctrl.save().then(function() {
+                return $scope.save().then(function() {
                     $mdDialog.hide('OK');
                 });
             });

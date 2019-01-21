@@ -2,13 +2,13 @@ name: mroRequest
 type: form
 entity: MRORequest
 layout:
-  - vspace: 50
-  - sheet:
+  - container-fluid:
       - display: MRO Request
       - row:
           - space
-          - 12 2:
-              - field: CreatedAt
+          - 12 2 text-right:
+              - label: Created At
+              - p form-control-static: "{{ baseEntity.CreatedAtConverted | date: 'mediumDate' }}"
       - row:
           - field: Is New Tool
           - field: Is Replacement Tool

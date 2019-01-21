@@ -37,7 +37,7 @@ angular.module('main').directive('approvalForm', function() {
 
             $scope.$on('ok-modal-Approval', function() {
                 $scope.baseEntity.editMode = true;
-                return ctrl.save().then(function() {
+                return $scope.save().then(function() {
                     $mdDialog.hide('OK');
                     alertify.success('Saved Successfully.');
                 });

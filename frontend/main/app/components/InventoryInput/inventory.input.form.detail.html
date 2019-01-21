@@ -15,20 +15,20 @@
           <td colspan="5" style="height: 15px;"></td>
         </tr>
         <tr
-          dir-paginate="item in baseEntity.InventoryInputs | itemsPerPage: filterOptions.perPage track by $index"
+          dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
           total-items="filterOptions.itemsCount"
           current-page="filterOptions.page"
           ng-show="!isLoading"
         >
           <td>
             <md-input-container flex>
-              <label></label> <input type="number" disabled style="text-align: right" ng-model="item.Quantity" />
+              <label></label> <input type="number" style="text-align: right" ng-model="item.Quantity" ng-disabled="isDisabled" />
             </md-input-container>
           </td>
           <td>undefined</td>
           <td>
             <md-input-container flex>
-              <label></label> <textarea disabled ng-model="item.MaterialDescription"></textarea>
+              <label></label> <textarea ng-model="item.MaterialDescription" ng-disabled="isDisabled"></textarea>
             </md-input-container>
           </td>
           <td>undefined</td>

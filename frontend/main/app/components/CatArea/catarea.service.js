@@ -7,7 +7,11 @@
  * # CatAreaService
  * Service of the main
  */
-angular.module('main').service('CatAreaService', function(crudFactory) {
+angular.module('main').service('CatAreaService', function(
+    crudFactory
+    ///start:slot:dependencies<<<
+    ///end:slot:dependencies<<<
+) {
     var crudInstance = new crudFactory({
         entityName: 'CatArea',
 

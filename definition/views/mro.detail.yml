@@ -1,13 +1,17 @@
 name: mro.detail
 type: table
 entity: MRORequestLine
+parentEntity: MRORequest as parent
 layout:
   - pagination
   - table:
+      autoAdd: true
       columns:
         - Quantity
-        - Balance
-        - Status
+        - CatMaterial.Value as Part Number
+        - CatMaterial.Material Description
         - Cost
+        - Status
+        - Balance
       actions:
         - button: removeItem

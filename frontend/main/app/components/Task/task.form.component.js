@@ -27,7 +27,7 @@ angular.module('main').directive('taskForm', function() {
 
             $scope.$on('ok-modal-Task', function() {
                 $scope.baseEntity.editMode = true;
-                return ctrl.save().then(function() {
+                return $scope.save().then(function() {
                     $mdDialog.hide();
                     alertify.success('Saved Successfully.');
                 });

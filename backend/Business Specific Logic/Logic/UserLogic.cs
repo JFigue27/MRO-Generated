@@ -68,65 +68,65 @@ namespace BusinessSpecificLogic.Logic
             //Updating..
             if (entity.id > 0)
             {
-                User originalUser = repository.GetByID(entity.id);
-                if (originalUser == null)
-                {
-                    throw new KnownError("Error. User to be updated not found (Table: Users).");
-                }
-                using (var authContext = new AuthContext())
-                {
-                    UserManager<IdentityUser> _userManager;
-                    _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(authContext));
+                //User originalUser = repository.GetByID(entity.id);
+                //if (originalUser == null)
+                //{
+                //    throw new KnownError("Error. User to be updated not found (Table: Users).");
+                //}
+                //using (var authContext = new AuthContext())
+                //{
+                //    UserManager<IdentityUser> _userManager;
+                //    _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(authContext));
 
-                    IdentityUser user = authContext.Users.FirstOrDefault(u => u.UserName == originalUser.UserName);
-                    if (user == null)
-                    {
-                        throw new KnownError("Error. User to be updated not found (Table: ASPNetUsers).");
-                    }
+                //    IdentityUser user = authContext.Users.FirstOrDefault(u => u.UserName == originalUser.UserName);
+                //    if (user == null)
+                //    {
+                //        throw new KnownError("Error. User to be updated not found (Table: ASPNetUsers).");
+                //    }
 
-                    user.UserName = entity.UserName;
-                    //password was updated:
-                    if (!string.IsNullOrWhiteSpace(entity.Password))
-                    {
-                        user.PasswordHash = _userManager.PasswordHasher.HashPassword(entity.Password);
-                    }
+                //    user.UserName = entity.UserName;
+                //    //password was updated:
+                //    if (!string.IsNullOrWhiteSpace(entity.Password))
+                //    {
+                //        user.PasswordHash = _userManager.PasswordHasher.HashPassword(entity.Password);
+                //    }
 
-                    var result = _userManager.Update(user);
-                    if (result == null || !result.Succeeded)
-                    {
-                        throw new KnownError("An error has occurried when trying to update a user:\n" + result.Errors.First());
-                    }
-                }
+                //    var result = _userManager.Update(user);
+                //    if (result == null || !result.Succeeded)
+                //    {
+                //        throw new KnownError("An error has occurried when trying to update a user:\n" + result.Errors.First());
+                //    }
+                //}
             }
             //Creating..
             else
             {
                 entity.CreatedAt = DateTimeOffset.Now;
 
-                using (var authContext = new AuthContext())
-                {
-                    UserManager<IdentityUser> _userManager;
-                    _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(authContext));
+                //using (var authContext = new AuthContext())
+                //{
+                //    UserManager<IdentityUser> _userManager;
+                //    _userManager = new UserManager<IdentityUser>(new UserStore<IdentityUser>(authContext));
 
-                    IdentityUser user = new IdentityUser
-                    {
-                        UserName = entity.UserName
-                    };
+                //    IdentityUser user = new IdentityUser
+                //    {
+                //        UserName = entity.UserName
+                //    };
 
-                    var result = _userManager.Create(user, entity.Password);
-                    if (result == null || !result.Succeeded)
-                    {
-                        string sError = result.Errors.First();
-                        if (sError.EndsWith("is already taken."))
-                        {
-                            throw new KnownError("User is already taken.");
-                        }
-                        else
-                        {
-                            throw new KnownError(sError);
-                        }
-                    }
-                }
+                //    var result = _userManager.Create(user, entity.Password);
+                //    if (result == null || !result.Succeeded)
+                //    {
+                //        string sError = result.Errors.First();
+                //        if (sError.EndsWith("is already taken."))
+                //        {
+                //            throw new KnownError("User is already taken.");
+                //        }
+                //        else
+                //        {
+                //            throw new KnownError(sError);
+                //        }
+                //    }
+                //}
             }
 
             //Bitmap identicon;

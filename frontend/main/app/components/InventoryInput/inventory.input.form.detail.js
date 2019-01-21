@@ -10,7 +10,7 @@ angular.module('main').directive('inventoryInputFormDetail', function() {
     return {
         templateUrl: 'components/InventoryInput/inventory.input.form.detail.html',
         restrict: 'E',
-        // scope: {},
+        scope: {},
         controller: 'InventoryInputListController'
     };
 });

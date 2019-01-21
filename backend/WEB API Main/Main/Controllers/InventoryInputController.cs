@@ -11,6 +11,6 @@ namespace ReusableWebAPI.Controllers
         {
         }
 
-        ///Start:Slot:endpoints<<<///End:Slot:endpoints<<<
+        ///start:slot:endpoints<<<///end:slot:endpoints<<<
     }
 }

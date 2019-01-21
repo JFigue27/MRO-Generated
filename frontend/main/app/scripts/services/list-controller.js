@@ -255,6 +255,13 @@ angular.module('main').factory('listController', function($log, $q, localStorage
             });
         };
 
+        let localData;
+        listCtrl.localLoad = function(data) {
+            alertify.closeAll();
+            localData = data;
+            return _updateList();
+        };
+
         var _loadByParentKey = function(parentType, parentKey) {
             alertify.closeAll();
 
@@ -331,6 +338,13 @@ angular.module('main').factory('listController', function($log, $q, localStorage
         };
 
         var _updateList = function() {
+            if (localData) {
+                scope.baseList = localData;
+                _afterLoadCallBack(localData);
+                scope.isLoading = false;
+                return Promise.resolve(localData);
+            }
+
             scope.isLoading = true;
 
             var perPage = scope.filterOptions.perPage;
