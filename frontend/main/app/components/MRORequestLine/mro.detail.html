@@ -5,6 +5,7 @@
     <table class="table table-condensed ">
       <thead>
         <tr>
+          <th></th>
           <th>Quantity</th>
           <th>Part Number</th>
           <th>CatMaterial.Material Description</th>
@@ -15,7 +16,7 @@
       </thead>
       <tbody>
         <tr>
-          <td colspan="7" style="height: 15px;"></td>
+          <td colspan="8" style="height: 15px;"></td>
         </tr>
         <tr
           dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
@@ -23,6 +24,9 @@
           current-page="filterOptions.page"
           ng-show="!isLoading"
         >
+          <td>
+            <md-button class="md-warn md-hue-1" ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
+          </td>
           <td>
             <md-input-container flex>
               <label></label>
@@ -36,28 +40,17 @@
             </md-input-container>
           </td>
           <td>
-            <md-input-container flex>
-              <label></label>
-              <input
-                ng-change="handleDynamicRows(baseList);onInputChange(item);"
-                autocomplete="off"
-                style="text-align: left;"
-                ng-model="item.Value"
-                ng-disabled="isDisabled"
-              />
-            </md-input-container>
+            <autocomplete
+              service="CatMaterialService"
+              caption=" "
+              owner-entity="baseEntity"
+              property="CatMaterial"
+              value-property="Value"
+              property-key="CatMaterialKey"
+            >
+            </autocomplete>
           </td>
-          <td>
-            <md-input-container flex>
-              <label></label>
-              <textarea
-                ng-change="handleDynamicRows(baseList);onInputChange(item);"
-                ng-model="item.MaterialDescription"
-                ng-disabled="isDisabled"
-              >
-              </textarea>
-            </md-input-container>
-          </td>
+          <td></td>
           <td>
             <md-input-container flex>
               <label></label>

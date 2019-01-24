@@ -11,7 +11,9 @@ angular.module('main').controller('InventoryInputListController', function(
     $scope,
     listController,
     $timeout,
-    InventoryInputService
+    InventoryInputService,
+    CatMaterialService,
+    CatGeoLocationService
     ///start:slot:dependencies<<<
     ///end:slot:dependencies<<<
 ) {
@@ -80,6 +82,8 @@ angular.module('main').controller('InventoryInputListController', function(
         items.splice(index, 1);
         $scope.handleDynamicRows(items);
     };
+    $scope.CatMaterialService = CatMaterialService;
+    $scope.CatGeoLocationService = CatGeoLocationService;
 
     function refresh() {
         listCtrl.load();

@@ -7,11 +7,11 @@ layout:
   - table:
       autoAdd: true
       columns:
+        - actions:
+            - button: removeItem
         - Quantity
         - CatMaterial.Value as Part Number
-        - CatMaterial.Material Description
+        - readonly: CatMaterial.Material Description
         - Cost
         - Status
         - Balance
-      actions:
-        - button: removeItem

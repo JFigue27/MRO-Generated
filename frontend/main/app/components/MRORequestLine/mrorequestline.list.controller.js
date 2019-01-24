@@ -11,7 +11,8 @@ angular.module('main').controller('MRORequestLineListController', function(
     $scope,
     listController,
     $timeout,
-    MRORequestLineService
+    MRORequestLineService,
+    CatMaterialService
     ///start:slot:dependencies<<<
     ///end:slot:dependencies<<<
 ) {
@@ -109,6 +110,7 @@ angular.module('main').controller('MRORequestLineListController', function(
         items.splice(index, 1);
         $scope.handleDynamicRows(items);
     };
+    $scope.CatMaterialService = CatMaterialService;
 
     function refresh() {
         listCtrl.load();

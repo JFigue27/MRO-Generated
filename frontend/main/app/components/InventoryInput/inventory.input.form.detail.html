@@ -32,19 +32,39 @@
               />
             </md-input-container>
           </td>
-          <td>undefined</td>
           <td>
-            <md-input-container flex>
-              <label></label>
-              <textarea
-                ng-change="handleDynamicRows(baseList);onInputChange(item);"
-                ng-model="item.MaterialDescription"
-                ng-disabled="isDisabled"
-              >
-              </textarea>
-            </md-input-container>
+            <autocomplete
+              service="CatMaterialService"
+              caption=" "
+              owner-entity="baseEntity"
+              property="CatMaterial"
+              value-property="CatMaterialKey"
+              property-key="CatMaterialKey"
+            >
+            </autocomplete>
           </td>
-          <td>undefined</td>
+          <td>
+            <autocomplete
+              service="CatMaterialService"
+              caption=" "
+              owner-entity="baseEntity"
+              property="CatMaterial"
+              value-property="MaterialDescription"
+              property-key="CatMaterialKey"
+            >
+            </autocomplete>
+          </td>
+          <td>
+            <autocomplete
+              service="CatGeoLocationService"
+              caption=" "
+              owner-entity="baseEntity"
+              property="CatGeoLocation"
+              value-property="CatGeoLocationKey"
+              property-key="CatGeoLocationKey"
+            >
+            </autocomplete>
+          </td>
         </tr>
       </tbody>
     </table>
