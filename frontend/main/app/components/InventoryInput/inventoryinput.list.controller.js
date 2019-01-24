@@ -28,7 +28,6 @@ angular.module('main').controller('InventoryInputListController', function(
             ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
-            listCtrl.setRotationFocus();
             if ($scope.baseList) {
                 $scope.handleDynamicRows($scope.baseList);
             }

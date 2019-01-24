@@ -22,13 +22,26 @@
         >
           <td>
             <md-input-container flex>
-              <label></label> <input type="number" style="text-align: right" ng-model="item.Quantity" ng-disabled="isDisabled" />
+              <label></label>
+              <input
+                type="number"
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                style="text-align: right"
+                ng-model="item.Quantity"
+                ng-disabled="isDisabled"
+              />
             </md-input-container>
           </td>
           <td>undefined</td>
           <td>
             <md-input-container flex>
-              <label></label> <textarea ng-model="item.MaterialDescription" ng-disabled="isDisabled"></textarea>
+              <label></label>
+              <textarea
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                ng-model="item.MaterialDescription"
+                ng-disabled="isDisabled"
+              >
+              </textarea>
             </md-input-container>
           </td>
           <td>undefined</td>

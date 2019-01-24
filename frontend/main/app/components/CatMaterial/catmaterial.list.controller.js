@@ -46,7 +46,6 @@ angular.module('main').controller('CatMaterialListController', function(
             ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
-            listCtrl.setRotationFocus();
             ///start:slot:afterLoad<<<
             ///end:slot:afterLoad<<<
         },

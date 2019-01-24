@@ -10,7 +10,10 @@ angular.module('main').directive('materialForm', function() {
     return {
         templateUrl: 'components/CatMaterial/material.form.html',
         restrict: 'E',
-        scope: {},
+        scope: {
+            ///start:slot:scope<<<
+            ///end:slot:scope<<<
+        },
         controller: 'CatMaterialFormController'
     };
 });

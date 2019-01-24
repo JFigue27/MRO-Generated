@@ -10,7 +10,10 @@ angular.module('main').directive('locationsForm', function() {
     return {
         templateUrl: 'components/CatGeoLocation/locations.form.html',
         restrict: 'E',
-        scope: {},
+        scope: {
+            ///start:slot:scope<<<
+            ///end:slot:scope<<<
+        },
         controller: 'CatGeoLocationFormController'
     };
 });

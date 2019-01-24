@@ -28,6 +28,7 @@ angular.module('main').controller('CatGeoLocationFormController', function(
         },
         afterLoad: function(oEntity) {
             ///start:slot:afterLoad<<<
+            $scope.isDisabled = false;
             ///end:slot:afterLoad<<<
         }
     });

@@ -10,7 +10,10 @@ angular.module('main').directive('vendorsForm', function() {
     return {
         templateUrl: 'components/CatVendor/vendors.form.html',
         restrict: 'E',
-        scope: {},
+        scope: {
+            ///start:slot:scope<<<
+            ///end:slot:scope<<<
+        },
         controller: 'CatVendorFormController'
     };
 });

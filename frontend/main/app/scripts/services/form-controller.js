@@ -35,16 +35,22 @@ angular
                 oMainConfig.entityName = '';
             }
 
-            //After Load callback
+            //After Load Hook
             var _afterLoadCallBack = oMainConfig.afterLoad;
             if (!_afterLoadCallBack || typeof _afterLoadCallBack != 'function') {
                 _afterLoadCallBack = function() {};
             }
 
-            //After create entity callback
+            //After Create Hook
             var _afterCreateCallBack = oMainConfig.afterCreate;
             if (!_afterCreateCallBack || typeof _afterCreateCallBack != 'function') {
                 _afterCreateCallBack = function() {};
+            }
+
+            //After Save Hook
+            var _afterSaveCallBack = oMainConfig.afterSave;
+            if (!_afterSaveCallBack || typeof _afterSaveCallBack != 'function') {
+                _afterSaveCallBack = function() {};
             }
 
             var _beforeCheckIn = oMainConfig.beforeCheckIn;
@@ -173,6 +179,7 @@ angular
                         _baseService.save(scope.baseEntity).then(
                             function(data) {
                                 $activityIndicator.stopAnimating();
+                                _afterSaveCallBack();
                                 deferred.resolve(data);
                             },
                             function() {

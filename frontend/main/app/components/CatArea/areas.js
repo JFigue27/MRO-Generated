@@ -10,7 +10,10 @@ angular.module('main').directive('areas', function() {
     return {
         templateUrl: 'components/CatArea/areas.html',
         restrict: 'E',
-        scope: {},
+        scope: {
+            ///start:slot:scope<<<
+            ///end:slot:scope<<<
+        },
         controller: 'CatAreaListController'
     };
 });

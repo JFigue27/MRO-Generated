@@ -56,7 +56,7 @@ gulp.task('build-template-cache', [], function() {
         )
         .pipe(
             $.angularTemplatecache('templates.js', {
-                module: 'Main',
+                module: 'main',
                 // root: 'app/',
                 standAlone: false
             })

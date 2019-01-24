@@ -46,7 +46,6 @@ angular.module('main').controller('CatVendorListController', function(
             ///end:slot:afterCreate<<<
         },
         afterLoad: function() {
-            listCtrl.setRotationFocus();
             ///start:slot:afterLoad<<<
             ///end:slot:afterLoad<<<
         },
