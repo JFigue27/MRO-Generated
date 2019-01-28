@@ -67,7 +67,7 @@ context.SaveChanges();
         {
             var ctx = context as MROContext;
             ctx.MRORequests
-                .Include(e => e.MRORequestLines)
+                .Include("MRORequestLines.CatMaterial")
                 .FirstOrDefault(e => e.MRORequestKey == entity.MRORequestKey);
         }
         ///end:slot:logic<<<

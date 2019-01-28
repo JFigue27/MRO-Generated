@@ -5,13 +5,13 @@ parentEntity: MRORequest as parent
 layout:
   - pagination
   - table:
-      autoAdd: true
+      editable: true
       columns:
-        - actions:
-            - button: removeItem
+        - row:
+            - button btn-small: removeItem
         - Quantity
-        - CatMaterial.Value as Part Number
-        - readonly: CatMaterial.Material Description
+        - autocomplete: CatMaterial.Value as Part Number
+        - disabled: CatMaterial.Material Description
         - Cost
         - Status
         - Balance

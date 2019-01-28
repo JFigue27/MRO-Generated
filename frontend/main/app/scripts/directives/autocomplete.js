@@ -16,7 +16,8 @@ angular.module('main').directive('autocomplete', function() {
             property: '@',
             propertyKey: '@',
             valueProperty: '@',
-            service: '='
+            service: '=',
+            onChange: '&'
         },
         controller: function($scope) {
             $scope.querySource = function(sQuery) {
@@ -47,6 +48,13 @@ angular.module('main').directive('autocomplete', function() {
                             alertify.error('An error has occurried');
                         });
                 }
+            };
+
+            $scope.onSelectedItemChange = function() {
+                if ($scope.ownerEntity && $scope.ownerEntity[$scope.property]) {
+                    $scope.ownerEntity[$scope.propertyKey] = $scope.ownerEntity[$scope.property].id;
+                }
+                $scope.onChange();
             };
         }
     };

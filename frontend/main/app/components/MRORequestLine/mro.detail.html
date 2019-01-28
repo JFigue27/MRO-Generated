@@ -8,7 +8,7 @@
           <th></th>
           <th>Quantity</th>
           <th>Part Number</th>
-          <th>CatMaterial.Material Description</th>
+          <th>Material Description</th>
           <th>Cost</th>
           <th>Status</th>
           <th>Balance</th>
@@ -25,36 +25,47 @@
           ng-show="!isLoading"
         >
           <td>
-            <md-button class="md-warn md-hue-1" ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
+            <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+              <md-button class="md-warn md-hue-1 btn-small" ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
+            </div>
           </td>
           <td>
             <md-input-container flex>
               <label></label>
               <input
+                autocomplete="off"
                 type="number"
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 style="text-align: right"
                 ng-model="item.Quantity"
                 ng-disabled="isDisabled"
-              />
-            </md-input-container>
-          </td>
-          <td>
-            <autocomplete
+                />
+              </md-input-container>
+            </td>
+            <td>
+              <autocomplete
               service="CatMaterialService"
               caption=" "
-              owner-entity="baseEntity"
+              owner-entity="item"
               property="CatMaterial"
               value-property="Value"
               property-key="CatMaterialKey"
+              on-change="handleDynamicRows(baseList);onInputChange(item);"
             >
             </autocomplete>
           </td>
-          <td></td>
+          <td>
+            <md-input-container flex>
+              <label></label>
+              <textarea ng-change="handleDynamicRows(baseList);onInputChange(item);" disabled ng-model="item.CatMaterial.MaterialDescription">
+              </textarea>
+            </md-input-container>
+          </td>
           <td>
             <md-input-container flex>
               <label></label>
               <input
+                autocomplete="off"
                 type="number"
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 style="text-align: right"
@@ -79,6 +90,7 @@
             <md-input-container flex>
               <label></label>
               <input
+                autocomplete="off"
                 type="number"
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 style="text-align: right"
