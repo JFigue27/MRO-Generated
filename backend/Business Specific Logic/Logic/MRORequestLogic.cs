@@ -68,6 +68,7 @@ context.SaveChanges();
             var ctx = context as MROContext;
             ctx.MRORequests
                 .Include("MRORequestLines.CatMaterial")
+                .Include("InfoTrack.User_CreatedBy")
                 .FirstOrDefault(e => e.MRORequestKey == entity.MRORequestKey);
         }
         ///end:slot:logic<<<
