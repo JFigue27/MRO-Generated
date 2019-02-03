@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public InventoryOutputLogic(DbContext context, IRepository<InventoryOutput> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<InventoryOutput> StaticDbQueryForList(IQueryable<InventoryOutput> dbQuery)

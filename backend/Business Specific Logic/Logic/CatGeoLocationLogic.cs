@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public CatGeoLocationLogic(DbContext context, IRepository<CatGeoLocation> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<CatGeoLocation> StaticDbQueryForList(IQueryable<CatGeoLocation> dbQuery)

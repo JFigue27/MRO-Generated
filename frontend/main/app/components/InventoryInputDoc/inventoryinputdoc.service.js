@@ -8,8 +8,9 @@
  * Service of the main
  */
 angular.module('main').service('InventoryInputDocService', function(
-    crudFactory
+    crudFactory,
     ///start:slot:dependencies<<<
+    utilsService
     ///end:slot:dependencies<<<
 ) {
     var crudInstance = new crudFactory({
@@ -19,6 +20,7 @@ angular.module('main').service('InventoryInputDocService', function(
 
         adapter: function(theEntity) {
             ///start:slot:adapterIn<<<
+            theEntity.CreatedAtConverted = utilsService.toJavascriptDate(theEntity.CreatedAt);
             ///end:slot:adapterIn<<<
             return theEntity;
         },
@@ -33,6 +35,7 @@ angular.module('main').service('InventoryInputDocService', function(
                         Object.getOwnPropertyNames(current).find(prop => current[prop] || current[prop] == 0)
                     ) {
                         //Adapt child entity if needed here:
+                        current.Quantity = current.Quantity || 0;
                     } else {
                         theEntity.InventoryInputs.splice(i, 1);
                     }

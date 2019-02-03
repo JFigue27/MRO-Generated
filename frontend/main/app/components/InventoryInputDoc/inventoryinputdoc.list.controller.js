@@ -26,22 +26,20 @@ angular.module('main').controller('InventoryInputDocListController', function(
             $('input, md-checkbox')
                 .first()
                 .focus();
-            $mdDialog
-                .show({
-                    contentElement: '#modal-InventoryInput',
-                    parent: angular.element(document.body),
-                    clickOutsideToClose: true,
-                    multiple: true,
-                    fullscreen: true,
-                    targetEvent: oEvent
-                })
-                .then(answer => {
-                    if (answer == 'OK') {
-                        refresh();
-                    }
-                });
+            var confirm = $mdDialog
+                .confirm()
+                .title('Confirm Creation.')
+                .textContent('Please confirm to create a new entry.')
+                .targetEvent(oEvent)
+                .multiple(true)
+                .ok('OK')
+                .cancel('Cancel')
+                .clickOutsideToClose(false)
+                .escapeToClose(false);
 
-            $rootScope.$broadcast('load-modal-InventoryInput', oInstance);
+            $mdDialog.show(confirm).then(function() {
+                $scope.saveItem(oInstance);
+            });
             ///start:slot:afterCreate<<<
             ///end:slot:afterCreate<<<
         },

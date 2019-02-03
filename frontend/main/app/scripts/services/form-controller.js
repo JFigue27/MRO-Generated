@@ -339,8 +339,13 @@ angular
                 $activityIndicator.startAnimating();
                 scope.isLoading = true;
 
+                if (oEntityOrID === null) {
+                    scope.baseEntity = null;
+                    scope.isLoading = false;
+                    return $q.resolve();
+                }
                 //Open by ID
-                if (!isNaN(oEntityOrID) && oEntityOrID > 0) {
+                else if (!isNaN(oEntityOrID) && oEntityOrID > 0) {
                     scope.openingMode = 'id';
                     return _baseService.loadEntity(oEntityOrID).then(function(data) {
                         var theSelectedEntity = data;

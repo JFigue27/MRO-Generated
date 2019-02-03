@@ -39,25 +39,25 @@
                 style="text-align: right"
                 ng-model="item.Quantity"
                 ng-disabled="isDisabled"
-                />
-              </md-input-container>
-            </td>
-            <td>
-              <autocomplete
+              />
+            </md-input-container>
+          </td>
+          <td>
+            <autocomplete
               service="CatMaterialService"
               caption=" "
               owner-entity="item"
               property="CatMaterial"
               value-property="Value"
               property-key="CatMaterialKey"
-              on-change="handleDynamicRows(baseList);onInputChange(item);"
+              on-change="undefined"
             >
             </autocomplete>
           </td>
           <td>
             <md-input-container flex>
               <label></label>
-              <textarea ng-change="handleDynamicRows(baseList);onInputChange(item);" disabled ng-model="item.CatMaterial.MaterialDescription">
+              <textarea ng-change="handleDynamicRows(baseList);onInputChange(item);" disabled ng-model="item.MaterialDescription">
               </textarea>
             </md-input-container>
           </td>

@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public CatAreaLogic(DbContext context, IRepository<CatArea> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<CatArea> StaticDbQueryForList(IQueryable<CatArea> dbQuery)

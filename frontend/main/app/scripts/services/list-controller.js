@@ -7,7 +7,7 @@
  * # listController
  * Factory in the inspiracode.baseControllers.
  */
-angular.module('main').factory('listController', function($log, $q, localStorageService, $location, $timeout) {
+angular.module('main').factory('listController', function($log, $q, localStorageService, $location, $timeout, $rootScope) {
     var log = $log;
 
     return function(oMainConfig) {
@@ -68,6 +68,7 @@ angular.module('main').factory('listController', function($log, $q, localStorage
         //scope---------------------------------------------
         //let's use normal variables (without underscore) so they can be
         //accessed in view normally
+        scope.getCurrentUser = $rootScope.getCurrentUser;
         scope.isLoading = true;
         scope.removeItem = function(oEntity) {
             alertify.confirm('Do you really want to delete a: ' + oMainConfig.entityName + '?', function() {

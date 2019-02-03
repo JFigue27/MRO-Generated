@@ -40,6 +40,10 @@ angular.module('main').controller('MRORequestFormController', function(
         refresh(oEntity);
     });
 
+    $scope.$on('unload-modal-MRO', function(scope) {
+        ctrl.load(null);
+    });
+
     $scope.$on('ok-modal-MRO', function() {
         $scope.baseEntity.editMode = true;
         return $scope.save().then(function() {

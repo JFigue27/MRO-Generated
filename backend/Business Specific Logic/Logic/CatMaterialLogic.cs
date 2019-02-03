@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public CatMaterialLogic(DbContext context, IRepository<CatMaterial> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<CatMaterial> StaticDbQueryForList(IQueryable<CatMaterial> dbQuery)

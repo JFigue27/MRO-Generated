@@ -2,7 +2,8 @@ name: inventory.input.form
 type: form
 entity: InventoryInputDoc
 layout:
-  - content:
+  - content-fluid:
+      - display: Inventory Input
       - row:
           - 12 9:
               - label: Received By

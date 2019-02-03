@@ -12,6 +12,7 @@ angular.module('main').directive('inventoryInputFormDetail', function() {
         restrict: 'E',
         scope: {
             ///start:slot:scope<<<
+            parent: '='
             ///end:slot:scope<<<
         },
         controller: 'InventoryInputListController'

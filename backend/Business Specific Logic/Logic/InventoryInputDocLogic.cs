@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public InventoryInputDocLogic(DbContext context, IDocumentRepository<InventoryInputDoc> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<InventoryInputDoc> StaticDbQueryForList(IQueryable<InventoryInputDoc> dbQuery)
@@ -69,6 +69,8 @@ context.SaveChanges();
             var ctx = context as MROContext;
             ctx.InventoryInputDocs
                 .Include(e => e.InfoTrack.User_CreatedBy)
+                .Include("InventoryInputs.CatMaterial")
+                .Include("InventoryInputs.CatGeoLocation")
                 .FirstOrDefault(e => e.InventoryInputDocKey == entity.InventoryInputDocKey);
         }
 

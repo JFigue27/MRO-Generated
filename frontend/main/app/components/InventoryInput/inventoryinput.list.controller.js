@@ -53,6 +53,36 @@ angular.module('main').controller('InventoryInputListController', function(
     });
 
     ///start:slot:js<<<
+    $scope.$watch('parent.id', function() {
+        if ($scope.parent) {
+            listCtrl.localLoad($scope.parent.InventoryInputs);
+        } else {
+            $scope.baseList = [];
+        }
+    });
+    $scope.onInputChange = function(oItem) {
+        let allFieldsAreEmtpy = true;
+        for (let prop in oItem) {
+            if (['Quantity'].indexOf(prop) > -1) {
+                if (oItem[prop] != '' && oItem[prop] != null && oItem[prop] != undefined) {
+                    allFieldsAreEmtpy = false;
+                    break;
+                }
+            }
+        }
+
+        if (allFieldsAreEmtpy) {
+            if (oItem.hasOwnProperty('id')) {
+                oItem.EF_State = 3; // Deleted
+            }
+        } else {
+            oItem.EF_State = 2; // Modified
+            if (!oItem.hasOwnProperty('id') || oItem.id == null || oItem.id == undefined || oItem.id == 0) {
+                oItem.id = 0;
+                oItem.EF_State = 1; // Added
+            }
+        }
+    };
     ///end:slot:js<<<
 
     $scope.handleDynamicRows = function(arrRows) {

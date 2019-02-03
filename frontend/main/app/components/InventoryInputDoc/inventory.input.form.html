@@ -1,4 +1,5 @@
-<div class="" layout="column" style="margin-bottom:100px;">
+<content-fluid class="content-fluid">
+  <h2 class="md-display-1">Inventory Input</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <div class="col-xs-12 col-sm-9" layout="column">
       <label class="">Received By</label>
@@ -28,5 +29,5 @@
       <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" ng-disabled="isDisabled" />
     </md-input-container>
   </div>
-  <inventory-input-form-detail class=""></inventory-input-form-detail>
-</div>
+  <inventory-input-form-detail parent="baseEntity" class=""></inventory-input-form-detail>
+</content-fluid>

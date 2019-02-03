@@ -56,6 +56,8 @@ angular.module('main').controller('MRORequestLineListController', function(
     $scope.$watch('parent.id', function() {
         if ($scope.parent) {
             listCtrl.localLoad($scope.parent.MRORequestLines);
+        } else {
+            $scope.baseList = [];
         }
     });
     $scope.onInputChange = function(oItem) {

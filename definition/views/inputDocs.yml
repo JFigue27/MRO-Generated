@@ -7,7 +7,7 @@ layout:
       - pagination
       - table:
           columns:
-            - actions:
+            - row:
                 - button: openItem
                 - button: removeItem
             - Sheet Number
@@ -17,6 +17,7 @@ layout:
       title: Inventory Input
       ok: Save
       width: 1000
+      createConfirm: true
       body:
         - component: inventory.input.form
   - nav:

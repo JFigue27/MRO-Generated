@@ -3,8 +3,8 @@ type: table
 entity: MRORequestLine
 parentEntity: MRORequest as parent
 layout:
-  - pagination
   - table:
+      pagination: false
       editable: true
       columns:
         - row:

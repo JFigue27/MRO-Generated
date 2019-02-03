@@ -17,7 +17,7 @@ namespace BusinessSpecificLogic.Logic
 
         public CatVendorLogic(DbContext context, IRepository<CatVendor> repository, LoggedUser LoggedUser) : base(context, repository, LoggedUser)
         {
-            ///start:slot:constructor<<<///end:slot:constructor<<<
+            ///start:slot:ctor<<<///end:slot:ctor<<<
         }
 
         protected override IQueryable<CatVendor> StaticDbQueryForList(IQueryable<CatVendor> dbQuery)

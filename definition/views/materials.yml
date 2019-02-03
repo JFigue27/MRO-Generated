@@ -7,7 +7,7 @@ layout:
       - pagination
       - table:
           columns:
-            - actions:
+            - row:
                 - button: openItem
                 - button: removeItem
             - Value as Material Number

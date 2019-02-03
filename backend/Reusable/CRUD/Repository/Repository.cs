@@ -32,7 +32,6 @@ namespace Reusable
         public virtual void Add(params T[] items)
         {
             DbSet<T> dbSet = context.Set<T>();
-
             foreach (T item in items)
             {
                 context.Entry(item).State = EntityState.Added;

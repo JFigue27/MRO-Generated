@@ -64,6 +64,7 @@ angular.module('main').controller('MRORequestListController', function(
                     targetEvent: oEvent
                 })
                 .then(answer => {
+                    $rootScope.$broadcast('unload-modal-MRO');
                     if (answer == 'OK') {
                         refresh();
                     }

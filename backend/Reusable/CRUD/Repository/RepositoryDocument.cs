@@ -207,18 +207,6 @@ namespace Reusable
         public override void Add(params T[] items)
         {
             DbSet<T> dbSet = context.Set<T>();
-            //foreach (T item in items)
-            //{
-            //    dbSet.Add(item);
-            //}
-
-            //var count = context.ChangeTracker.Entries<BaseDocument>().Count();
-
-            // foreach (DbEntityEntry<BaseDocument> entry in context.ChangeTracker.Entries<BaseDocument>())
-            // {
-            //     context.Entry(entry.Entity).State = EntityState.Unchanged;
-            // }
-
             foreach (T item in items)
             {
                 context.Entry(item).State = EntityState.Added;

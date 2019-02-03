@@ -1,12 +1,13 @@
 name: inventory.input.form.detail
 type: table
 entity: InventoryInput
+parentEntity: inventory.input.form as parent
 layout:
   - table:
       pagination: false
-      autoAdd: true
+      editable: true
       columns:
         - Quantity
-        - CatMaterial as Material
-        - CatMaterial.Material Description
-        - CatGeoLocation as Location
+        - autocomplete: CatMaterial as Material
+        - disabled: CatMaterial.Material Description
+        - autocomplete: CatGeoLocation as Location

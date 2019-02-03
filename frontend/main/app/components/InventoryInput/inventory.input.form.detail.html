@@ -6,7 +6,7 @@
         <tr>
           <th>Quantity</th>
           <th>Material</th>
-          <th>CatMaterial.Material Description</th>
+          <th>Material Description</th>
           <th>Location</th>
         </tr>
       </thead>
@@ -24,6 +24,7 @@
             <md-input-container flex>
               <label></label>
               <input
+                autocomplete="off"
                 type="number"
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 style="text-align: right"
@@ -36,32 +37,30 @@
             <autocomplete
               service="CatMaterialService"
               caption=" "
-              owner-entity="baseEntity"
+              owner-entity="item"
               property="CatMaterial"
-              value-property="CatMaterialKey"
+              value-property="Value"
               property-key="CatMaterialKey"
+              on-change="undefined"
             >
             </autocomplete>
           </td>
           <td>
-            <autocomplete
-              service="CatMaterialService"
-              caption=" "
-              owner-entity="baseEntity"
-              property="CatMaterial"
-              value-property="MaterialDescription"
-              property-key="CatMaterialKey"
-            >
-            </autocomplete>
+            <md-input-container flex>
+              <label></label>
+              <textarea ng-change="handleDynamicRows(baseList);onInputChange(item);" disabled ng-model="item.MaterialDescription">
+              </textarea>
+            </md-input-container>
           </td>
           <td>
             <autocomplete
               service="CatGeoLocationService"
               caption=" "
-              owner-entity="baseEntity"
+              owner-entity="item"
               property="CatGeoLocation"
-              value-property="CatGeoLocationKey"
+              value-property="Value"
               property-key="CatGeoLocationKey"
+              on-change="undefined"
             >
             </autocomplete>
           </td>
