@@ -1,1 +1,57 @@
-<h4 class="md-title">This is the [inventory] component.</h4>
+<div class="container" layout="column" style="margin-bottom:100px;">
+  <h2 class="md-display-1">Inventory</h2>
+  <dir-pagination-controls class="SmallPagination" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
+  <form novalidate ng-submit="onSubmit();">
+    <button type="submit" ng-hide="true"></button>
+    <div class="table-responsive TableEditable" style="max-width: 100%;">
+      <table class="table table-condensed ">
+        <thead>
+          <tr>
+            <th>Material</th>
+            <th>Description</th>
+            <th>Balance</th>
+            <th>Min</th>
+            <th>Needs Re-Order</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td colspan="6" style="height: 15px;"></td>
+          </tr>
+          <tr
+            dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
+            total-items="filterOptions.itemsCount"
+            current-page="filterOptions.page"
+            ng-show="!isLoading"
+          >
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Value" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.MaterialDescription" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.BalanceSum" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container flex>
+                <label></label> <input disabled autocomplete="off" style="text-align: left;" ng-model="item.Min" />
+              </md-input-container>
+            </td>
+            <td>
+              <md-input-container>
+                <md-checkbox disabled ng-model="item.NeedsReOrder" ng-true-value="true" ng-false-value="false"> </md-checkbox>
+              </md-input-container>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </form>
+</div>

@@ -2,4 +2,13 @@ name: inventory
 type: list
 entity: Inventory
 layout:
-  - title: 'This is the [inventory] component.'
+  - container:
+      - display: Inventory
+      - pagination
+      - table:
+          columns:
+            - bind: Value as Material
+            - bind: MaterialDescription as Description
+            - bind: BalanceSum as Balance
+            - bind: Min
+            - bind checkbox: NeedsReOrder as Needs Re-Order

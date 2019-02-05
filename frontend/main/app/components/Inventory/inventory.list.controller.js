@@ -21,6 +21,10 @@ angular.module('main').controller('InventoryListController', function(
         baseService: InventoryService,
         CustomMethod: 'GetInventory',
         afterCreate: function(oInstance, oEvent) {
+            $scope.baseEntity = oInstance;
+            $('input, md-checkbox')
+                .first()
+                .focus();
             ///start:slot:afterCreate<<<
             ///end:slot:afterCreate<<<
         },
@@ -29,6 +33,7 @@ angular.module('main').controller('InventoryListController', function(
             ///end:slot:afterLoad<<<
         },
         afterSave: function(oEntity) {
+            refresh();
             ///start:slot:afterSave<<<
             ///end:slot:afterSave<<<
         },

@@ -19,6 +19,7 @@ angular.module('main').service('InventoryService', function(
 
         adapter: function(theEntity) {
             ///start:slot:adapterIn<<<
+            theEntity.NeedsReOrder = theEntity.Key.CatMaterial.Min > theEntity.BalanceSum;
             ///end:slot:adapterIn<<<
             return theEntity;
         },
