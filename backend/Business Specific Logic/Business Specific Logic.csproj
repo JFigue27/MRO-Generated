@@ -43,6 +43,9 @@
     <Reference Include="EPPlus, Version=4.5.2.1, Culture=neutral, PublicKeyToken=ea159fdaa78159a1, processorArchitecture=MSIL">
       <HintPath>..\WEB API Main\packages\EPPlus.4.5.2.1\lib\net40\EPPlus.dll</HintPath>
     </Reference>
+    <Reference Include="HtmlTags, Version=7.0.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\WEB API Main\packages\HtmlTags.7.0.3\lib\net45\HtmlTags.dll</HintPath>
+    </Reference>
     <Reference Include="LinqKit, Version=1.1.15.0, Culture=neutral, PublicKeyToken=bc217f8844052a91, processorArchitecture=MSIL">
       <HintPath>..\WEB API Main\packages\LinqKit.1.1.15\lib\net45\LinqKit.dll</HintPath>
     </Reference>
@@ -67,6 +70,9 @@
     <Reference Include="System.Drawing" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Security" />
+    <Reference Include="System.Text.Encodings.Web, Version=4.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>..\WEB API Main\packages\System.Text.Encodings.Web.4.0.0\lib\netstandard1.0\System.Text.Encodings.Web.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -114,6 +120,7 @@
     <Compile Include="Logic\InventoryInputLogic.cs" />
     <Compile Include="Logic\InventoryOutputLogic.cs" />
     <Compile Include="Logic\MRORequestLineLogic.cs" />
+    <Compile Include="Logic\InventoryLogic.cs" />
     <!-- End:Generated:Logic -->
     <Compile Include="MainContext.cs" />
     <Compile Include="Migrations\Configuration.cs" />

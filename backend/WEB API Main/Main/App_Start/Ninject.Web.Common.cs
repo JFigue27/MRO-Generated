@@ -122,6 +122,7 @@ namespace ReusableWebAPI.App_Start
             kernel.Bind<IInventoryInputLogic>().To<InventoryInputLogic>();
             kernel.Bind<IInventoryOutputLogic>().To<InventoryOutputLogic>();
             kernel.Bind<IMRORequestLineLogic>().To<MRORequestLineLogic>();
+            kernel.Bind<IInventoryLogic>().To<InventoryLogic>();
             ///End:Generated:DI<<<
             #endregion
 

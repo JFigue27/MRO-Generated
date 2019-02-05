@@ -2,18 +2,18 @@
 
 /**
  * @ngdoc directive
- * @name main.directive:InventoryInput
+ * @name main.directive:Inventory
  * @description
- * # InventoryInput
+ * # Inventory
  */
 angular.module('main').directive('inventory', function() {
     return {
-        templateUrl: 'components/InventoryInput/inventory.html',
+        templateUrl: 'components/Inventory/inventory.html',
         restrict: 'E',
         scope: {
             ///start:slot:scope<<<
             ///end:slot:scope<<<
         },
-        controller: 'InventoryInputListController'
+        controller: 'InventoryListController'
     };
 });

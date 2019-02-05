@@ -6,5 +6,6 @@ frontends: []
 roles: []
 documents: []
 entities: []
-sublogics: {}
+sublogics:
+  Inventory: InventoryInputDoc
 views: []
