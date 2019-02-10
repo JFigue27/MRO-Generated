@@ -40,7 +40,9 @@ angular.module('main').controller('InventoryInputDocListController', function(
                 .escapeToClose(false);
 
             $mdDialog.show(confirm).then(function() {
-                $scope.saveItem(oInstance);
+                $scope.saveItem(oInstance).then(oEntity => {
+                    $scope.openItem(oEntity);
+                });
             });
             ///start:slot:afterCreate<<<
             ///end:slot:afterCreate<<<
