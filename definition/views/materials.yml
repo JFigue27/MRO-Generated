@@ -8,8 +8,8 @@ layout:
       - table:
           columns:
             - row:
-                - button: openItem
-                - button: removeItem
+                - button btn-small: openItem
+                - button btn-small: removeItem
             - Value as Material Number
             - Material Description:
                 width: 30%

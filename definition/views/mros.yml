@@ -8,8 +8,8 @@ layout:
       - table:
           columns:
             - row:
-                - button: openItem
-                - button: removeItem
+                - button btn-small: openItem
+                - button btn-small: removeItem
             - Value
   - modal:
       id: modal-MRO
