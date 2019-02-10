@@ -166,7 +166,7 @@ angular
             return (totalFieldsCompleted / totalFields) * 100;
         };
     })
-    .factory('crudFactory', function($http, $q, appConfig, $timeout, validatorService, $log) {
+    .factory('crudFactory', function($http, $q, appConfig, $timeout, validatorService, $log, $mdDialog) {
         var log = $log;
 
         //Class for create Catalog objects, which will be used on select controls
@@ -470,13 +470,13 @@ angular
                                         } else {
                                             var alertifyContent =
                                                 '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                            alertify.alert(alertifyContent).set('modal', true);
+                                            displayAlert(alertifyContent);
                                             log.debug(response);
                                             deferred.reject(response.data);
                                         }
                                     } else {
                                         // invalid response
-                                        alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                        displayAlert('An error has occurred, see console for more details.');
                                         log.debug(response);
                                         deferred.reject(response.data);
                                     }
@@ -489,7 +489,7 @@ angular
                                     }
                                     // something went wrong
                                     var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     log.debug(data);
                                     deferred.reject();
                                 }
@@ -534,13 +534,13 @@ angular
                                         } else {
                                             var alertifyContent =
                                                 '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                            alertify.alert(alertifyContent).set('modal', true);
+                                            displayAlert(alertifyContent);
                                             log.debug(response);
                                             deferred.reject(response.data);
                                         }
                                     } else {
                                         // invalid response
-                                        alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                        displayAlert('An error has occurred, see console for more details.');
                                         log.debug(response);
                                         deferred.reject(response.data);
                                     }
@@ -553,7 +553,7 @@ angular
                                     }
                                     // something went wrong
                                     var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     log.debug(data);
                                     deferred.reject();
                                 }
@@ -622,13 +622,13 @@ angular
                             } else {
                                 var alertifyContent =
                                     '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(response);
                                 deferred.reject(response.data);
                             }
                         } else {
                             // invalid response
-                            alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                            displayAlert('An error has occurred, see console for more details.');
                             log.debug(response);
                             deferred.reject(response.data);
                         }
@@ -641,7 +641,7 @@ angular
                         }
                         // something went wrong
                         var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                        alertify.alert(alertifyContent).set('modal', true);
+                        displayAlert(alertifyContent);
                         log.debug(data);
                         deferred.reject();
                     }
@@ -687,13 +687,13 @@ angular
                                 } else {
                                     var alertifyContent =
                                         '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     log.debug(response);
                                     deferred.reject(response.data);
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                displayAlert('An error has occurred, see console for more details.');
                                 log.debug(response);
                                 deferred.reject(response.data);
                             }
@@ -706,7 +706,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -753,7 +753,7 @@ angular
                             if (backendResponse.ErrorThrown) {
                                 var alertifyContent =
                                     '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject(data);
                             } else {
@@ -778,7 +778,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -809,7 +809,7 @@ angular
                             if (backendResponse.ErrorThrown) {
                                 var alertifyContent =
                                     '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject(data);
                             } else {
@@ -829,7 +829,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -860,7 +860,7 @@ angular
                                 if (backendResponse.ErrorThrown) {
                                     var alertifyContent =
                                         '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     log.debug(response);
                                     deferred.reject(data.data);
                                 } else {
@@ -870,17 +870,15 @@ angular
                                                 if (backendResponse.Result.hasOwnProperty(catalog)) {
                                                     _catalogs[catalog]._arrAllRecords = backendResponse.Result[catalog];
                                                 } else {
-                                                    alertify
-                                                        .alert('Unable to load [' + catalog + '] catalog from ' + mainEntity.entityName)
-                                                        .set('modal', true);
-                                                    log.error('Unable to load [' + catalog + '] catalog from ' + mainEntity.entityName);
+                                                    displayAlert(`Unable to load [${catalog}] catalog from ${mainEntity.entityName}`);
+                                                    log.error(`Unable to load [${catalog}] catalog from ${mainEntity.entityName}`);
                                                 }
                                             }
                                         }
                                         _loadCatalogsExecuted = true;
                                         deferred.resolve(data.data);
                                     } else {
-                                        alertify.alert('No catalogs for ' + mainEntity.entityName).set('modal', true);
+                                        displayAlert('No catalogs for ' + mainEntity.entityName);
                                         log.error('No catalogs for ' + mainEntity.entityName);
                                     }
                                 }
@@ -893,7 +891,7 @@ angular
                                 }
                                 // something went wrong
                                 var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject();
                             }
@@ -941,7 +939,7 @@ angular
                         var backendResponse = response.data;
                         if (backendResponse.ErrorThrown) {
                             var alertifyContent = '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             deferred.reject(response);
                         } else {
                             for (var i = 0; i < backendResponse.Result.length; i++) {
@@ -960,7 +958,7 @@ angular
                         }
                         // something went wrong
                         var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                        alertify.alert(alertifyContent).set('modal', true);
+                        displayAlert(alertifyContent);
                         log.debug(data);
                         deferred.reject();
                     }
@@ -978,7 +976,7 @@ angular
                         var backendResponse = response.data;
                         if (backendResponse.ErrorThrown) {
                             var alertifyContent = '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             deferred.reject(response);
                         } else {
                             if (backendResponse.Result != null) {
@@ -1004,7 +1002,7 @@ angular
                         }
                         // something went wrong
                         var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                        alertify.alert(alertifyContent).set('modal', true);
+                        displayAlert(alertifyContent);
                         log.debug(data);
                         deferred.reject();
                     }
@@ -1044,7 +1042,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1069,7 +1067,7 @@ angular
                                     if (!bOmitAlert) {
                                         var alertifyContent =
                                             '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                        alertify.alert(alertifyContent).set('modal', true);
+                                        displayAlert(alertifyContent);
                                         log.debug(response);
                                     }
                                     deferred.reject(backendResponse);
@@ -1089,7 +1087,7 @@ angular
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                displayAlert('An error has occurred, see console for more details.');
                                 log.debug(response);
                                 deferred.reject(response);
                             }
@@ -1102,7 +1100,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1120,7 +1118,7 @@ angular
                             if (backendResponse.ErrorThrown) {
                                 var alertifyContent =
                                     '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(response);
                                 deferred.reject(response);
                             } else {
@@ -1136,7 +1134,7 @@ angular
                             }
                         } else {
                             // invalid response
-                            alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                            displayAlert('An error has occurred, see console for more details.');
                             log.debug(response);
                             deferred.reject(response);
                         }
@@ -1149,7 +1147,7 @@ angular
                         }
                         // something went wrong
                         var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                        alertify.alert(alertifyContent).set('modal', true);
+                        displayAlert(alertifyContent);
                         log.debug(data);
                         deferred.reject();
                     }
@@ -1194,7 +1192,7 @@ angular
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                displayAlert('An error has occurred, see console for more details.');
                                 log.debug(response);
                                 deferred.reject(response);
                             }
@@ -1207,7 +1205,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1233,13 +1231,13 @@ angular
                                     } else {
                                         var alertifyContent =
                                             '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                        alertify.alert(alertifyContent).set('modal', true);
+                                        displayAlert(alertifyContent);
                                         log.debug(response);
                                         deferred.reject(response.data);
                                     }
                                 } else {
                                     // invalid response
-                                    alertify.alert('An error has occurred, see console for more details.').set('modal', true);
+                                    displayAlert('An error has occurred, see console for more details.');
                                     log.debug(response);
                                     deferred.reject(response.data);
                                 }
@@ -1252,7 +1250,7 @@ angular
                                 }
                                 // something went wrong
                                 var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject();
                             }
@@ -1286,7 +1284,7 @@ angular
                         function(response) {
                             var backendResponse = response.data;
                             if (backendResponse.ErrorThrown) {
-                                alertify.alert(backendResponse.ResponseDescription).set('modal', true);
+                                displayAlert(backendResponse.ResponseDescription);
                                 log.debug(response);
                                 deferred.reject(backendResponse);
                             } else {
@@ -1304,7 +1302,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1333,7 +1331,7 @@ angular
                             if (backendResponse.ErrorThrown) {
                                 var alertifyContent =
                                     '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 deferred.reject(response);
                             } else {
                                 if (backendResponse.Result != null) {
@@ -1359,7 +1357,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1390,7 +1388,7 @@ angular
                                 if (backendResponse.ErrorThrown) {
                                     var alertifyContent =
                                         '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     deferred.reject(response);
                                 } else {
                                     if (backendResponse.Result != null) {
@@ -1411,7 +1409,7 @@ angular
                                 }
                                 // something went wrong
                                 var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject();
                             }
@@ -1444,7 +1442,7 @@ angular
                                 if (backendResponse.ErrorThrown) {
                                     var alertifyContent =
                                         '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                    alertify.alert(alertifyContent).set('modal', true);
+                                    displayAlert(alertifyContent);
                                     deferred.reject(response);
                                 } else {
                                     if (backendResponse.Result != null) {
@@ -1464,7 +1462,7 @@ angular
                                 }
                                 // something went wrong
                                 var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                                alertify.alert(alertifyContent).set('modal', true);
+                                displayAlert(alertifyContent);
                                 log.debug(data);
                                 deferred.reject();
                             }
@@ -1526,13 +1524,13 @@ angular
                                     } else {
                                         var alertifyContent =
                                             '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                        alertify.alert(alertifyContent).set('modal', true);
+                                        displayAlert(alertifyContent);
                                         deferred.reject(backendResponse);
                                     }
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('Ha ocurrido un error, ver consola para más detalles.').set('modal', true);
+                                displayAlert('Ha ocurrido un error, ver consola para más detalles.');
                                 log.debug(response);
                                 deferred.reject(response.data);
                             }
@@ -1545,7 +1543,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1604,13 +1602,13 @@ angular
                                     } else {
                                         var alertifyContent =
                                             '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                        alertify.alert(alertifyContent).set('modal', true);
+                                        displayAlert(alertifyContent);
                                         deferred.reject(backendResponse);
                                     }
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('Ha ocurrido un error, ver consola para más detalles.').set('modal', true);
+                                displayAlert('Ha ocurrido un error, ver consola para más detalles.');
                                 log.debug(response);
                                 deferred.reject(response.data);
                             }
@@ -1623,7 +1621,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1682,13 +1680,13 @@ angular
                                     } else {
                                         var alertifyContent =
                                             '<div style="word-wrap: break-word;">' + backendResponse.ResponseDescription + '</div>';
-                                        alertify.alert(alertifyContent).set('modal', true);
+                                        displayAlert(alertifyContent);
                                         deferred.reject(backendResponse);
                                     }
                                 }
                             } else {
                                 // invalid response
-                                alertify.alert('Ha ocurrido un error, ver consola para más detalles.').set('modal', true);
+                                displayAlert('Ha ocurrido un error, ver consola para más detalles.');
                                 log.debug(response);
                                 deferred.reject(response.data);
                             }
@@ -1701,7 +1699,7 @@ angular
                             }
                             // something went wrong
                             var alertifyContent = '<div style="word-wrap: break-word;">' + JSON.stringify(data) + '</div>';
-                            alertify.alert(alertifyContent).set('modal', true);
+                            displayAlert(alertifyContent);
                             log.debug(data);
                             deferred.reject();
                         }
@@ -1733,6 +1731,16 @@ angular
 
             var _setRawAll = function(arr) {
                 _arrAllRecords = arr;
+            };
+
+            var displayAlert = function(sMessage, sTitle) {
+                $mdDialog.show(
+                    $mdDialog
+                        .alert()
+                        .title(sTitle || 'WSI')
+                        .htmlContent(sMessage)
+                        .ok('Close')
+                );
             };
 
             // Public crudFactory API:////////////////////////////////////////////////////////////

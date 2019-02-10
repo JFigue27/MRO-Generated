@@ -21,6 +21,8 @@ angular.module('main').controller('CatMaterialListController', function(
         scope: $scope,
         entityName: 'CatMaterial',
         baseService: CatMaterialService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

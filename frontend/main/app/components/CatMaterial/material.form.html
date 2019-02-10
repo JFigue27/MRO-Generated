@@ -1,13 +1,20 @@
 <div class="" layout="column" style="margin-bottom:100px;">
   <md-input-container flex>
     <label>Value</label>
-    <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.Value" ng-disabled="isDisabled" /> </md-input-container
+    <input
+      type="text"
+      autocomplete="off"
+      style="text-align: left;"
+      ng-model="baseEntity.Value"
+      ng-disabled="isDisabled"
+    /> </md-input-container
   ><md-input-container flex>
     <label>Material Description</label>
     <textarea ng-model="baseEntity.MaterialDescription" ng-disabled="isDisabled"> </textarea> </md-input-container
   ><md-input-container flex>
     <label>Material Revision</label>
     <input
+      type="text"
       autocomplete="off"
       style="text-align: left;"
       ng-model="baseEntity.MaterialRevision"

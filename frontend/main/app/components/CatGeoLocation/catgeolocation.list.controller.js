@@ -21,6 +21,8 @@ angular.module('main').controller('CatGeoLocationListController', function(
         scope: $scope,
         entityName: 'CatGeoLocation',
         baseService: CatGeoLocationService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

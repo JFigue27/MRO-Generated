@@ -20,6 +20,8 @@ angular.module('main').controller('MRORequestLineListController', function(
         scope: $scope,
         entityName: 'MRORequestLine',
         baseService: MRORequestLineService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

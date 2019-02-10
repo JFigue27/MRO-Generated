@@ -6,7 +6,17 @@
  * @description
  * # attachmentsBox
  */
-angular.module('main').directive('attachmentsBox', function(FileUploader, appConfig, $http, $timeout, $q) {
+angular.module('main').directive('attachmentsBox', function(FileUploader, appConfig, $http, $timeout, $q, $mdDialog) {
+    var displayAlert = function(sMessage, sTitle) {
+        $mdDialog.show(
+            $mdDialog
+                .alert()
+                .title(sTitle || 'WSI')
+                .htmlContent(sMessage)
+                .ok('Close')
+        );
+    };
+
     return {
         restrict: 'E',
         scope: {
@@ -75,7 +85,7 @@ angular.module('main').directive('attachmentsBox', function(FileUploader, appCon
                             theAttachment.isForUpload = false;
                         } else {
                             scope.ErrorThrown = true;
-                            alertify.alert(backendResponse.ResponseDescription).set('modal', true);
+                            displayAlert(backendResponse.ResponseDescription);
                             console.debug(response);
                         }
                     };
@@ -156,14 +166,14 @@ angular.module('main').directive('attachmentsBox', function(FileUploader, appCon
                             //                         alertify.success('File deleted successfully.');
                             //                     }, 100);
                             //                 } else {
-                            //                     alertify.alert('An error has occurried, see console for more details.').set('modal', true);
+                            //                     displayAlert('An error has occurried, see console for more details.');
                             //                     console.debug(response);
                             //                 }
                             //                 scope.afterDelete({
                             //                     oEntity: scope.ownerEntity
                             //                 });
                             //             }, function(data) {
-                            //                 alertify.alert('An error has occurried, see console for more details.').set('modal', true);
+                            //                 displayAlert('An error has occurried, see console for more details.');
                             //                 console.debug(data);
                             //             });
                             //         });

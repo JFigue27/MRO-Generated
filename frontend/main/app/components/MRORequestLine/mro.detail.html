@@ -1,5 +1,5 @@
 <form novalidate ng-submit="onSubmit();">
-  <button type="submit" ng-hide="true"></button>
+  <button class="hidden-print" type="submit" ng-hide="true"></button>
   <div class="table-responsive TableEditable" style="max-width: 100%;">
     <table class="table table-condensed ">
       <thead>
@@ -14,9 +14,6 @@
         </tr>
       </thead>
       <tbody>
-        <tr>
-          <td colspan="8" style="height: 15px;"></td>
-        </tr>
         <tr
           dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
           total-items="filterOptions.itemsCount"
@@ -77,6 +74,7 @@
             <md-input-container flex>
               <label></label>
               <input
+                type="text"
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 autocomplete="off"
                 style="text-align: left;"

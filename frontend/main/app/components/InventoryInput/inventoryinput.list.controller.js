@@ -21,6 +21,8 @@ angular.module('main').controller('InventoryInputListController', function(
         scope: $scope,
         entityName: 'InventoryInput',
         baseService: InventoryInputService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

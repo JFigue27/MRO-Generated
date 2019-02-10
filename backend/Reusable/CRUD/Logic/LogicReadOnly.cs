@@ -43,6 +43,15 @@ namespace Reusable
         //public virtual List<Expression<Func<Entity, object>>> NavigationPropertiesWhenGetAll { get { return new List<Expression<Func<Entity, object>>>(); } }
         //protected virtual void Query_On_GetPage(IQueryable<Entity> recordset) { }
 
+        protected bool isValidJSValue(string value)
+        {
+            if (string.IsNullOrWhiteSpace(value) || value == "null" || value == "undefined")
+            {
+                return false;
+            }
+
+            return true;
+        }
 
         public static Exception GetOriginalException(Exception ex)
         {

@@ -19,7 +19,9 @@ angular.module('main').controller('InventoryListController', function(
         scope: $scope,
         entityName: 'Inventory',
         baseService: InventoryService,
+        ///start:slot:listOptions<<<
         CustomMethod: 'GetInventory',
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

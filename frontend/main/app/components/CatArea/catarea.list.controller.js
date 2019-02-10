@@ -21,6 +21,8 @@ angular.module('main').controller('CatAreaListController', function(
         scope: $scope,
         entityName: 'CatArea',
         baseService: CatAreaService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')

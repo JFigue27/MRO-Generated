@@ -19,6 +19,7 @@
     ><md-input-container flex>
       <label>Document Type</label>
       <input
+        type="text"
         autocomplete="off"
         style="text-align: left;"
         ng-model="baseEntity.DocumentType"
@@ -26,7 +27,7 @@
       /> </md-input-container
     ><md-input-container flex>
       <label>Sheet Number</label>
-      <input autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" ng-disabled="isDisabled" />
+      <input type="text" autocomplete="off" style="text-align: left;" ng-model="baseEntity.SheetNumber" ng-disabled="isDisabled" />
     </md-input-container>
   </div>
   <inventory-input-form-detail parent="baseEntity" class=""></inventory-input-form-detail>

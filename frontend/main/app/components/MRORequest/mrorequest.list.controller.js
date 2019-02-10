@@ -21,6 +21,8 @@ angular.module('main').controller('MRORequestListController', function(
         scope: $scope,
         entityName: 'MRORequest',
         baseService: MRORequestService,
+        ///start:slot:listOptions<<<
+        ///end:slot:listOptions<<<
         afterCreate: function(oInstance, oEvent) {
             $scope.baseEntity = oInstance;
             $('input, md-checkbox')
@@ -64,7 +66,6 @@ angular.module('main').controller('MRORequestListController', function(
                     targetEvent: oEvent
                 })
                 .then(answer => {
-                    $rootScope.$broadcast('unload-modal-MRO');
                     if (answer == 'OK') {
                         refresh();
                     }

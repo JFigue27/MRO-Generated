@@ -2,18 +2,16 @@
   <h2 class="md-display-1">MRO Request List</h2>
   <dir-pagination-controls class="SmallPagination" on-page-change="pageChanged(newPageNumber)"></dir-pagination-controls>
   <form novalidate ng-submit="onSubmit();">
-    <button type="submit" ng-hide="true"></button>
+    <button class="hidden-print" type="submit" ng-hide="true"></button>
     <div class="table-responsive TableEditable" style="max-width: 100%;">
       <table class="table table-condensed ">
         <thead>
           <tr>
             <th></th>
+            <th>Value</th>
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td colspan="2" style="height: 15px;"></td>
-          </tr>
           <tr
             dir-paginate="item in baseList | itemsPerPage: filterOptions.perPage track by $index"
             total-items="filterOptions.itemsCount"
@@ -26,6 +24,7 @@
                 ><md-button class="md-warn md-hue-1" ng-click="removeItem(item, $event);"><md-icon>delete</md-icon>Remove</md-button>
               </div>
             </td>
+            <td></td>
           </tr>
         </tbody>
       </table>
