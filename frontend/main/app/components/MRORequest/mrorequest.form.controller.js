@@ -12,8 +12,9 @@ angular.module('main').controller('MRORequestFormController', function(
     formController,
     MRORequestService,
     $timeout,
-    $mdDialog
+    $mdDialog,
     ///start:slot:dependencies<<<
+    EmployeeService
     ///end:slot:dependencies<<<
 ) {
     var ctrl = this;
@@ -34,6 +35,7 @@ angular.module('main').controller('MRORequestFormController', function(
     });
 
     ///start:slot:js<<<
+    $scope.EmployeeService = EmployeeService;
     ///end:slot:js<<<
 
     $scope.$on('load-modal-MRO', function(scope, oEntity) {

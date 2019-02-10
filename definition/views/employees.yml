@@ -1,0 +1,10 @@
+name: employees
+type: table
+entity: Employee
+layout:
+  - container:
+      - display: Employees (From Training System)
+      - pagination
+      - table:
+          columns:
+            - Value as Employee

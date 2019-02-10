@@ -1,6 +1,17 @@
 <div class="container-fluid" layout="column" style="margin-bottom:100px;">
   <h2 class="md-display-1">MRO Request</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
+    <div class="col-xs-12 col-sm-5" layout="column">
+      <autocomplete
+        service="EmployeeService"
+        caption="Employee"
+        owner-entity="baseEntity"
+        property="Employee"
+        value-property="Value"
+        property-key="EmployeeKey"
+      >
+      </autocomplete>
+    </div>
     <span flex></span>
     <div class="col-xs-12 col-sm-2 text-right" layout="column">
       <label class="">Created At</label>

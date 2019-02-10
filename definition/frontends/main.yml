@@ -8,4 +8,5 @@ routes:
   locations: locations
   areas: areas
   mros: mros
-components: []
+  employees: employees
+components:

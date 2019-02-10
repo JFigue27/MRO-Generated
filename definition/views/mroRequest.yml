@@ -5,10 +5,12 @@ layout:
   - container-fluid:
       - display: MRO Request
       - row:
+          - 12 3:
+            - autocomplete: Employee
           - space
           - 12 2 text-right:
               - label: Created At
-              - p form-control-static: "{{ baseEntity.CreatedAtConverted | date: 'mediumDate' }}"
+              - p form-control-static: '{{ baseEntity.CreatedAtConverted | date: ''mediumDate'' }}'
       - row:
           - field: Is New Tool
           - field: Is Replacement Tool

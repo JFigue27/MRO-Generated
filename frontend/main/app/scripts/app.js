@@ -123,6 +123,11 @@ angular
                 controller: 'MrosController',
                 controllerAs: 'route_Mros'
             })
+            .when('/employees', {
+                templateUrl: 'routes/Employees/employees-route.html',
+                controller: 'EmployeesController',
+                controllerAs: 'route_Employees'
+            })
             .otherwise({ redirectTo: '/' });
         ///end:generated:routes<<<
 

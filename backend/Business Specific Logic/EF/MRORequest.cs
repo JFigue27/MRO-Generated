@@ -26,7 +26,11 @@ namespace BusinessSpecificLogic.EF
         public bool IsReplacementTool { get; set; }
         public bool IsChargeTool { get; set; }
         public string Notes { get; set; }
+        public int EmployeeKey { get; set; }
         public List<MRORequestLine> MRORequestLines { get; set; }
         ///End:Generated:Properties<<<
+
+        [NotMapped]
+        public Employee Employee { get; set; }
     }
 }

@@ -4,7 +4,7 @@ fields:
   Is Replacement Tool: checkbox
   Is Charge Tool: checkbox
   Notes: wig
-  CreatedAt: datetime?
+  EmployeeKey: int
 relationships:
   oneToParent: []
   oneToMany:

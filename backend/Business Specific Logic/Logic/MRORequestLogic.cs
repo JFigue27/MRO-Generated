@@ -83,6 +83,16 @@ namespace BusinessSpecificLogic.Logic
                 .Include("InfoTrack.User_CreatedBy")
                 .FirstOrDefault(e => e.MRORequestKey == entity.MRORequestKey);
         }
+        public override void AdapterOut(params MRORequest[] entities)
+        {
+            using (var trainingContext = new TrainingContext())
+            {
+                foreach (var item in entities)
+                {
+                    item.Employee = trainingContext.Employees.FirstOrDefault(e => e.EmployeeKey == item.EmployeeKey);
+                }
+            }
+        }
         ///end:slot:logic<<<
     }
 }

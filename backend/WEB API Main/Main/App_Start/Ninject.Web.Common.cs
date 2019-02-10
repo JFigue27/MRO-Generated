@@ -9,6 +9,7 @@ namespace ReusableWebAPI.App_Start
     using System.Security.Claims;
     using System.Web;
     using BusinessSpecificLogic;
+    using BusinessSpecificLogic.EF;
     using BusinessSpecificLogic.Logic;
     using Microsoft.Web.Infrastructure.DynamicModuleHelper;
 
@@ -18,20 +19,20 @@ namespace ReusableWebAPI.App_Start
     using Reusable;
     using ReusableWebAPI.Controllers;
 
-    public static class NinjectWebCommon 
+    public static class NinjectWebCommon
     {
         private static readonly Bootstrapper bootstrapper = new Bootstrapper();
 
         /// <summary>
         /// Starts the application
         /// </summary>
-        public static void Start() 
+        public static void Start()
         {
             DynamicModuleUtility.RegisterModule(typeof(OnePerRequestHttpModule));
             DynamicModuleUtility.RegisterModule(typeof(NinjectHttpModule));
             bootstrapper.Initialize(CreateKernel);
         }
-        
+
         /// <summary>
         /// Stops the application.
         /// </summary>
@@ -39,7 +40,7 @@ namespace ReusableWebAPI.App_Start
         {
             bootstrapper.ShutDown();
         }
-        
+
         /// <summary>
         /// Creates the kernel that will manage your application.
         /// </summary>
@@ -124,6 +125,10 @@ namespace ReusableWebAPI.App_Start
             kernel.Bind<IMRORequestLineLogic>().To<MRORequestLineLogic>();
             kernel.Bind<IInventoryLogic>().To<InventoryLogic>();
             ///End:Generated:DI<<<
+
+            kernel.Bind(typeof(TrainingContext)).ToSelf().InRequestScope();
+            kernel.Bind(typeof(IDocumentRepository<Employee>)).To<DocumentRepository<Employee>>().WithConstructorArgument<DbContext>(c => c.Kernel.Get<TrainingContext>());
+            kernel.Bind<IEmployeeLogic>().To<EmployeeLogic>().WithConstructorArgument<DbContext>(c => c.Kernel.Get<TrainingContext>());
             #endregion
 
             kernel.Bind<IRoleLogic>().To<RoleLogic>();
@@ -140,6 +145,6 @@ namespace ReusableWebAPI.App_Start
             kernel.Bind(typeof(BaseController<>)).ToSelf().InRequestScope();
             kernel.Bind(typeof(ReadOnlyBaseController<>)).ToSelf().InRequestScope();
             kernel.Bind(typeof(DocumentController<>)).ToSelf().InRequestScope();
-        }        
+        }
     }
 }

@@ -1,0 +1,12 @@
+name: Employee
+fields:
+  Name: string
+  Last Name: string
+  Mother Last Name: string
+  Clock Number: string
+  Personal Number: string
+  Value as Employee: string
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []
