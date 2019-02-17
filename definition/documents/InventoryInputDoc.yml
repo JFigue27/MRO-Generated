@@ -3,7 +3,8 @@ fields:
   Sheet Number: string
   Document Type: string
 relationships:
-  oneToParent: []
+  oneToParent:
+    - InventoryInputNumber
   oneToMany:
     - InventoryInput
   manyToOne:

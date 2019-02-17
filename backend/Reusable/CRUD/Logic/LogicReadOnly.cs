@@ -344,7 +344,7 @@ namespace Reusable
             return response.Success(entity);
         }
 
-        public Entity _CreateInstance(Entity entity = null)
+        public virtual Entity _CreateInstance(Entity entity = null)
         {
             if (entity == null)
             {

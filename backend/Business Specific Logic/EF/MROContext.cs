@@ -26,6 +26,7 @@ namespace BusinessSpecificLogic.EF
         public virtual DbSet<CatMaterial> CatMaterials { get; set; }
         public virtual DbSet<CatVendor> CatVendors { get; set; }
         public virtual DbSet<InventoryInput> InventoryInputs { get; set; }
+        public virtual DbSet<InventoryInputNumber> InventoryInputNumbers { get; set; }
         public virtual DbSet<InventoryOutput> InventoryOutputs { get; set; }
         public virtual DbSet<MRORequestLine> MRORequestLines { get; set; }
         public virtual DbSet<MRORequestNumber> MRORequestNumbers { get; set; }

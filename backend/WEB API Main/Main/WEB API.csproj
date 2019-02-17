@@ -226,6 +226,7 @@
     <Compile Include="Controllers\CatMaterialController.cs" />
     <Compile Include="Controllers\CatVendorController.cs" />
     <Compile Include="Controllers\InventoryInputController.cs" />
+    <Compile Include="Controllers\InventoryInputNumberController.cs" />
     <Compile Include="Controllers\InventoryOutputController.cs" />
     <Compile Include="Controllers\MRORequestLineController.cs" />
     <Compile Include="Controllers\MRORequestNumberController.cs" />

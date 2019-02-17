@@ -36,7 +36,7 @@ namespace BusinessSpecificLogic.Logic
             ///start:slot:beforeSave<<<
             if (mode == OPERATION_MODE.ADD)
             {
-                #region MRO Request Number Generation
+                #region Number Generation
                 var ctx = context as MROContext;
 
                 DateTimeOffset date = DateTimeOffset.Now;

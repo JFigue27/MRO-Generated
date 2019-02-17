@@ -1,0 +1,12 @@
+name: InventoryInputNumber
+fields:
+  Created At: datetime
+  Generated Number: string
+  Revision: string
+  Duplicated From: int?
+  Sequence: int
+  Task Description Revision Reason: textarea
+relationships:
+  oneToParent: []
+  oneToMany: []
+  manyToOne: []

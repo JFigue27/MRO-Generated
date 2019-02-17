@@ -35,6 +35,9 @@ namespace Reusable
 
         void CommonDocumentValidations(Document document)
         {
+            if (LoggedUser.UserID == null && typeof(Document).Name != "User")
+                throw new KnownError("User not registered.");
+
             var originalDocument = repository.GetByID(document.id);
             if (originalDocument == null || originalDocument.sys_active == false)
             {
@@ -55,9 +58,20 @@ namespace Reusable
             }
         }
 
+        public override Document _CreateInstance(Document entity = null)
+        {
+            if (LoggedUser.UserID == null && typeof(Document).Name != "User" )
+                throw new KnownError("User not registered.");
+
+            return base._CreateInstance(entity);
+        }
+
         public override void Add(Document document)
         {
             //CommonDocumentValidations(document);
+            if (LoggedUser.UserID == null && typeof(Document).Name != "User")
+                throw new KnownError("User not registered.");
+
             document.CreatedAt = DateTimeOffset.Now;
             base.Add(document);
         }

@@ -1,13 +1,13 @@
 <content-fluid class="content-fluid">
-  <h2 class="md-display-1">Inventory Input</h2>
+  <h2 class="md-display-1">Inventory Input - {{ baseEntity.InventoryInputNumber.GeneratedNumber }}</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <div class="col-xs-12 col-sm-9" layout="column">
       <label class="">Received By</label>
-      <p class="form-control-static">{{baseEntity.InfoTrack.User_CreatedBy.Value}}</p>
+      <p class="form-control-static">{{ baseEntity.InfoTrack.User_CreatedBy.Value }}</p>
     </div>
     <div class="col-xs-12 col-sm-3" layout="column">
       <label class="">Received At</label>
-      <p class="form-control-static">{{baseEntity.CreatedAt | date: 'mediumDate'}}</p>
+      <p class="form-control-static">{{ baseEntity.CreatedAt | date: 'mediumDate' }}</p>
     </div>
   </div>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>

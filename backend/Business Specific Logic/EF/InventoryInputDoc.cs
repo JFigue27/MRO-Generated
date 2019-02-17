@@ -28,6 +28,9 @@ namespace BusinessSpecificLogic.EF
         public int? CatVendorKey { get; set; }
         [ForeignKey("CatVendorKey")]
         public CatVendor CatVendor { get; set; }
+        public int InventoryInputNumberKey { get; set; }
+        [ForeignKey("InventoryInputNumberKey")]
+        public InventoryInputNumber InventoryInputNumber { get; set; }
         ///End:Generated:Properties<<<
     }
 }

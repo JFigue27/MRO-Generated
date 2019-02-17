@@ -101,6 +101,7 @@
     <Compile Include="EF\CatMaterial.cs" />
     <Compile Include="EF\CatVendor.cs" />
     <Compile Include="EF\InventoryInput.cs" />
+    <Compile Include="EF\InventoryInputNumber.cs" />
     <Compile Include="EF\InventoryOutput.cs" />
     <Compile Include="EF\MRORequestLine.cs" />
     <Compile Include="EF\MRORequestNumber.cs" />
@@ -122,6 +123,7 @@
     <Compile Include="Logic\CatMaterialLogic.cs" />
     <Compile Include="Logic\CatVendorLogic.cs" />
     <Compile Include="Logic\InventoryInputLogic.cs" />
+    <Compile Include="Logic\InventoryInputNumberLogic.cs" />
     <Compile Include="Logic\InventoryOutputLogic.cs" />
     <Compile Include="Logic\MRORequestLineLogic.cs" />
     <Compile Include="Logic\MRORequestNumberLogic.cs" />

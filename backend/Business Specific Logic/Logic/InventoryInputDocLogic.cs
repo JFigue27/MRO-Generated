@@ -23,14 +23,51 @@ namespace BusinessSpecificLogic.Logic
 
         protected override IQueryable<InventoryInputDoc> StaticDbQueryForList(IQueryable<InventoryInputDoc> dbQuery)
         {
-            ///start:slot:listQuery<<<///end:slot:listQuery<<<
+            ///start:slot:listQuery<<<
+            dbQuery = dbQuery
+                .Include(e => e.InventoryInputNumber);
+            ///end:slot:listQuery<<<
 
             return dbQuery;
         }
 
         protected override void onBeforeSaving(InventoryInputDoc entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
         {
-            ///start:slot:beforeSave<<<///end:slot:beforeSave<<<
+            ///start:slot:beforeSave<<<
+            if (mode == OPERATION_MODE.ADD)
+            {
+                #region Number Generation
+                var ctx = context as MROContext;
+
+                DateTimeOffset date = DateTimeOffset.Now;
+
+                int sequence = 0;
+                var last = ctx.InventoryInputNumbers.Where(n => n.CreatedAt.Year == date.Year
+                        && n.CreatedAt.Month == date.Month && n.CreatedAt.Day == date.Day).OrderByDescending(n => n.Sequence)
+                        .FirstOrDefault();
+
+                if (last != null)
+                {
+                    sequence = last.Sequence + 1;
+                }
+
+                string generated = date.Year.ToString().Substring(2) + date.Month.ToString("D2") + date.Day.ToString("D2") + sequence.ToString("D3");
+
+
+                InventoryInputNumber number = ctx.InventoryInputNumbers.Add(new InventoryInputNumber()
+                {
+                    CreatedAt = date,
+                    Sequence = sequence,
+                    GeneratedNumber = generated,
+                    Revision = "A"
+                });
+
+                ctx.SaveChanges();
+
+                entity.InventoryInputNumberKey = number.InventoryInputNumberKey;
+                #endregion
+            }
+            ///end:slot:beforeSave<<<
         }
 
         protected override void onAfterSaving(DbContext context, InventoryInputDoc entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
@@ -87,6 +124,7 @@ namespace BusinessSpecificLogic.Logic
                 .Include("InventoryInputs.CatMaterial")
                 .Include("InventoryInputs.CatGeoLocation")
                 .Include(e => e.CatVendor)
+                .Include(e => e.InventoryInputNumber)
                 .FirstOrDefault(e => e.InventoryInputDocKey == entity.InventoryInputDocKey);
         }
 
