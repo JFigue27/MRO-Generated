@@ -17,13 +17,15 @@ angular.module('main').directive('autocomplete', function() {
             propertyKey: '@',
             valueProperty: '@',
             service: '=',
-            onChange: '&'
+            onChange: '&',
+            top: '@',
+            noCache: '='
         },
         controller: function($scope) {
             $scope.querySource = function(sQuery) {
                 if (!$scope.service) return Promise.reject('No given service.');
 
-                return $scope.service.getFilteredPage(0, 1, '?filterGeneral=' + sQuery).then(function(response) {
+                return $scope.service.getFilteredPage($scope.top || 0, 1, '?filterGeneral=' + sQuery).then(function(response) {
                     return response.Result;
                 });
             };

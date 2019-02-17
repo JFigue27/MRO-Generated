@@ -8,9 +8,10 @@
   placeholder="{{caption}}"
   md-selected-item-change="onSelectedItemChange()"
   md-require-match="true"
-  md-no-cache="true"
+  md-no-cache="noCache != undefined ? noCache : true"
   md-autoselect="true"
   md-clear-button="true"
+  md-delay="500"
 >
   <md-item-template> <span md-highlight-text="theSearch" md-highlight-flags="^i">{{item[valueProperty]}}</span> </md-item-template>
   <md-not-found> Not Found <a ng-click="newEntry(theSearch)">New {{caption}}</a> </md-not-found>
