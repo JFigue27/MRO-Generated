@@ -6,7 +6,7 @@ layout:
       - display: MRO Request
       - row:
           - 12 3:
-            - autocomplete: Employee
+              - autocomplete: Employee
           - space
           - 12 2 text-right:
               - label: Created At

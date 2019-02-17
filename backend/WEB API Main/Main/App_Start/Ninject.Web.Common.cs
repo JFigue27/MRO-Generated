@@ -123,12 +123,15 @@ namespace ReusableWebAPI.App_Start
             kernel.Bind<IInventoryInputLogic>().To<InventoryInputLogic>();
             kernel.Bind<IInventoryOutputLogic>().To<InventoryOutputLogic>();
             kernel.Bind<IMRORequestLineLogic>().To<MRORequestLineLogic>();
+            kernel.Bind<IMRORequestNumberLogic>().To<MRORequestNumberLogic>();
             kernel.Bind<IInventoryLogic>().To<InventoryLogic>();
             ///End:Generated:DI<<<
 
+            ///start:slot:di<<<
             kernel.Bind(typeof(TrainingContext)).ToSelf().InRequestScope();
             kernel.Bind(typeof(IDocumentRepository<Employee>)).To<DocumentRepository<Employee>>().WithConstructorArgument<DbContext>(c => c.Kernel.Get<TrainingContext>());
             kernel.Bind<IEmployeeLogic>().To<EmployeeLogic>().WithConstructorArgument<DbContext>(c => c.Kernel.Get<TrainingContext>());
+            ///end:slot:di<<<
             #endregion
 
             kernel.Bind<IRoleLogic>().To<RoleLogic>();

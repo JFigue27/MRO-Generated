@@ -23,14 +23,51 @@ namespace BusinessSpecificLogic.Logic
 
         protected override IQueryable<MRORequest> StaticDbQueryForList(IQueryable<MRORequest> dbQuery)
         {
-            ///start:slot:listQuery<<<///end:slot:listQuery<<<
+            ///start:slot:listQuery<<<
+            dbQuery = dbQuery
+                .Include(e => e.MRORequestNumber);
+            ///end:slot:listQuery<<<
 
             return dbQuery;
         }
 
         protected override void onBeforeSaving(MRORequest entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
         {
-            ///start:slot:beforeSave<<<///end:slot:beforeSave<<<
+            ///start:slot:beforeSave<<<
+            if (mode == OPERATION_MODE.ADD)
+            {
+                #region MRO Request Number Generation
+                var ctx = context as MROContext;
+
+                DateTimeOffset date = DateTimeOffset.Now;
+
+                int sequence = 0;
+                var last = ctx.MRORequestNumbers.Where(n => n.CreatedAt.Year == date.Year
+                        && n.CreatedAt.Month == date.Month && n.CreatedAt.Day == date.Day).OrderByDescending(n => n.Sequence)
+                        .FirstOrDefault();
+
+                if (last != null)
+                {
+                    sequence = last.Sequence + 1;
+                }
+
+                string generated = date.Year.ToString().Substring(2) + date.Month.ToString("D2") + date.Day.ToString("D2") + sequence.ToString("D3");
+
+
+                MRORequestNumber number = ctx.MRORequestNumbers.Add(new MRORequestNumber()
+                {
+                    CreatedAt = date,
+                    Sequence = sequence,
+                    GeneratedNumber = generated,
+                    Revision = "A"
+                });
+
+                ctx.SaveChanges();
+
+                entity.MRORequestNumberKey = number.MRORequestNumberKey;
+                #endregion
+            }
+            ///end:slot:beforeSave<<<
         }
 
         protected override void onAfterSaving(DbContext context, MRORequest entity, BaseEntity parent = null, OPERATION_MODE mode = OPERATION_MODE.NONE)
@@ -81,6 +118,7 @@ namespace BusinessSpecificLogic.Logic
             ctx.MRORequests
                 .Include("MRORequestLines.CatMaterial")
                 .Include("InfoTrack.User_CreatedBy")
+                .Include(e => e.MRORequestNumber)
                 .FirstOrDefault(e => e.MRORequestKey == entity.MRORequestKey);
         }
         public override void AdapterOut(params MRORequest[] entities)

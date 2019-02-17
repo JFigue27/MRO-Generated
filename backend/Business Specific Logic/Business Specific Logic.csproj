@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -84,10 +84,10 @@
   <ItemGroup>
     <Compile Include="Auth\AuthRepository.cs" />
     <Compile Include="Auth\AuthContext.cs" />
-    <Compile Include="EF\TrainingContext.cs" />
     <Compile Include="EF\MROContext.cs" />
     <Compile Include="EF\Email.cs" />
     <Compile Include="EF\Task.cs" />
+    <Compile Include="EF\TrainingContext.cs" />
     <Compile Include="JSON Entities\Contact.cs" />
     <Compile Include="Logic\AdvancedSortLogic.cs" />
     <Compile Include="Logic\ApprovalLogic.cs" />
@@ -103,6 +103,7 @@
     <Compile Include="EF\InventoryInput.cs" />
     <Compile Include="EF\InventoryOutput.cs" />
     <Compile Include="EF\MRORequestLine.cs" />
+    <Compile Include="EF\MRORequestNumber.cs" />
     <!-- End:Generated:EF -->
     <Compile Include="Logic\TokenLogic.cs" />
     <Compile Include="Logic\UserLogic.cs" />
@@ -123,6 +124,7 @@
     <Compile Include="Logic\InventoryInputLogic.cs" />
     <Compile Include="Logic\InventoryOutputLogic.cs" />
     <Compile Include="Logic\MRORequestLineLogic.cs" />
+    <Compile Include="Logic\MRORequestNumberLogic.cs" />
     <Compile Include="Logic\InventoryLogic.cs" />
     <!-- End:Generated:Logic -->
     <Compile Include="MainContext.cs" />

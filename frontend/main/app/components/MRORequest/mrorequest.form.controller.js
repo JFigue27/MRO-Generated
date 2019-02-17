@@ -13,8 +13,8 @@ angular.module('main').controller('MRORequestFormController', function(
     MRORequestService,
     $timeout,
     $mdDialog,
-    ///start:slot:dependencies<<<
     EmployeeService
+    ///start:slot:dependencies<<<
     ///end:slot:dependencies<<<
 ) {
     var ctrl = this;

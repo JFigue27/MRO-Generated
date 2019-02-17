@@ -6,7 +6,8 @@ fields:
   Notes: wig
   EmployeeKey: int
 relationships:
-  oneToParent: []
+  oneToParent:
+    - MRORequestNumber
   oneToMany:
     - MRORequestLine
   manyToOne: []

@@ -258,8 +258,9 @@ angular.module('main').factory('listController', function($log, $q, localStorage
 
         let localData;
         listCtrl.localLoad = function(data) {
-            alertify.closeAll();
             localData = data;
+            alertify.closeAll();
+            _setFilterOptions();
             return _updateList();
         };
 

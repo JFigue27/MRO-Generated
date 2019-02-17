@@ -9,7 +9,6 @@
           <th>Part Number</th>
           <th>Material Description</th>
           <th>Cost</th>
-          <th>Status</th>
           <th>Balance</th>
         </tr>
       </thead>
@@ -46,14 +45,18 @@
               property="CatMaterial"
               value-property="Value"
               property-key="CatMaterialKey"
-              on-change="undefined"
+              on-change="(undefined)"
             >
             </autocomplete>
           </td>
           <td>
             <md-input-container flex>
               <label></label>
-              <textarea ng-change="handleDynamicRows(baseList);onInputChange(item);" disabled ng-model="item.MaterialDescription">
+              <textarea
+                ng-change="handleDynamicRows(baseList);onInputChange(item);"
+                disabled
+                ng-model="item.CatMaterial.MaterialDescription"
+              >
               </textarea>
             </md-input-container>
           </td>
@@ -66,19 +69,6 @@
                 ng-change="handleDynamicRows(baseList);onInputChange(item);"
                 style="text-align: right"
                 ng-model="item.Cost"
-                ng-disabled="isDisabled"
-              />
-            </md-input-container>
-          </td>
-          <td>
-            <md-input-container flex>
-              <label></label>
-              <input
-                type="text"
-                ng-change="handleDynamicRows(baseList);onInputChange(item);"
-                autocomplete="off"
-                style="text-align: left;"
-                ng-model="item.Status"
                 ng-disabled="isDisabled"
               />
             </md-input-container>

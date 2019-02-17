@@ -228,6 +228,7 @@
     <Compile Include="Controllers\InventoryInputController.cs" />
     <Compile Include="Controllers\InventoryOutputController.cs" />
     <Compile Include="Controllers\MRORequestLineController.cs" />
+    <Compile Include="Controllers\MRORequestNumberController.cs" />
     <Compile Include="Controllers\InventoryController.cs" />
     <!-- End:Generated:Controller -->
     <Compile Include="Properties\AssemblyInfo.cs" />

@@ -24,7 +24,6 @@ namespace BusinessSpecificLogic.EF
         ///Start:Generated:Properties<<<
         public decimal Quantity { get; set; }
         public decimal Balance { get; set; }
-        public string Status { get; set; }
         public decimal Cost { get; set; }
         public int MRORequestKey { get; set; }
         [ForeignKey("MRORequestKey")]

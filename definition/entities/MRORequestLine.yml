@@ -2,7 +2,6 @@ name: MRORequestLine
 fields:
   Quantity: decimal
   Balance: decimal
-  Status: string
   Cost: decimal
 relationships:
   oneToParent:

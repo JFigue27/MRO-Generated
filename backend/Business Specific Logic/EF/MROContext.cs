@@ -28,6 +28,7 @@ namespace BusinessSpecificLogic.EF
         public virtual DbSet<InventoryInput> InventoryInputs { get; set; }
         public virtual DbSet<InventoryOutput> InventoryOutputs { get; set; }
         public virtual DbSet<MRORequestLine> MRORequestLines { get; set; }
+        public virtual DbSet<MRORequestNumber> MRORequestNumbers { get; set; }
         ///End:Generated:DbSet<<<
 
         #region From Reusable Modules
