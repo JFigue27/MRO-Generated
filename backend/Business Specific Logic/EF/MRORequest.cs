@@ -27,6 +27,7 @@ namespace BusinessSpecificLogic.EF
         public bool IsChargeTool { get; set; }
         public string Notes { get; set; }
         public int EmployeeKey { get; set; }
+        public string ReceivedBy { get; set; }
         public int MRORequestNumberKey { get; set; }
         [ForeignKey("MRORequestNumberKey")]
         public MRORequestNumber MRORequestNumber { get; set; }

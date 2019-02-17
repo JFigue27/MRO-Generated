@@ -5,6 +5,7 @@ fields:
   Is Charge Tool: checkbox
   Notes: wig
   EmployeeKey: int
+  Received By: string
 relationships:
   oneToParent:
     - MRORequestNumber

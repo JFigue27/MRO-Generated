@@ -22,3 +22,10 @@ layout:
           facilitado y en caso de dañar o extraviar sin el debido reporte o
           evidencia que deslinde mi responsabilidad, pagaré con mis propios
           bienes.
+      - modal:
+          id: modal-MRODelivery
+          title: MRO Delivery
+          ok: OK
+          width: 300
+          body:
+            - component: mroDelivery

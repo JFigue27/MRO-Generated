@@ -1,4 +1,4 @@
-<div class="container-fluid" layout="column" style="margin-bottom:100px;">
+<div class="container-fluid" layout="column">
   <h2 class="md-display-1">MRO Request - {{ baseEntity.MRORequestNumber.GeneratedNumber }}</h2>
   <div class="row" layout="column" layout-gt-xs="row" layout-padding>
     <div class="col-xs-12 col-sm-5" layout="column">
@@ -44,4 +44,13 @@
     <br /><br />Me comprometo a hacer uso correcto de los artículos que me han facilitado y en caso de dañar o extraviar sin el debido
     reporte o evidencia que deslinde mi responsabilidad, pagaré con mis propios bienes.
   </p>
+  <div layout>
+    <span flex></span>
+    <md-button class="md-raised md-primary" ng-click="openMRODelivery($event)">Deliver</md-button>
+  </div>
+  <modal modal-id="modal-MRODelivery" title="MRO Delivery" ok-label="OK" max-width="300">
+    <modal-body>
+      <mro-delivery class=""></mro-delivery>
+    </modal-body>
+  </modal>
 </div>

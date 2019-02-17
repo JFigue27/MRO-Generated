@@ -1,0 +1,7 @@
+name: mroDelivery
+type: form
+entity: MRORequest
+layout:
+  - container-fluid:
+      - title: MRO Delivery
+      - field: Received By

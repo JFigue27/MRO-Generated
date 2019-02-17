@@ -13,8 +13,9 @@ angular.module('main').controller('MRORequestFormController', function(
     MRORequestService,
     $timeout,
     $mdDialog,
-    EmployeeService
+    EmployeeService,
     ///start:slot:dependencies<<<
+    $rootScope
     ///end:slot:dependencies<<<
 ) {
     var ctrl = this;
@@ -36,6 +37,29 @@ angular.module('main').controller('MRORequestFormController', function(
 
     ///start:slot:js<<<
     $scope.EmployeeService = EmployeeService;
+    $scope.openMRODelivery = function(oEvent) {
+        $mdDialog
+            .show({
+                contentElement: '#modal-MRODelivery',
+                parent: angular.element(document.body),
+                clickOutsideToClose: true,
+                multiple: true,
+                fullscreen: true,
+                targetEvent: oEvent
+            })
+            .then(answer => {
+                console.log(answer);
+
+                if (answer == 'OK') {
+                    // refresh();
+                }
+            });
+
+        $rootScope.$broadcast('load-modal-MRODelivery', $scope.baseEntity);
+    };
+    $scope.$on('ok-modal-MRODelivery', function(scope, oEntity) {
+        alertify.success('OK')
+    });
     ///end:slot:js<<<
 
     $scope.$on('load-modal-MRO', function(scope, oEntity) {

@@ -31,6 +31,7 @@ angular
                                     </div>
                                 </md-dialog-content>
                                 <md-dialog-actions layout="row" layout-align="end end" style="border-top: 1px solid rgba(0,0,0,0.12);">
+                                    <div ng-transclude="actions" flex></div>
                                     <md-button ng-if="deleteLabel" class="md-warn" ng-click="delete_click()">Delete</md-button>
                                     <span flex></span>
                                     <md-button ng-click="close_modal()">Close</md-button>
@@ -44,7 +45,8 @@ angular
             restrict: 'E',
             transclude: {
                 header: '?modalHeader',
-                body: 'modalBody'
+                body: 'modalBody',
+                actions: '?actions'
             },
             replace: false,
             scope: {
